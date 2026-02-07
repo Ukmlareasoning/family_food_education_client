@@ -968,46 +968,77 @@ function Home() {
           />
         </Box>
 
-        {/* Fun & Educational for Kids */}
+        {/* Fun & Educational for Kids – two columns: left text + pill CTA, right white panel with colored cards */}
         <Box sx={{ py: 8 }}>
-        <Container maxWidth="lg">
-          <Typography sx={{ fontFamily: 'Poppins', fontWeight: 800, fontSize: { xs: '1.6rem', md: '2rem' }, color: '#1a237e', mb: 1 }}>
-            Fun & Educational for Kids
-          </Typography>
-          <Typography sx={{ fontFamily: 'Poppins', fontSize: '1rem', color: '#37474f', mb: 4 }}>
-            Learning about snacks has never been this fun!
-          </Typography>
-          <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, alignItems: { md: 'center' }, gap: 4, flexWrap: 'wrap' }}>
-            <Button variant="contained" size="large" sx={{ ...greenButtonSx, alignSelf: 'flex-start' }}>Get Started Today!</Button>
-            <Grid container spacing={2} sx={{ flex: 1 }}>
-              <Grid item xs={12} sm={6} md={3}>
-                <Card sx={{ borderRadius: 3, background: 'linear-gradient(135deg, #ff7043 0%, #e53935 100%)', color: 'white', p: 3, minHeight: 160, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-                  <EmojiEventsIcon sx={{ fontSize: 44, mb: 1 }} />
-                  <Typography sx={{ fontFamily: 'Poppins', fontWeight: 700, fontSize: '1rem' }}>Points & Rewards</Typography>
-                </Card>
+          <Container maxWidth="lg">
+            <Grid container spacing={4} alignItems="center">
+              <Grid item xs={12} md={5}>
+                <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontWeight: 800, fontSize: { xs: '1.6rem', md: '2rem' }, color: '#1a237e', mb: 1.5, textAlign: { xs: 'center', md: 'left' } }}>
+                  Fun & Educational
+                </Typography>
+                <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontSize: '1rem', color: '#5c6bc0', mb: 3, textAlign: { xs: 'center', md: 'left' } }}>
+                  Learning about snacks has never been this fun!
+                </Typography>
+                <Button
+                  variant="contained"
+                  sx={{
+                    fontFamily: '"Poppins", sans-serif',
+                    fontWeight: 700,
+                    fontSize: '1rem',
+                    color: 'white',
+                    bgcolor: '#4CAF50',
+                    borderRadius: 9999,
+                    px: 4,
+                    py: 1.5,
+                    textTransform: 'none',
+                    boxShadow: '0 4px 14px rgba(76,175,80,0.4)',
+                    alignSelf: { xs: 'center', md: 'flex-start' },
+                    '&:hover': { bgcolor: '#43a047' },
+                  }}
+                >
+                  Get Started Today!
+                </Button>
               </Grid>
-              <Grid item xs={12} sm={6} md={3}>
-                <Card sx={{ borderRadius: 3, background: 'linear-gradient(135deg, #66bb6a 0%, #4CAF50 100%)', color: 'white', p: 3, minHeight: 160, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-                  <SportsEsportsIcon sx={{ fontSize: 44, mb: 1 }} />
-                  <Typography sx={{ fontFamily: 'Poppins', fontWeight: 700, fontSize: '1rem' }}>Food Games</Typography>
-                </Card>
-              </Grid>
-              <Grid item xs={12} sm={6} md={3}>
-                <Card sx={{ borderRadius: 3, background: 'linear-gradient(135deg, #ab47bc 0%, #9c27b0 100%)', color: 'white', p: 3, minHeight: 160, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-                  <SchoolIcon sx={{ fontSize: 44, mb: 1 }} />
-                  <Typography sx={{ fontFamily: 'Poppins', fontWeight: 700, fontSize: '1rem' }}>Fun Food Facts</Typography>
-                </Card>
-              </Grid>
-              <Grid item xs={12} sm={6} md={3}>
-                <Card sx={{ borderRadius: 3, background: 'linear-gradient(135deg, #42a5f5 0%, #2196f3 100%)', color: 'white', p: 3, minHeight: 160, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-                  <WavingHandRoundedIcon sx={{ fontSize: 44, mb: 1 }} />
-                  <Typography sx={{ fontFamily: 'Poppins', fontWeight: 700, fontSize: '1rem' }}>Interactive</Typography>
-                </Card>
+              <Grid item xs={12} md={7}>
+                <Box
+                  sx={{
+                    bgcolor: 'white',
+                    borderRadius: 3,
+                    boxShadow: '0 8px 32px rgba(0,0,0,0.1)',
+                    p: 2.5,
+                  }}
+                >
+                  <Grid container spacing={2}>
+                    <Grid item xs={12} sm={6}>
+                      <Box sx={{ background: 'linear-gradient(135deg, #ff7043 0%, #e53935 100%)', color: 'white', borderRadius: 1.5, p: 2.5, minHeight: 140, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+                        <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontWeight: 700, fontSize: '1rem', mb: 1.5 }}>Points & Rewards</Typography>
+                        <Box sx={{ display: 'flex', gap: 0.5, fontSize: '1.75rem' }}>💰 ⭐ ⭐</Box>
+                      </Box>
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                      <Box sx={{ bgcolor: '#4CAF50', color: 'white', borderRadius: 1.5, p: 2.5, minHeight: 140, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+                        <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontWeight: 700, fontSize: '1rem', mb: 1.5 }}>Food Games</Typography>
+                        <Box sx={{ display: 'flex', gap: 0.5, fontSize: '1.75rem' }}>🥣 🥕 🎮</Box>
+                      </Box>
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                      <Box sx={{ background: 'linear-gradient(135deg, #ab47bc 0%, #5c6bc0 100%)', color: 'white', borderRadius: 1.5, p: 2.5, minHeight: 140, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+                        <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontWeight: 700, fontSize: '1rem', mb: 1.5 }}>Fun Food Facts</Typography>
+                        <Box sx={{ display: 'flex', gap: 0.5, fontSize: '1.75rem' }}>🍎 🥫 🍇</Box>
+                      </Box>
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                      <Box sx={{ background: 'linear-gradient(135deg, #42a5f5 0%, #2196f3 100%)', color: 'white', borderRadius: 1.5, p: 2.5, minHeight: 140, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+                        <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontWeight: 700, fontSize: '1rem', mb: 1.5 }}>Interactive</Typography>
+                        <Box sx={{ display: 'flex', gap: 0.5, fontSize: '1.75rem' }}>👋 ✨</Box>
+                      </Box>
+                    </Grid>
+                  </Grid>
+                </Box>
               </Grid>
             </Grid>
-          </Box>
-        </Container>
-      </Box>
+          </Container>
+        </Box>
 
         <Footer />
       </Box>
