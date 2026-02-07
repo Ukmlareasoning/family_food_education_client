@@ -541,7 +541,7 @@ function Home() {
               />
             </Grid>
           </Grid>
-          <Box sx={{ textAlign: 'center', mt: 3 }}>
+          <Box sx={{ textAlign: 'center', mt: 0 }}>
             <Button
               variant="contained"
               size="large"
