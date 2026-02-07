@@ -728,31 +728,88 @@ function Home() {
           </Box>
         </Container>
 
-        {/* Safe, Fun & Easy to Use! */}
-        <Container maxWidth="lg" sx={{ py: 8, position: 'relative', zIndex: 1 }}>
-          <Typography sx={sectionTitleSx}>Safe, Fun & Easy to Use!</Typography>
+        {/* Safe, Fun & Easy to Use! – pill-shaped tabs, icon left + text right */}
+        <Box
+          sx={{
+            py: 8,
+            position: 'relative',
+            zIndex: 1,
+            background: 'linear-gradient(135deg, rgba(227,242,253,0.6) 0%, rgba(255,249,196,0.5) 35%, rgba(232,245,233,0.4) 70%, rgba(248,231,243,0.3) 100%)',
+            borderRadius: 0,
+          }}
+        >
+          <Container maxWidth="lg">
+            <Typography sx={{ ...sectionTitleSx, mb: 4 }}>Safe, Fun & Easy to Use!</Typography>
 
-          <Grid container spacing={4}>
-            <Grid item xs={12} md={4}>
-              <Card sx={{ borderRadius: 3, border: '1px solid #e0e0e0', textAlign: 'center', p: 3 }}>
-                <FavoriteIcon sx={{ fontSize: 48, color: '#e53935', mb: 1.5 }} />
-                <Typography sx={cardTitleSx}>Kid-Friendly Design</Typography>
-              </Card>
-            </Grid>
-            <Grid item xs={12} md={4}>
-              <Card sx={{ borderRadius: 3, border: '1px solid #e0e0e0', textAlign: 'center', p: 3 }}>
-                <SecurityIcon sx={{ fontSize: 48, color: '#5eb8e6', mb: 1.5 }} />
-                <Typography sx={cardTitleSx}>Privacy-First Approach</Typography>
-              </Card>
-            </Grid>
-            <Grid item xs={12} md={4}>
-              <Card sx={{ borderRadius: 3, border: '1px solid #e0e0e0', textAlign: 'center', p: 3 }}>
-                <LockIcon sx={{ fontSize: 48, color: '#78909c', mb: 1.5 }} />
-                <Typography sx={cardTitleSx}>Safe & Secure</Typography>
-              </Card>
-            </Grid>
-          </Grid>
-        </Container>
+            <Box
+              sx={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                justifyContent: 'center',
+                alignItems: 'stretch',
+                gap: 2,
+              }}
+            >
+              <Box
+                sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 2,
+                  px: 3,
+                  py: 2,
+                  bgcolor: 'white',
+                  borderRadius: 9999,
+                  boxShadow: '0 2px 12px rgba(0,0,0,0.06)',
+                  border: '1px solid rgba(0,0,0,0.06)',
+                  minHeight: 56,
+                }}
+              >
+                <FavoriteIcon sx={{ fontSize: 32, color: '#e53935', flexShrink: 0 }} />
+                <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontWeight: 600, fontSize: '1rem', color: '#5d4037' }}>
+                  Kid-Friendly Design
+                </Typography>
+              </Box>
+              <Box
+                sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 2,
+                  px: 3,
+                  py: 2,
+                  bgcolor: 'white',
+                  borderRadius: 9999,
+                  boxShadow: '0 2px 12px rgba(0,0,0,0.06)',
+                  border: '1px solid rgba(0,0,0,0.06)',
+                  minHeight: 56,
+                }}
+              >
+                <SecurityIcon sx={{ fontSize: 32, color: '#5eb8e6', flexShrink: 0 }} />
+                <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontWeight: 600, fontSize: '1rem', color: '#5d4037' }}>
+                  Privacy-First Approach
+                </Typography>
+              </Box>
+              <Box
+                sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 2,
+                  px: 3,
+                  py: 2,
+                  bgcolor: 'white',
+                  borderRadius: 9999,
+                  boxShadow: '0 2px 12px rgba(0,0,0,0.06)',
+                  border: '1px solid rgba(0,0,0,0.06)',
+                  minHeight: 56,
+                }}
+              >
+                <LockIcon sx={{ fontSize: 32, color: '#5eb8e6', flexShrink: 0 }} />
+                <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontWeight: 600, fontSize: '1rem', color: '#5d4037' }}>
+                  Safe & Secure
+                </Typography>
+              </Box>
+            </Box>
+          </Container>
+        </Box>
 
         {/* Welcome to Scan a Snack! (Page 2 hero) */}
         <Box sx={{ py: 10, position: 'relative' }}>
