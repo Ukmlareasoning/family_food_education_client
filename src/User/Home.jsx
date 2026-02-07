@@ -30,6 +30,7 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft'
 import ChevronRightIcon from '@mui/icons-material/ChevronRight'
 import WavingHandRoundedIcon from '@mui/icons-material/WavingHandRounded'
 import SportsEsportsIcon from '@mui/icons-material/SportsEsports'
+import EmojiObjectsIcon from '@mui/icons-material/EmojiObjects'
 
 const sectionTitleSx = {
   fontFamily: '"Poppins", sans-serif',
@@ -832,7 +833,7 @@ function Home() {
 
         {/* Welcome to Scan a Snack! (Page 2 hero) */}
         <Box sx={{ py: 10, position: 'relative' }}>
-          <Container maxWidth="lg">
+          <Container maxWidth="lg" sx={{ pr: { xs: 2, md: 0 } }}>
             <Grid container spacing={4} alignItems="center">
               <Grid item xs={12} md={6}>
                 {/* Logo: gradient icon + Scan a Snack! */}
@@ -889,17 +890,17 @@ function Home() {
                   Try It Now! Scan a
                 </Button>
               </Grid>
-              <Grid item xs={12} md={6} sx={{ display: 'flex', justifyContent: { xs: 'center', md: 'flex-end' }, alignItems: 'flex-end' }}>
+              <Grid item xs={12} md={6} sx={{ display: 'flex', justifyContent: { xs: 'center', md: 'flex-end' }, alignItems: 'flex-end', pr: { md: 0 }, overflow: 'visible' }}>
                 <Box
                   component="img"
                   src={welcomeImg}
                   alt="Scan a Snack app with food illustrations"
                   sx={{
-                    width: '100%',
-                    maxWidth: 560,
+                    maxWidth: 580,
+                    width: '85%',
                     height: 'auto',
                     display: 'block',
-                    borderRadius: 2,
+                    borderRadius: 1.5,
                     filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.12))',
                     ml: { md: 'auto' },
                   }}
@@ -911,41 +912,45 @@ function Home() {
 
         {/* How Does It Work? */}
         <Box sx={{ py: 8, position: 'relative' }}>
-        <Container maxWidth="lg">
-          <Typography sx={sectionTitleSx}>How Does It Work?</Typography>
-          <Typography sx={sectionSubtitleSx}>Simple, engaging, and kid-friendly.</Typography>
+          <Container maxWidth="lg">
+            <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontWeight: 700, fontSize: { xs: '1.75rem', md: '2.25rem' }, color: '#1E1E4F', textAlign: 'center', mb: 1 }}>
+              How Does It Work?
+            </Typography>
+            <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontSize: '1rem', fontWeight: 400, color: '#6E6E8A', textAlign: 'center', mb: 5 }}>
+              Simple, engaging, and kid-friendly.
+            </Typography>
 
-          <Grid container spacing={4}>
-            <Grid item xs={12} md={4}>
-              <Card sx={{ borderRadius: 3, border: '1px solid #e0e0e0', p: 3, height: '100%', textAlign: 'center' }}>
-                <Box sx={{ width: 88, height: 88, borderRadius: 3, bgcolor: '#e3f2fd', display: 'flex', alignItems: 'center', justifyContent: 'center', mx: 'auto', mb: 2 }}>
-                  <QrCodeIcon sx={{ fontSize: 48, color: '#1976d2' }} />
-                </Box>
-                <Typography sx={{ ...cardTitleSx, mb: 1.5 }}>Scan Snacks</Typography>
-                <Typography sx={cardDescSx}>Use your phone to scan the barcode of any snack and instantly get info on its nutrition.</Typography>
-              </Card>
+            <Grid container spacing={4}>
+              <Grid item xs={12} md={4} sx={{ minWidth: 0, display: 'flex' }}>
+                <Card sx={{ borderRadius: 1.5, p: 3, height: '100%', textAlign: 'center', boxShadow: '0 8px 24px rgba(0,0,0,0.08)', border: 'none', bgcolor: 'white', maxWidth: '100%', width: '100%' }}>
+                  <Box sx={{ width: 88, height: 88, borderRadius: '50%', bgcolor: '#e3f2fd', display: 'flex', alignItems: 'center', justifyContent: 'center', mx: 'auto', mb: 2, boxShadow: '0 0 0 6px rgba(33,150,243,0.2)' }}>
+                    <QrCodeIcon sx={{ fontSize: 48, color: '#1976d2' }} />
+                  </Box>
+                  <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontWeight: 700, fontSize: '1.15rem', color: '#1E1E4F', mb: 1.5, overflowWrap: 'break-word', wordBreak: 'break-word' }}>Scan Snacks</Typography>
+                  <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontSize: '0.95rem', color: '#6E6E8A', lineHeight: 1.5, overflowWrap: 'break-word', wordBreak: 'break-word' }}>Use your phone to scan the barcode of any snack.</Typography>
+                </Card>
+              </Grid>
+              <Grid item xs={12} md={4} sx={{ minWidth: 0, display: 'flex' }}>
+                <Card sx={{ borderRadius: 1.5, p: 3, height: '100%', textAlign: 'center', boxShadow: '0 8px 24px rgba(0,0,0,0.08)', border: 'none', bgcolor: 'white', maxWidth: '100%', width: '100%' }}>
+                  <Box sx={{ width: 88, height: 88, borderRadius: '50%', bgcolor: '#fff3e0', display: 'flex', alignItems: 'center', justifyContent: 'center', mx: 'auto', mb: 2 }}>
+                    <CardGiftcardIcon sx={{ fontSize: 48, color: '#e53935' }} />
+                  </Box>
+                  <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontWeight: 700, fontSize: '1.15rem', color: '#EF4444', mb: 1.5, overflowWrap: 'break-word', wordBreak: 'break-word' }}>Earn Rewards</Typography>
+                  <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontSize: '0.95rem', color: '#6E6E8A', lineHeight: 1.5, overflowWrap: 'break-word', wordBreak: 'break-word' }}>Earn fun points and unlock rewards as you scan.</Typography>
+                </Card>
+              </Grid>
+              <Grid item xs={12} md={4} sx={{ minWidth: 0, display: 'flex' }}>
+                <Card sx={{ borderRadius: 1.5, p: 3, height: '100%', textAlign: 'center', boxShadow: '0 8px 24px rgba(0,0,0,0.08)', border: 'none', bgcolor: 'white', maxWidth: '100%', width: '100%' }}>
+                  <Box sx={{ width: 88, height: 88, borderRadius: '50%', bgcolor: '#e8f5e9', display: 'flex', alignItems: 'center', justifyContent: 'center', mx: 'auto', mb: 2 }}>
+                    <EmojiObjectsIcon sx={{ fontSize: 48, color: '#22C55E' }} />
+                  </Box>
+                  <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontWeight: 700, fontSize: '1.15rem', color: '#22C55E', mb: 1.5, overflowWrap: 'break-word', wordBreak: 'break-word' }}>Learn & Play</Typography>
+                  <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontSize: '0.95rem', color: '#6E6E8A', lineHeight: 1.5, overflowWrap: 'break-word', wordBreak: 'break-word' }}>Explore fun food facts.</Typography>
+                </Card>
+              </Grid>
             </Grid>
-            <Grid item xs={12} md={4}>
-              <Card sx={{ borderRadius: 3, border: '1px solid #e0e0e0', p: 3, height: '100%', textAlign: 'center' }}>
-                <Box sx={{ width: 88, height: 88, borderRadius: 3, bgcolor: '#ffebee', display: 'flex', alignItems: 'center', justifyContent: 'center', mx: 'auto', mb: 2 }}>
-                  <CardGiftcardIcon sx={{ fontSize: 48, color: '#e53935' }} />
-                </Box>
-                <Typography sx={{ ...cardTitleSx, mb: 1.5 }}>Earn Rewards</Typography>
-                <Typography sx={cardDescSx}>Earn fun points and unlock rewards as you scan more snacks.</Typography>
-              </Card>
-            </Grid>
-            <Grid item xs={12} md={4}>
-              <Card sx={{ borderRadius: 3, border: '1px solid #e0e0e0', p: 3, height: '100%', textAlign: 'center' }}>
-                <Box sx={{ width: 88, height: 88, borderRadius: 3, bgcolor: '#e8f5e9', display: 'flex', alignItems: 'center', justifyContent: 'center', mx: 'auto', mb: 2 }}>
-                  <SchoolIcon sx={{ fontSize: 48, color: '#4CAF50' }} />
-                </Box>
-                <Typography sx={{ ...cardTitleSx, mb: 1.5 }}>Learn & Play</Typography>
-                <Typography sx={cardDescSx}>Explore fun food facts and play interactive, educational games!</Typography>
-              </Card>
-            </Grid>
-          </Grid>
-        </Container>
-      </Box>
+          </Container>
+        </Box>
 
         {/* Track Progress with Parental Insights */}
         <Box sx={{ py: 8 }}>
