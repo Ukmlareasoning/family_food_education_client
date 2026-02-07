@@ -9,6 +9,7 @@ import view1Img from '../assets/view-1.png'
 import view2Img from '../assets/view-2.png'
 import view3Img from '../assets/view-3.png'
 import welcomeImg from '../assets/welcome.png'
+import trackProgressImg from '../assets/track-progress.png'
 import GetAppIcon from '@mui/icons-material/GetApp'
 import CameraAltRoundedIcon from '@mui/icons-material/CameraAltRounded'
 import AppleIcon from '@mui/icons-material/Apple'
@@ -952,38 +953,20 @@ function Home() {
           </Container>
         </Box>
 
-        {/* Track Progress with Parental Insights */}
-        <Box sx={{ py: 8 }}>
-        <Container maxWidth="lg">
-          <Grid container spacing={4} alignItems="center">
-            <Grid item xs={12} md={6}>
-              <Typography sx={{ fontFamily: 'Poppins', fontWeight: 800, fontSize: { xs: '1.6rem', md: '2rem' }, color: '#1a237e', mb: 2 }}>
-                Track Progress with Parental Insights
-              </Typography>
-              <Typography sx={{ fontFamily: 'Poppins', fontSize: '1rem', color: '#37474f', mb: 4 }}>
-                Get a quick overview of your kids' snacking habits.
-              </Typography>
-              <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                  <BarChartIcon sx={{ fontSize: 28, color: '#546e7a' }} />
-                  <Typography sx={{ fontFamily: 'Poppins', fontWeight: 600, color: '#1a237e' }}>Track scanned snacks</Typography>
-                </Box>
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                  <LocalFireDepartmentIcon sx={{ fontSize: 28, color: '#ff9500' }} />
-                  <Typography sx={{ fontFamily: 'Poppins', fontWeight: 600, color: '#1a237e' }}>Monitor average calorie intake</Typography>
-                </Box>
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                  <CheckCircleIcon sx={{ fontSize: 28, color: '#4CAF50' }} />
-                  <Typography sx={{ fontFamily: 'Poppins', fontWeight: 600, color: '#1a237e' }}>See if products are kid-friendly</Typography>
-                </Box>
-              </Box>
-            </Grid>
-            <Grid item xs={12} md={6}>
-              <Box component="img" src={placeholders.dashboardInsights} alt="Insights" sx={{ width: '100%', borderRadius: 3, boxShadow: '0 12px 40px rgba(0,0,0,0.12)' }} />
-            </Grid>
-          </Grid>
-        </Container>
-      </Box>
+        {/* Full-width track progress image */}
+        <Box sx={{ width: '100vw', position: 'relative', left: '50%', right: '50%', marginLeft: '-48vw', marginRight: '-50vw', overflow: 'hidden' }}>
+          <Box
+            component="img"
+            src={trackProgressImg}
+            alt="Track progress"
+            sx={{
+              width: '100%',
+              height: '350px',
+              display: 'block',
+              verticalAlign: 'middle'
+            }}
+          />
+        </Box>
 
         {/* Fun & Educational for Kids */}
         <Box sx={{ py: 8 }}>
