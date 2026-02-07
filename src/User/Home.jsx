@@ -830,15 +830,8 @@ function Home() {
           </Container>
         </Box>
 
-        {/* Welcome to Scan a Snack! (Page 2 hero) – match reference: gradient bg, logo, two-line heading, pill CTA, phone+food image right */}
-        <Box
-          sx={{
-            py: 10,
-            position: 'relative',
-            background: 'linear-gradient(90deg, rgba(255,255,255,0.95) 0%, rgba(227,242,253,0.9) 50%, rgba(187,222,251,0.5) 100%)',
-            overflow: 'hidden',
-          }}
-        >
+        {/* Welcome to Scan a Snack! (Page 2 hero) */}
+        <Box sx={{ py: 10, position: 'relative' }}>
           <Container maxWidth="lg">
             <Grid container spacing={4} alignItems="center">
               <Grid item xs={12} md={6}>
@@ -896,18 +889,19 @@ function Home() {
                   Try It Now! Scan a
                 </Button>
               </Grid>
-              <Grid item xs={12} md={6} sx={{ display: 'flex', justifyContent: { xs: 'center', md: 'flex-end' }, alignItems: 'center' }}>
+              <Grid item xs={12} md={6} sx={{ display: 'flex', justifyContent: { xs: 'center', md: 'flex-end' }, alignItems: 'flex-end' }}>
                 <Box
                   component="img"
                   src={welcomeImg}
                   alt="Scan a Snack app with food illustrations"
                   sx={{
                     width: '100%',
-                    maxWidth: 420,
+                    maxWidth: 560,
+                    height: 'auto',
                     display: 'block',
                     borderRadius: 2,
                     filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.12))',
-                    transform: { xs: 'none', md: 'rotate(3deg)' },
+                    ml: { md: 'auto' },
                   }}
                 />
               </Grid>
