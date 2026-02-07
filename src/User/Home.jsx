@@ -26,7 +26,7 @@ function Home() {
         >
           <WavingHandRoundedIcon sx={{ fontSize: 56, color: 'primary.main', mb: 1 }} />
           <Typography variant="h3" component="h1" gutterBottom color="primary" sx={{ fontWeight: 'bold' }}>
-            Welcome
+            Welcome Here
           </Typography>
           <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 0.5, mb: 2 }}>
             <CheckCircleRoundedIcon color="success" fontSize="small" />
