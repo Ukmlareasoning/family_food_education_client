@@ -5,6 +5,9 @@ import FoodPatternBackground from '../components/FoodPatternBackground'
 import { placeholders } from '../utils/placeholderImages'
 import heroImg from '../assets/hero-img.png'
 import howItWorksImg from '../assets/how-it-works.png'
+import view1Img from '../assets/view-1.png'
+import view2Img from '../assets/view-2.png'
+import view3Img from '../assets/view-3.png'
 import GetAppIcon from '@mui/icons-material/GetApp'
 import CameraAltRoundedIcon from '@mui/icons-material/CameraAltRounded'
 import AppleIcon from '@mui/icons-material/Apple'
@@ -324,6 +327,7 @@ function Home() {
                     width: '100%',
                     maxWidth: { xs: 440, sm: 560, md: 640 },
                     height: 'auto',
+                    borderRadius: 1.5,
                     objectFit: 'contain',
                     objectPosition: 'right top',
                     display: 'block',
@@ -564,43 +568,164 @@ function Home() {
           </Box>
         </Container>
 
-        {/* View the App in Action */}
+        {/* View the App in Action – overlapping phone screens with circular arrows */}
         <Container maxWidth="lg" sx={{ py: 8, position: 'relative', zIndex: 1 }}>
           <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 1.5, mb: 5 }}>
-            <StarRoundedIcon sx={{ fontSize: 32, color: '#ff9500' }} />
+            <StarRoundedIcon sx={{ fontSize: 28, color: '#ffeb3b' }} />
             <Typography sx={sectionTitleSx}>View the App in Action</Typography>
-            <Box component="span" sx={{ ml: 0.5 }}>→</Box>
+            <StarRoundedIcon sx={{ fontSize: 28, color: '#ffeb3b' }} />
           </Box>
 
-          <Grid container spacing={3} alignItems="stretch">
-            <Grid item xs={12} md={4}>
-              <Card sx={{ borderRadius: 3, border: '1px solid #e0e0e0', overflow: 'hidden', height: '100%' }}>
-                <Box component="img" src={placeholders.scanScreen} alt="Scan" sx={{ width: '100%', display: 'block' }} />
-                <CardContent sx={{ textAlign: 'center', py: 2 }}>
-                  <Button variant="contained" startIcon={<CameraAltRoundedIcon />} sx={{ ...orangeButtonSx, mb: 1.5 }}>Scan a Snack!</Button>
-                  <Typography sx={{ ...cardDescSx, fontSize: '0.8rem' }}>Stamps scan ifto apps for-ame stertzios.</Typography>
-                </CardContent>
-              </Card>
-            </Grid>
-            <Grid item xs={12} md={4}>
-              <Card sx={{ borderRadius: 3, border: '1px solid #e0e0e0', overflow: 'hidden', height: '100%' }}>
-                <Box component="img" src={placeholders.nutritionInfo} alt="Nutrition" sx={{ width: '100%', display: 'block' }} />
-                <CardContent sx={{ textAlign: 'center', py: 2 }}>
-                  <Button variant="contained" startIcon={<AssessmentRoundedIcon />} sx={{ backgroundColor: '#4CAF50', color: 'white', borderRadius: 3, fontWeight: 600, textTransform: 'none', mb: 1.5 }}>Understand Nutrition</Button>
-                  <Typography sx={{ ...cardDescSx, fontSize: '0.8rem' }}>Seanmess fast kue wrork fious, hind-dcanings & nigsair veloure</Typography>
-                </CardContent>
-              </Card>
-            </Grid>
-            <Grid item xs={12} md={4}>
-              <Card sx={{ borderRadius: 3, border: '1px solid #e0e0e0', overflow: 'hidden', height: '100%' }}>
-                <Box component="img" src={placeholders.progressTracker} alt="Progress" sx={{ width: '100%', display: 'block' }} />
-                <CardContent sx={{ textAlign: 'center', py: 2 }}>
-                  <Button variant="contained" startIcon={<EmojiEventsIcon />} sx={{ backgroundColor: '#4CAF50', color: 'white', borderRadius: 3, fontWeight: 600, textTransform: 'none', mb: 1.5 }}>Earn & Track Progress</Button>
-                  <Typography sx={{ ...cardDescSx, fontSize: '0.8rem' }}>kese your eerors a saltaasheads, traights unsign up choices.</Typography>
-                </CardContent>
-              </Card>
-            </Grid>
-          </Grid>
+          <Box sx={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'center', flexWrap: { xs: 'wrap', md: 'nowrap' }, gap: { xs: 4, md: 2 } }}>
+            {/* First Feature: Scan a Snack */}
+            <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', flex: { xs: '1 1 100%', md: '0 0 auto' }, maxWidth: { xs: '100%', md: 340 } }}>
+              <Box
+                component="img"
+                src={view1Img}
+                alt="Scan a Snack"
+                sx={{
+                  width: '100%',
+                  maxWidth: 320,
+                  minHeight: 150,
+                  objectFit: 'cover',
+                  borderRadius: 3,
+                  boxShadow: '0 8px 24px rgba(0,0,0,0.15)',
+                  display: 'block',
+                  mb: 2,
+                }}
+              />
+              <Button
+                variant="contained"
+                startIcon={<CameraAltRoundedIcon />}
+                sx={{
+                  fontFamily: '"Poppins", sans-serif',
+                  background: 'linear-gradient(135deg, #ff9500 0%, #ff6b35 100%)',
+                  color: 'white',
+                  px: 3,
+                  py: 1.25,
+                  borderRadius: 6,
+                  fontSize: '0.95rem',
+                  fontWeight: 700,
+                  textTransform: 'none',
+                  border: '2px solid rgba(255,255,255,0.9)',
+                  boxShadow: '0 4px 12px rgba(255,149,0,0.5)',
+                  mb: 1,
+                  width: '100%',
+                  maxWidth: 300,
+                  '&:hover': { background: 'linear-gradient(135deg, #e68600 0%, #e55a2b 100%)' },
+                }}
+              >
+                Scan a Snack!
+              </Button>
+              <Typography sx={{ ...cardDescSx, fontSize: '0.8rem', textAlign: 'center', width: '100%', maxWidth: 300, mx: 'auto' }}>
+                Stamps scan itto apps for-ama stertios.
+              </Typography>
+            </Box>
+
+            {/* Circular Navigation Arrow 1 */}
+            <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', justifyContent: 'center', alignSelf: 'center', mb: 2 }}>
+              <Box sx={{ width: 36, height: 36, borderRadius: '50%', bgcolor: '#e0e0e0', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <ChevronRightIcon sx={{ fontSize: 22, color: '#757575' }} />
+              </Box>
+            </Box>
+
+            {/* Second Feature: Understand Nutrition */}
+            <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', flex: { xs: '1 1 100%', md: '0 0 auto' }, maxWidth: { xs: '100%', md: 340 } }}>
+              <Box
+                component="img"
+                src={view2Img}
+                alt="Understand Nutrition"
+                sx={{
+                  width: '100%',
+                  maxWidth: 320,
+                  minHeight: 150,
+                  objectFit: 'cover',
+                  borderRadius: 3,
+                  boxShadow: '0 8px 24px rgba(0,0,0,0.15)',
+                  display: 'block',
+                  mb: 2,
+                }}
+              />
+              <Button
+                variant="contained"
+                startIcon={<CheckCircleIcon sx={{ fontSize: 20 }} />}
+                sx={{
+                  fontFamily: '"Poppins", sans-serif',
+                  background: 'linear-gradient(135deg, #4CAF50 0%, #66bb6a 100%)',
+                  color: 'white',
+                  px: 3,
+                  py: 1.25,
+                  borderRadius: 6,
+                  fontSize: '0.95rem',
+                  fontWeight: 700,
+                  textTransform: 'none',
+                  border: '2px solid rgba(255,255,255,0.9)',
+                  boxShadow: '0 4px 12px rgba(76,175,80,0.5)',
+                  mb: 1,
+                  width: '100%',
+                  maxWidth: 300,
+                  '&:hover': { background: 'linear-gradient(135deg, #43a047 0%, #57a35a 100%)' },
+                }}
+              >
+                Understand Nutrition
+              </Button>
+              <Typography sx={{ ...cardDescSx, fontSize: '0.8rem', textAlign: 'center', width: '100%', maxWidth: 300, mx: 'auto' }}>
+                Seanmess fast true work fious, find-scanings & nigsair veloure.
+              </Typography>
+            </Box>
+
+            {/* Circular Navigation Arrow 2 */}
+            <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', justifyContent: 'center', alignSelf: 'center', mb: 2 }}>
+              <Box sx={{ width: 36, height: 36, borderRadius: '50%', bgcolor: '#e0e0e0', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <ChevronRightIcon sx={{ fontSize: 22, color: '#757575' }} />
+              </Box>
+            </Box>
+
+            {/* Third Feature: Earn & Track Progress */}
+            <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', flex: { xs: '1 1 100%', md: '0 0 auto' }, maxWidth: { xs: '100%', md: 340 } }}>
+              <Box
+                component="img"
+                src={view3Img}
+                alt="Earn & Track Progress"
+                sx={{
+                  width: '100%',
+                  maxWidth: 320,
+                  minHeight: 150,
+                  objectFit: 'cover',
+                  borderRadius: 3,
+                  boxShadow: '0 8px 24px rgba(0,0,0,0.15)',
+                  display: 'block',
+                  mb: 2,
+                }}
+              />
+              <Button
+                variant="contained"
+                startIcon={<EmojiEventsIcon />}
+                sx={{
+                  fontFamily: '"Poppins", sans-serif',
+                  background: 'linear-gradient(135deg, #2196f3 0%, #42a5f5 100%)',
+                  color: 'white',
+                  px: 3,
+                  py: 1.25,
+                  borderRadius: 6,
+                  fontSize: '0.95rem',
+                  fontWeight: 700,
+                  textTransform: 'none',
+                  border: '2px solid rgba(255,255,255,0.9)',
+                  boxShadow: '0 4px 12px rgba(33,150,243,0.5)',
+                  mb: 1,
+                  width: '100%',
+                  maxWidth: 300,
+                  '&:hover': { background: 'linear-gradient(135deg, #1976d2 0%, #2196f3 100%)' },
+                }}
+              >
+                Earn & Track Progress
+              </Button>
+              <Typography sx={{ ...cardDescSx, fontSize: '0.8rem', textAlign: 'center', width: '100%', maxWidth: 300, mx: 'auto' }}>
+                Kese your eerors a saltaasheads, tricights unsign up choices.
+              </Typography>
+            </Box>
+          </Box>
         </Container>
 
         {/* Safe, Fun & Easy to Use! */}
