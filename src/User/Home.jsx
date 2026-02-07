@@ -8,6 +8,7 @@ import howItWorksImg from '../assets/how-it-works.png'
 import view1Img from '../assets/view-1.png'
 import view2Img from '../assets/view-2.png'
 import view3Img from '../assets/view-3.png'
+import welcomeImg from '../assets/welcome.png'
 import GetAppIcon from '@mui/icons-material/GetApp'
 import CameraAltRoundedIcon from '@mui/icons-material/CameraAltRounded'
 import AppleIcon from '@mui/icons-material/Apple'
@@ -746,113 +747,173 @@ function Home() {
                 display: 'flex',
                 flexWrap: 'wrap',
                 justifyContent: 'center',
-                alignItems: 'stretch',
-                gap: 2,
+                alignItems: 'flex-start',
+                gap: 4,
               }}
             >
-              <Box
-                sx={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 2,
-                  px: 3,
-                  py: 2,
-                  bgcolor: 'white',
-                  borderRadius: 9999,
-                  boxShadow: '0 2px 12px rgba(0,0,0,0.06)',
-                  border: '1px solid rgba(0,0,0,0.06)',
-                  minHeight: 56,
-                }}
-              >
-                <FavoriteIcon sx={{ fontSize: 32, color: '#e53935', flexShrink: 0 }} />
-                <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontWeight: 600, fontSize: '1rem', color: '#5d4037' }}>
-                  Kid-Friendly Design
+              <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', maxWidth: 280 }}>
+                <Box
+                  sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 2,
+                    px: 3,
+                    py: 2,
+                    bgcolor: 'white',
+                    borderRadius: 9999,
+                    boxShadow: '0 2px 12px rgba(0,0,0,0.06)',
+                    border: '1px solid rgba(0,0,0,0.06)',
+                    minHeight: 56,
+                    width: '100%',
+                  }}
+                >
+                  <FavoriteIcon sx={{ fontSize: 32, color: '#e53935', flexShrink: 0 }} />
+                  <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontWeight: 600, fontSize: '1rem', color: '#5d4037' }}>
+                    Kid-Friendly Design
+                  </Typography>
+                </Box>
+                <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontSize: '0.9rem', color: '#5d4037', textAlign: 'center', mt: 1.5, px: 0.5 }}>
+                  Colorful, simple interface made for little ones to explore safely.
                 </Typography>
               </Box>
-              <Box
-                sx={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 2,
-                  px: 3,
-                  py: 2,
-                  bgcolor: 'white',
-                  borderRadius: 9999,
-                  boxShadow: '0 2px 12px rgba(0,0,0,0.06)',
-                  border: '1px solid rgba(0,0,0,0.06)',
-                  minHeight: 56,
-                }}
-              >
-                <SecurityIcon sx={{ fontSize: 32, color: '#5eb8e6', flexShrink: 0 }} />
-                <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontWeight: 600, fontSize: '1rem', color: '#5d4037' }}>
-                  Privacy-First Approach
+              <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', maxWidth: 280 }}>
+                <Box
+                  sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 2,
+                    px: 3,
+                    py: 2,
+                    bgcolor: 'white',
+                    borderRadius: 9999,
+                    boxShadow: '0 2px 12px rgba(0,0,0,0.06)',
+                    border: '1px solid rgba(0,0,0,0.06)',
+                    minHeight: 56,
+                    width: '100%',
+                  }}
+                >
+                  <SecurityIcon sx={{ fontSize: 32, color: '#5eb8e6', flexShrink: 0 }} />
+                  <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontWeight: 600, fontSize: '1rem', color: '#5d4037' }}>
+                    Privacy Approach
+                  </Typography>
+                </Box>
+                <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontSize: '0.9rem', color: '#5d4037', textAlign: 'center', mt: 1.5, px: 0.5 }}>
+                  We never sell data. Your family's information stays private and secure.
                 </Typography>
               </Box>
-              <Box
-                sx={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 2,
-                  px: 3,
-                  py: 2,
-                  bgcolor: 'white',
-                  borderRadius: 9999,
-                  boxShadow: '0 2px 12px rgba(0,0,0,0.06)',
-                  border: '1px solid rgba(0,0,0,0.06)',
-                  minHeight: 56,
-                }}
-              >
-                <LockIcon sx={{ fontSize: 32, color: '#5eb8e6', flexShrink: 0 }} />
-                <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontWeight: 600, fontSize: '1rem', color: '#5d4037' }}>
-                  Safe & Secure
+              <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', maxWidth: 280 }}>
+                <Box
+                  sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 2,
+                    px: 3,
+                    py: 2,
+                    bgcolor: 'white',
+                    borderRadius: 9999,
+                    boxShadow: '0 2px 12px rgba(0,0,0,0.06)',
+                    border: '1px solid rgba(0,0,0,0.06)',
+                    minHeight: 56,
+                    width: '100%',
+                  }}
+                >
+                  <LockIcon sx={{ fontSize: 32, color: '#5eb8e6', flexShrink: 0 }} />
+                  <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontWeight: 600, fontSize: '1rem', color: '#5d4037' }}>
+                    Safe & Secure
+                  </Typography>
+                </Box>
+                <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontSize: '0.9rem', color: '#5d4037', textAlign: 'center', mt: 1.5, px: 0.5 }}>
+                  Parent controls and age-appropriate content for peace of mind.
                 </Typography>
               </Box>
             </Box>
           </Container>
         </Box>
 
-        {/* Welcome to Scan a Snack! (Page 2 hero) */}
-        <Box sx={{ py: 10, position: 'relative' }}>
-        <Container maxWidth="lg">
-          <Grid container spacing={4} alignItems="center">
-            <Grid item xs={12} md={6}>
-              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2 }}>
-                <Box sx={{ fontSize: 36 }}>☀️</Box>
-                <Typography sx={{ fontFamily: 'Poppins', fontWeight: 700, fontSize: '1.25rem', color: '#1a237e' }}>Scan a Snack!</Typography>
-              </Box>
-              <Typography sx={{ fontFamily: 'Poppins', fontWeight: 800, fontSize: { xs: '1.9rem', md: '2.5rem' }, color: '#1a237e', mb: 2, lineHeight: 1.2 }}>
-                Welcome to Scan a Snack!
-              </Typography>
-              <Typography sx={{ fontFamily: 'Poppins', fontSize: '1rem', color: '#37474f', mb: 4 }}>
-                Make snack time fun and healthy for your kids by scanning and learning all about their tasty treats!
-              </Typography>
-              <Button
-                variant="contained"
-                startIcon={<CameraAltRoundedIcon />}
-                sx={{
-                  fontFamily: 'Poppins',
-                  background: 'linear-gradient(135deg, #ff9500 0%, #ff6b35 100%)',
-                  color: 'white',
-                  px: 4,
-                  py: 2,
-                  borderRadius: 3,
-                  fontSize: '1.1rem',
-                  fontWeight: 700,
-                  textTransform: 'none',
-                  boxShadow: '0 6px 20px rgba(255,107,53,0.4)',
-                  border: '2px solid white',
-                  '&:hover': { background: 'linear-gradient(135deg, #e68600 0%, #e55a2b 100%)' },
-                }}
-              >
-                Try It Now! Scan a
-              </Button>
+        {/* Welcome to Scan a Snack! (Page 2 hero) – match reference: gradient bg, logo, two-line heading, pill CTA, phone+food image right */}
+        <Box
+          sx={{
+            py: 10,
+            position: 'relative',
+            background: 'linear-gradient(90deg, rgba(255,255,255,0.95) 0%, rgba(227,242,253,0.9) 50%, rgba(187,222,251,0.5) 100%)',
+            overflow: 'hidden',
+          }}
+        >
+          <Container maxWidth="lg">
+            <Grid container spacing={4} alignItems="center">
+              <Grid item xs={12} md={6}>
+                {/* Logo: gradient icon + Scan a Snack! */}
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, mb: 2 }}>
+                  <Box
+                    sx={{
+                      width: 40,
+                      height: 40,
+                      borderRadius: 2,
+                      background: 'linear-gradient(135deg, #ffeb3b 0%, #ff9500 50%, #42a5f5 100%)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      fontSize: 24,
+                      flexShrink: 0,
+                    }}
+                  >
+                    😊
+                  </Box>
+                  <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontWeight: 700, fontSize: '1.25rem', color: '#1a237e' }}>
+                    Scan a Snack!
+                  </Typography>
+                </Box>
+                {/* Two-line heading: Welcome to / Scan a Snack! */}
+                <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontWeight: 800, fontSize: { xs: '1.75rem', md: '2.25rem' }, color: '#1a237e', lineHeight: 1.2 }}>
+                  Welcome to
+                </Typography>
+                <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontWeight: 800, fontSize: { xs: '2rem', md: '2.75rem' }, color: '#1a237e', mb: 2, lineHeight: 1.2 }}>
+                  Scan a Snack!
+                </Typography>
+                <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontSize: '1rem', color: '#546e7a', mb: 4, maxWidth: 480 }}>
+                  Make snack time fun and healthy for your kids by scanning and learning all about their tasty treats!
+                </Typography>
+                {/* Pill-style CTA: gradient, highly rounded, camera icon at end */}
+                <Button
+                  variant="contained"
+                  endIcon={<CameraAltRoundedIcon sx={{ fontSize: 22 }} />}
+                  sx={{
+                    fontFamily: '"Poppins", sans-serif',
+                    background: 'linear-gradient(90deg, #ff9800 0%, #ff6b35 100%)',
+                    color: 'white',
+                    px: 4,
+                    py: 1.75,
+                    borderRadius: 9999,
+                    fontSize: '1.1rem',
+                    fontWeight: 700,
+                    textTransform: 'none',
+                    boxShadow: '0 6px 20px rgba(255,107,53,0.4)',
+                    border: 'none',
+                    minWidth: 280,
+                    '&:hover': { background: 'linear-gradient(90deg, #f57c00 0%, #e55a2b 100%)', boxShadow: '0 8px 24px rgba(255,107,53,0.45)' },
+                  }}
+                >
+                  Try It Now! Scan a
+                </Button>
+              </Grid>
+              <Grid item xs={12} md={6} sx={{ display: 'flex', justifyContent: { xs: 'center', md: 'flex-end' }, alignItems: 'center' }}>
+                <Box
+                  component="img"
+                  src={welcomeImg}
+                  alt="Scan a Snack app with food illustrations"
+                  sx={{
+                    width: '100%',
+                    maxWidth: 420,
+                    display: 'block',
+                    borderRadius: 2,
+                    filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.12))',
+                    transform: { xs: 'none', md: 'rotate(3deg)' },
+                  }}
+                />
+              </Grid>
             </Grid>
-            <Grid item xs={12} md={6}>
-              <Box component="img" src={placeholders.phoneAppPreview} alt="App" sx={{ width: '100%', maxWidth: 380, mx: 'auto', display: 'block', filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.15))' }} />
-            </Grid>
-          </Grid>
-        </Container>
-      </Box>
+          </Container>
+        </Box>
 
         {/* How Does It Work? */}
         <Box sx={{ py: 8, position: 'relative' }}>
