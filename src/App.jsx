@@ -8,6 +8,7 @@ import FAQ from './User/FAQ.jsx'
 import Privacy from './User/Privacy.jsx'
 import Terms from './User/Terms.jsx'
 import Cookies from './User/Cookies.jsx'
+import Auth from './User/Auth.jsx'
 import './App.css'
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/terms" element={<Terms />} />
         <Route path="/cookies" element={<Cookies />} />
+        <Route path="/login" element={<Auth />} />
       </Routes>
     </BrowserRouter>
   )

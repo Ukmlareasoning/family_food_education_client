@@ -109,6 +109,8 @@ function Header() {
         ))}
         <ListItem disablePadding sx={{ mt: 2 }}>
           <Button
+            component={Link}
+            to="/login"
             variant="contained"
             fullWidth
             onClick={handleDrawerToggle}
@@ -209,6 +211,8 @@ function Header() {
           {/* Log In (Desktop) */}
           <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', gap: 0.5 }}>
             <Button
+              component={Link}
+              to="/login"
               variant="contained"
               sx={{
                 fontFamily: '"Poppins", sans-serif',
