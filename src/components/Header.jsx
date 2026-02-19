@@ -1,7 +1,8 @@
-import { AppBar, Toolbar, Box, Button, Container } from '@mui/material'
-import { Link } from 'react-router-dom'
-import PersonOutlineIcon from '@mui/icons-material/PersonOutline'
-
+import React, { useState } from 'react'
+import { AppBar, Toolbar, Box, Button, Container, IconButton, Drawer, List, ListItem, ListItemText, useTheme, useMediaQuery } from '@mui/material'
+import { Link, useLocation } from 'react-router-dom'
+import MenuIcon from '@mui/icons-material/Menu'
+import CloseIcon from '@mui/icons-material/Close'
 // Theme-friendly nav link with hover effect
 const navLinkSx = {
   fontFamily: '"Poppins", sans-serif',
@@ -20,10 +21,19 @@ const navLinkSx = {
   },
 }
 
-function NavLink({ to, children }) {
+function NavLink({ to, children, active }) {
   return (
     <Link to={to} style={{ textDecoration: 'none' }}>
-      <Box component="span" sx={navLinkSx}>
+      <Box
+        component="span"
+        sx={{
+          ...navLinkSx,
+          color: active ? '#534bae' : '#1a237e',
+          backgroundColor: active ? 'rgba(83, 75, 174, 0.1)' : 'transparent',
+          boxShadow: active ? '0 0 0 1px rgba(83, 75, 174, 0.2)' : 'none',
+          fontWeight: active ? 600 : 500,
+        }}
+      >
         {children}
       </Box>
     </Link>
@@ -42,6 +52,78 @@ function LogoIcon() {
 }
 
 function Header() {
+  const [mobileOpen, setMobileOpen] = useState(false)
+  const location = useLocation()
+  const theme = useTheme()
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'))
+
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen)
+  }
+
+  const navItems = [
+    { label: 'Home', path: '#' },
+    { label: 'Features', path: '#' },
+    { label: 'Parent Dashboard', path: '#' },
+    { label: 'Kids Zone', path: '#' },
+    { label: 'Blog', path: '#' },
+  ]
+
+  const drawer = (
+    <Box sx={{ p: 2, height: '100%', backgroundColor: '#ffffff' }}>
+      <Box sx={{ display: 'flex', justifyContent: 'flex-end', mb: 2 }}>
+        <IconButton onClick={handleDrawerToggle}>
+          <CloseIcon />
+        </IconButton>
+      </Box>
+      <List>
+        {navItems.map((item) => (
+          <ListItem
+            key={item.label}
+            disablePadding
+            sx={{ mb: 1 }}
+          >
+            <Link
+              to={item.path}
+              onClick={handleDrawerToggle}
+              style={{
+                textDecoration: 'none',
+                width: '100%',
+                color: (location.pathname === item.path || (item.label === 'Home' && location.pathname === '/')) ? '#534bae' : '#1a237e',
+                fontFamily: '"Poppins", sans-serif',
+                fontWeight: (location.pathname === item.path || (item.label === 'Home' && location.pathname === '/')) ? 700 : 500,
+                padding: '12px 16px',
+                borderRadius: '8px',
+                backgroundColor: (location.pathname === item.path || (item.label === 'Home' && location.pathname === '/')) ? 'rgba(83, 75, 174, 0.08)' : 'transparent',
+                display: 'block'
+              }}
+            >
+              {item.label}
+            </Link>
+          </ListItem>
+        ))}
+        <ListItem disablePadding sx={{ mt: 2 }}>
+          <Button
+            variant="contained"
+            fullWidth
+            sx={{
+              fontFamily: '"Poppins", sans-serif',
+              backgroundColor: '#ff9500',
+              color: 'white',
+              borderRadius: 2.5,
+              py: 1.5,
+              fontWeight: 700,
+              textTransform: 'none',
+              '&:hover': { backgroundColor: '#e68600' },
+            }}
+          >
+            Log In
+          </Button>
+        </ListItem>
+      </List>
+    </Box>
+  )
+
   return (
     <AppBar
       position="fixed"
@@ -71,9 +153,9 @@ function Header() {
               component="span"
               sx={{
                 fontFamily: '"Poppins", sans-serif',
-                fontSize: '1.35rem',
+                fontSize: { xs: '1.1rem', sm: '1.35rem' },
                 fontWeight: 700,
-                display: { xs: 'none', sm: 'inline' },
+                display: 'inline',
                 letterSpacing: '-0.02em',
               }}
             >
@@ -86,23 +168,40 @@ function Header() {
             </Box>
           </Box>
 
-          {/* Navigation */}
+          {/* Navigation (Desktop) */}
           <Box
             sx={{
               display: { xs: 'none', md: 'flex' },
-              gap: 4,
+              gap: 2,
               alignItems: 'center',
             }}
           >
-            <NavLink to="/">Home</NavLink>
-            <NavLink to="/features">Features</NavLink>
-            <NavLink to="/parent-dashboard">Parent Dashboard</NavLink>
-            <NavLink to="/kids-zone">Kids Zone</NavLink>
-            <NavLink to="/blog">Blog</NavLink>
+            {navItems.map((item) => (
+              <NavLink
+                key={item.label}
+                to={item.path}
+                active={location.pathname === item.path || (item.label === 'Home' && location.pathname === '/')}
+              >
+                {item.label}
+              </NavLink>
+            ))}
           </Box>
 
-          {/* Log In + green toggle */}
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+          {/* Mobile Menu Icon */}
+          <Box sx={{ display: { xs: 'flex', md: 'none' }, alignItems: 'center', ml: 'auto' }}>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              edge="start"
+              onClick={handleDrawerToggle}
+              sx={{ color: '#1a237e' }}
+            >
+              <MenuIcon />
+            </IconButton>
+          </Box>
+
+          {/* Log In (Desktop) */}
+          <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', gap: 0.5 }}>
             <Button
               variant="contained"
               sx={{
@@ -111,8 +210,8 @@ function Header() {
                 color: 'white',
                 borderRadius: 2.5,
                 px: 2.5,
-                py: 1.25,
-                fontSize: '1rem',
+                py: 1,
+                fontSize: '0.9rem',
                 fontWeight: 700,
                 textTransform: 'none',
                 boxShadow: '0 2px 6px rgba(255,149,0,0.4)',
@@ -121,27 +220,26 @@ function Header() {
             >
               Log In
             </Button>
-            <Box
-              sx={{
-                width: 36,
-                height: 36,
-                minWidth: 36,
-                borderRadius: 2,
-                backgroundColor: '#66bb6a',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                color: 'white',
-                cursor: 'pointer',
-                boxShadow: '0 1px 4px rgba(76,175,80,0.35)',
-                '&:hover': { backgroundColor: '#5cb860' },
-              }}
-            >
-              <PersonOutlineIcon sx={{ fontSize: 20 }} />
-            </Box>
           </Box>
         </Toolbar>
       </Container>
+
+      {/* Mobile Drawer */}
+      <Drawer
+        variant="temporary"
+        anchor="right"
+        open={mobileOpen}
+        onClose={handleDrawerToggle}
+        ModalProps={{
+          keepMounted: true, // Better open performance on mobile.
+        }}
+        sx={{
+          display: { xs: 'block', md: 'none' },
+          '& .MuiDrawer-paper': { boxSizing: 'border-box', width: 280 },
+        }}
+      >
+        {drawer}
+      </Drawer>
     </AppBar>
   )
 }
