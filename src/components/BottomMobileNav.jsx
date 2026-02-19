@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, Link } from 'react-router-dom'
 import { Paper, BottomNavigation, BottomNavigationAction, Box } from '@mui/material'
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded'
 import StarRoundedIcon from '@mui/icons-material/StarRounded'
-import LoginRoundedIcon from '@mui/icons-material/LoginRounded'
+import PersonRoundedIcon from '@mui/icons-material/PersonRounded'
+import WidgetsRoundedIcon from '@mui/icons-material/WidgetsRounded'
 
 const BottomMobileNav = () => {
     const [value, setValue] = useState(0)
@@ -11,9 +12,15 @@ const BottomMobileNav = () => {
 
     useEffect(() => {
         if (location.pathname === '/') {
-            setValue(0)
+            if (location.hash === '#features') {
+                setValue(1)
+            } else {
+                setValue(0)
+            }
+        } else if (location.pathname === '/login') {
+            setValue(2)
         }
-    }, [location.pathname])
+    }, [location.pathname, location.hash])
 
     return (
         <Box sx={{ display: { xs: 'block', md: 'none' } }}>
@@ -70,17 +77,20 @@ const BottomMobileNav = () => {
                     <BottomNavigationAction
                         label="Home"
                         icon={<HomeRoundedIcon />}
-                        href="#"
+                        component={Link}
+                        to="/"
                     />
                     <BottomNavigationAction
                         label="Features"
-                        icon={<StarRoundedIcon />}
-                        href="#"
+                        icon={<WidgetsRoundedIcon />}
+                        component={Link}
+                        to="/#features"
                     />
                     <BottomNavigationAction
                         label="Login"
-                        icon={<LoginRoundedIcon />}
-                        href="#"
+                        icon={<PersonRoundedIcon />}
+                        component={Link}
+                        to="#"
                     />
                 </BottomNavigation>
             </Paper>

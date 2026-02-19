@@ -62,11 +62,16 @@ function Header() {
   }
 
   const navItems = [
-    { label: 'Home', path: '#' },
-    { label: 'Features', path: '#' },
+    { label: 'Home', path: '/' },
+    { label: 'Features', path: '/#features' },
     { label: 'Parent Dashboard', path: '#' },
     { label: 'Kids Zone', path: '#' },
-    { label: 'Blog', path: '#' },
+    { label: 'Blog', path: '/blog' },
+  ]
+
+  const mobileNavItems = [
+    { label: 'Home', path: '/' },
+    { label: 'Features', path: '/#features' },
   ]
 
   const drawer = (
@@ -77,7 +82,7 @@ function Header() {
         </IconButton>
       </Box>
       <List>
-        {navItems.map((item) => (
+        {mobileNavItems.map((item) => (
           <ListItem
             key={item.label}
             disablePadding
@@ -104,8 +109,11 @@ function Header() {
         ))}
         <ListItem disablePadding sx={{ mt: 2 }}>
           <Button
+            component={Link}
+            to="/login"
             variant="contained"
             fullWidth
+            onClick={handleDrawerToggle}
             sx={{
               fontFamily: '"Poppins", sans-serif',
               backgroundColor: '#ff9500',
@@ -203,6 +211,8 @@ function Header() {
           {/* Log In (Desktop) */}
           <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', gap: 0.5 }}>
             <Button
+              component={Link}
+              to="/login"
               variant="contained"
               sx={{
                 fontFamily: '"Poppins", sans-serif',
