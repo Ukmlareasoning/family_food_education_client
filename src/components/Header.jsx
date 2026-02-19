@@ -1,6 +1,6 @@
 import { AppBar, Toolbar, Box, Button, Container } from '@mui/material'
 import { Link } from 'react-router-dom'
-import OpenInNewIcon from '@mui/icons-material/OpenInNew'
+import PersonOutlineIcon from '@mui/icons-material/PersonOutline'
 
 // Theme-friendly nav link with hover effect
 const navLinkSx = {
@@ -51,8 +51,8 @@ function Header() {
         left: 0,
         right: 0,
         zIndex: 1100,
-        backgroundColor: '#e3f2fd',
-        borderBottom: '1px solid rgba(30, 136, 229, 0.15)',
+        backgroundColor: '#ffffff',
+        borderBottom: '1px solid rgba(0, 0, 0, 0.08)',
         boxShadow: '0 1px 3px rgba(0,0,0,0.06)',
       }}
     >
@@ -137,7 +137,7 @@ function Header() {
                 '&:hover': { backgroundColor: '#5cb860' },
               }}
             >
-              <OpenInNewIcon sx={{ fontSize: 18 }} />
+              <PersonOutlineIcon sx={{ fontSize: 20 }} />
             </Box>
           </Box>
         </Toolbar>
