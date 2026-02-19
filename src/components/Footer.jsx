@@ -1,4 +1,4 @@
-import { Box, Container, Typography, Grid, Link as MuiLink } from '@mui/material'
+import { Box, Container, Typography, Grid, Link as MuiLink, Divider, useTheme, useMediaQuery } from '@mui/material'
 import FacebookIcon from '@mui/icons-material/Facebook'
 import TwitterIcon from '@mui/icons-material/Twitter'
 import InstagramIcon from '@mui/icons-material/Instagram'
@@ -17,114 +17,196 @@ import SettingsIcon from '@mui/icons-material/Settings'
 import { placeholders } from '../utils/placeholderImages'
 
 const footerLinkSx = {
-  color: '#bdc3c7',
-  fontSize: '0.8rem',
-  transition: 'all 0.25s ease',
+  color: '#fff',
+  fontSize: '0.875rem',
+  transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
   display: 'inline-flex',
   alignItems: 'center',
-  gap: 1,
-  py: 0.5,
-  px: 1,
+  gap: 1.5,
+  py: 0.75,
   borderRadius: 1,
+  textDecoration: 'none',
   '&:hover': {
     color: '#fff',
-    backgroundColor: 'rgba(255,255,255,0.1)',
-    transform: 'translateX(4px)',
+    transform: 'translateX(6px)',
+    '& .MuiSvgIcon-root': {
+      color: 'secondary.main',
+    },
+  },
+}
+
+const socialIconSx = {
+  display: 'inline-flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  width: 42,
+  height: 42,
+  borderRadius: '12px',
+  backgroundColor: 'rgba(255, 255, 255, 0.05)',
+  color: 'white',
+  transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+  border: '1px solid rgba(255, 255, 255, 0.1)',
+  '&:hover': {
+    backgroundColor: 'secondary.main',
+    color: 'white',
+    transform: 'translateY(-4px)',
+    boxShadow: '0 8px 20px rgba(76, 175, 80, 0.3)',
+    borderColor: 'secondary.main',
   },
 }
 
 function Footer() {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
   return (
     <Box
       component="footer"
       sx={{
-        backgroundColor: '#2c3e50',
+        background: `linear-gradient(180deg, ${theme.palette.primary.dark} 0%, #000033 100%)`,
         color: 'white',
-        py: 4,
-        mt: 6,
+        pt: { xs: 8, md: 10 },
+        pb: 4,
+        mt: 8,
+        position: 'relative',
+        overflow: 'hidden',
+        '&::before': {
+          content: '""',
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          height: '1px',
+          background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent)',
+        }
       }}
     >
       <Container maxWidth="lg">
-        <Grid container spacing={3}>
+        <Grid container spacing={{ xs: 5, md: 8 }} justifyContent="space-between">
           {/* About Section */}
-          <Grid item xs={12} md={4}>
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1.5 }}>
-              <Box
-                component="img"
-                src={placeholders.logo}
-                alt="Please Scan Logo"
-                sx={{ width: 32, height: 32, borderRadius: '50%' }}
-              />
-              <Typography variant="subtitle1" fontWeight={700} sx={{ fontSize: '1rem' }}>
-                Please Scan
+          <Grid item xs={12} md={5}>
+            <Box sx={{ mb: 4, textAlign: { xs: 'center', md: 'left' } }}>
+              <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: { xs: 'center', md: 'flex-start' }, gap: 1.5, mb: 3 }}>
+                <Box
+                  component="img"
+                  src={placeholders.logo}
+                  alt="Please Scan Logo"
+                  sx={{
+                    width: 45,
+                    height: 45,
+                    borderRadius: '12px',
+                    boxShadow: '0 4px 12px rgba(0,0,0,0.2)'
+                  }}
+                />
+                <Typography variant="h6" fontWeight={800} sx={{
+                  color: 'white',
+                  letterSpacing: '0.5px',
+                  fontSize: '1.25rem'
+                }}>
+                  Please Scan
+                </Typography>
+              </Box>
+              <Typography sx={{
+                color: 'rgba(255, 255, 255, 0.6)',
+                lineHeight: 1.6,
+                mb: 4,
+                fontSize: { xs: '1rem', md: '1.2rem' },
+                fontWeight: 500,
+                maxWidth: { xs: '100%', md: '550px' },
+                mx: { xs: 'auto', md: 0 }
+              }}>
+                Empowering families to make healthier snack choices through interactive scanning and fun nutrition education.
               </Typography>
-            </Box>
-            <Typography variant="body2" sx={{ color: '#bdc3c7', fontSize: '0.8rem', mb: 1.5 }}>
-              Make snack choices simple for families. Scan snacks, learn nutrition facts, and make healthy choices fun!
-            </Typography>
-            <Box sx={{ display: 'flex', gap: 1 }}>
-              <MuiLink href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" sx={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 40, height: 40, borderRadius: '50%', backgroundColor: '#34495e', color: 'white', transition: 'all 0.25s ease', '&:hover': { backgroundColor: '#1877f2', color: 'white', transform: 'scale(1.1)' } }}>
-                <FacebookIcon sx={{ fontSize: 20 }} />
-              </MuiLink>
-              <MuiLink href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter" sx={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 40, height: 40, borderRadius: '50%', backgroundColor: '#34495e', color: 'white', transition: 'all 0.25s ease', '&:hover': { backgroundColor: '#1da1f2', color: 'white', transform: 'scale(1.1)' } }}>
-                <TwitterIcon sx={{ fontSize: 20 }} />
-              </MuiLink>
-              <MuiLink href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" sx={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 40, height: 40, borderRadius: '50%', backgroundColor: '#34495e', color: 'white', transition: 'all 0.25s ease', '&:hover': { backgroundColor: '#e4405f', color: 'white', transform: 'scale(1.1)' } }}>
-                <InstagramIcon sx={{ fontSize: 20 }} />
-              </MuiLink>
-              <MuiLink href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" sx={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 40, height: 40, borderRadius: '50%', backgroundColor: '#34495e', color: 'white', transition: 'all 0.25s ease', '&:hover': { backgroundColor: '#0a66c2', color: 'white', transform: 'scale(1.1)' } }}>
-                <LinkedInIcon sx={{ fontSize: 20 }} />
-              </MuiLink>
+              <Box sx={{ display: 'flex', justifyContent: { xs: 'center', md: 'flex-start' }, gap: 1.5 }}>
+                <MuiLink href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" sx={socialIconSx}>
+                  <FacebookIcon fontSize="small" />
+                </MuiLink>
+                <MuiLink href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter" sx={socialIconSx}>
+                  <TwitterIcon fontSize="small" />
+                </MuiLink>
+                <MuiLink href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" sx={socialIconSx}>
+                  <InstagramIcon fontSize="small" />
+                </MuiLink>
+                <MuiLink href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" sx={socialIconSx}>
+                  <LinkedInIcon fontSize="small" />
+                </MuiLink>
+              </Box>
             </Box>
           </Grid>
 
-          {/* Quick Links */}
-          <Grid item xs={12} sm={6} md={2}>
-            <Typography variant="subtitle2" fontWeight={700} sx={{ fontSize: '0.85rem', mb: 1 }}>
-              Quick Links
-            </Typography>
-            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.25 }}>
-              <MuiLink href="/" color="inherit" underline="none" sx={footerLinkSx}><HomeIcon sx={{ fontSize: 18 }} /> Home</MuiLink>
-              <MuiLink href="/features" color="inherit" underline="none" sx={footerLinkSx}><StarIcon sx={{ fontSize: 18 }} /> Features</MuiLink>
-              <MuiLink href="/about" color="inherit" underline="none" sx={footerLinkSx}><InfoIcon sx={{ fontSize: 18 }} /> About Us</MuiLink>
-              <MuiLink href="/contact" color="inherit" underline="none" sx={footerLinkSx}><ContactMailIcon sx={{ fontSize: 18 }} /> Contact</MuiLink>
-            </Box>
-          </Grid>
+          {/* Links Sections */}
+          <Grid item xs={12} md={7}>
+            <Grid container spacing={{ xs: 5, sm: 6 }} justifyContent={{ xs: 'center', md: 'flex-end' }}>
+              <Grid item xs={4} sm={4} md={3.5} sx={{ display: 'flex', flexDirection: 'column', alignItems: { xs: 'center', md: 'flex-start' } }}>
+                <Box>
+                  <Typography variant="subtitle1" fontWeight={700} sx={{ color: 'white', mb: { xs: 2, md: 3 }, fontSize: { xs: '0.8rem', sm: '1rem' }, textAlign: 'left' }}>
+                    Quick Links
+                  </Typography>
+                  <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5, alignItems: 'flex-start' }}>
+                    <MuiLink href="#" sx={{ ...footerLinkSx, fontSize: { xs: '0.75rem', sm: '0.875rem' }, whiteSpace: 'nowrap' }}><HomeIcon sx={{ fontSize: { xs: 16, sm: 18 }, color: 'rgba(255,255,255,0.4)' }} /> Home</MuiLink>
+                    <MuiLink href="#" sx={{ ...footerLinkSx, fontSize: { xs: '0.75rem', sm: '0.875rem' }, whiteSpace: 'nowrap' }}><StarIcon sx={{ fontSize: { xs: 16, sm: 18 }, color: 'rgba(255,255,255,0.4)' }} /> Features</MuiLink>
+                    <MuiLink href="#" sx={{ ...footerLinkSx, fontSize: { xs: '0.75rem', sm: '0.875rem' }, whiteSpace: 'nowrap' }}><InfoIcon sx={{ fontSize: { xs: 16, sm: 18 }, color: 'rgba(255,255,255,0.4)' }} /> About</MuiLink>
+                    <MuiLink href="#" sx={{ ...footerLinkSx, fontSize: { xs: '0.75rem', sm: '0.875rem' }, whiteSpace: 'nowrap' }}><ContactMailIcon sx={{ fontSize: { xs: 16, sm: 18 }, color: 'rgba(255,255,255,0.4)' }} /> Contact</MuiLink>
+                  </Box>
+                </Box>
+              </Grid>
 
-          {/* Resources */}
-          <Grid item xs={12} sm={6} md={3}>
-            <Typography variant="subtitle2" fontWeight={700} sx={{ fontSize: '0.85rem', mb: 1 }}>
-              Resources
-            </Typography>
-            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.25 }}>
-              <MuiLink href="/parent-dashboard" color="inherit" underline="none" sx={footerLinkSx}><DashboardIcon sx={{ fontSize: 18 }} /> Parent Dashboard</MuiLink>
-              <MuiLink href="/kids-zone" color="inherit" underline="none" sx={footerLinkSx}><ChildCareIcon sx={{ fontSize: 18 }} /> Kids Zone</MuiLink>
-              <MuiLink href="/blog" color="inherit" underline="none" sx={footerLinkSx}><MenuBookIcon sx={{ fontSize: 18 }} /> Blog</MuiLink>
-              <MuiLink href="/faq" color="inherit" underline="none" sx={footerLinkSx}><HelpOutlineIcon sx={{ fontSize: 18 }} /> FAQ</MuiLink>
-            </Box>
-          </Grid>
+              <Grid item xs={4} sm={4} md={3.5} sx={{ display: 'flex', flexDirection: 'column', alignItems: { xs: 'center', md: 'flex-start' } }}>
+                <Box>
+                  <Typography variant="subtitle1" fontWeight={700} sx={{ color: 'white', mb: { xs: 2, md: 3 }, fontSize: { xs: '0.8rem', sm: '1rem' }, textAlign: 'left' }}>
+                    Resources
+                  </Typography>
+                  <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5, alignItems: 'flex-start' }}>
+                    <MuiLink href="#" sx={{ ...footerLinkSx, fontSize: { xs: '0.75rem', sm: '0.875rem' }, whiteSpace: 'nowrap' }}><DashboardIcon sx={{ fontSize: { xs: 16, sm: 18 }, color: 'rgba(255,255,255,0.4)' }} /> Parents</MuiLink>
+                    <MuiLink href="#" sx={{ ...footerLinkSx, fontSize: { xs: '0.75rem', sm: '0.875rem' }, whiteSpace: 'nowrap' }}><ChildCareIcon sx={{ fontSize: { xs: 16, sm: 18 }, color: 'rgba(255,255,255,0.4)' }} /> Kids</MuiLink>
+                    <MuiLink href="#" sx={{ ...footerLinkSx, fontSize: { xs: '0.75rem', sm: '0.875rem' }, whiteSpace: 'nowrap' }}><MenuBookIcon sx={{ fontSize: { xs: 16, sm: 18 }, color: 'rgba(255,255,255,0.4)' }} /> Blog</MuiLink>
+                    <MuiLink href="#" sx={{ ...footerLinkSx, fontSize: { xs: '0.75rem', sm: '0.875rem' }, whiteSpace: 'nowrap' }}><HelpOutlineIcon sx={{ fontSize: { xs: 16, sm: 18 }, color: 'rgba(255,255,255,0.4)' }} /> FAQ</MuiLink>
+                  </Box>
+                </Box>
+              </Grid>
 
-          {/* Legal */}
-          <Grid item xs={12} sm={6} md={3}>
-            <Typography variant="subtitle2" fontWeight={700} sx={{ fontSize: '0.85rem', mb: 1 }}>
-              Legal
-            </Typography>
-            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.25 }}>
-              <MuiLink href="/privacy" color="inherit" underline="none" sx={footerLinkSx}><PrivacyTipIcon sx={{ fontSize: 18 }} /> Privacy Policy</MuiLink>
-              <MuiLink href="/terms" color="inherit" underline="none" sx={footerLinkSx}><DescriptionIcon sx={{ fontSize: 18 }} /> Terms of Service</MuiLink>
-              <MuiLink href="/cookies" color="inherit" underline="none" sx={footerLinkSx}><SettingsIcon sx={{ fontSize: 18 }} /> Cookie Policy</MuiLink>
-            </Box>
+              <Grid item xs={4} sm={4} md={3.5} sx={{ display: 'flex', flexDirection: 'column', alignItems: { xs: 'center', md: 'flex-start' } }}>
+                <Box>
+                  <Typography variant="subtitle1" fontWeight={700} sx={{ color: 'white', mb: { xs: 2, md: 3 }, fontSize: { xs: '0.8rem', sm: '1rem' }, textAlign: 'left' }}>
+                    Legal
+                  </Typography>
+                  <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5, alignItems: 'flex-start' }}>
+                    <MuiLink href="#" sx={{ ...footerLinkSx, fontSize: { xs: '0.75rem', sm: '0.875rem' }, whiteSpace: 'nowrap' }}><PrivacyTipIcon sx={{ fontSize: { xs: 16, sm: 18 }, color: 'rgba(255,255,255,0.4)' }} /> Privacy</MuiLink>
+                    <MuiLink href="#" sx={{ ...footerLinkSx, fontSize: { xs: '0.75rem', sm: '0.875rem' }, whiteSpace: 'nowrap' }}><DescriptionIcon sx={{ fontSize: { xs: 16, sm: 18 }, color: 'rgba(255,255,255,0.4)' }} /> Terms</MuiLink>
+                    <MuiLink href="#" sx={{ ...footerLinkSx, fontSize: { xs: '0.75rem', sm: '0.875rem' }, whiteSpace: 'nowrap' }}><SettingsIcon sx={{ fontSize: { xs: 16, sm: 18 }, color: 'rgba(255,255,255,0.4)' }} /> Cookies</MuiLink>
+                  </Box>
+                </Box>
+              </Grid>
+            </Grid>
           </Grid>
         </Grid>
 
-        <Box sx={{ borderTop: '1px solid #34495e', mt: 2.5, pt: 2, textAlign: 'center' }}>
-          <Typography variant="body2" sx={{ color: '#bdc3c7', fontSize: '0.75rem' }}>
+        <Divider sx={{ borderColor: 'rgba(255, 255, 255, 0.05)', my: 6 }} />
+
+        <Box sx={{
+          display: 'flex',
+          flexDirection: { xs: 'column', sm: 'row' },
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          gap: 2
+        }}>
+          <Typography variant="body2" sx={{ color: 'rgba(255, 255, 255, 0.4)', fontSize: '0.8rem' }}>
             © {new Date().getFullYear()} Please Scan. All rights reserved.
+          </Typography>
+          <Typography variant="body2" sx={{
+            color: 'rgba(255, 255, 255, 0.4)',
+            fontSize: '0.8rem',
+            display: 'flex',
+            alignItems: 'center',
+            gap: 1
+          }}>
+            Made with ❤️ for Families
           </Typography>
         </Box>
       </Container>
-    </Box>
+    </Box >
   )
 }
 
 export default Footer
+
