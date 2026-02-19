@@ -99,11 +99,11 @@ const Contact = () => {
                     </Container>
                 </Box>
 
-                <Container maxWidth={false} sx={{ maxWidth: '1400px', pb: 12, position: 'relative', zIndex: 1 }}>
+                <Container maxWidth="lg" sx={{ pb: 12, position: 'relative', zIndex: 1, ml: { md: 'auto' }, mr: { md: '0.0%' } }}>
                     <Grid container spacing={4}>
 
-                        {/* Contact Form — 12 Columns */}
-                        <Grid item xs={12}>
+                        {/* Contact Form — 8 Columns on desktop */}
+                        <Grid item xs={12} md={8}>
                             <Card sx={cardSx}>
                                 <CardContent sx={{ p: 0 }}>
                                     <Box sx={{ mb: 4, textAlign: 'center' }}>
@@ -174,13 +174,14 @@ const Contact = () => {
                             </Card>
                         </Grid>
 
-                        {/* Contact Info — 12 Columns, cards side by side in a row */}
-                        <Grid item xs={12} md={12}>
+                        {/* Contact Info — 4 Columns on desktop */}
+                        <Grid item xs={12} md={4}>
                             <Box
                                 sx={{
                                     display: 'flex',
-                                    flexDirection: { xs: 'column', md: 'row' }, // ✅ row on desktop, column on mobile
+                                    flexDirection: 'column', // ✅ Always column on this side
                                     gap: 3,
+                                    height: '100%'
                                 }}
                             >
                                 {[
@@ -210,7 +211,8 @@ const Contact = () => {
                                         key={idx}
                                         sx={{
                                             ...cardSx,
-                                            flex: 1, // ✅ each card takes equal width in the row
+                                            p: 3, // Smaller padding for side cards
+                                            flex: { md: 1 }, // Take equal space when in sidebar
                                             transition: '0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
                                             '&:hover': {
                                                 transform: 'translateY(-8px) scale(1.02)',
@@ -221,12 +223,12 @@ const Contact = () => {
                                             cursor: 'pointer'
                                         }}
                                     >
-                                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 3 }}>
+                                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2.5 }}>
                                             <Box
                                                 sx={{
-                                                    width: 70,
-                                                    height: 70,
-                                                    borderRadius: '20px',
+                                                    width: 56,
+                                                    height: 56,
+                                                    borderRadius: '16px',
                                                     bgcolor: item.bg,
                                                     color: item.color,
                                                     display: 'flex',
@@ -235,16 +237,16 @@ const Contact = () => {
                                                     boxShadow: `0 8px 16px ${item.color}33`,
                                                     transition: '0.3s',
                                                     flexShrink: 0,
-                                                    '& .MuiSvgIcon-root': { fontSize: 36 }
+                                                    '& .MuiSvgIcon-root': { fontSize: 28 }
                                                 }}
                                             >
                                                 {item.icon}
                                             </Box>
                                             <Box>
-                                                <Typography variant="h6" sx={{ fontWeight: 800, color: '#1a237e', mb: 0.5 }}>
+                                                <Typography variant="h6" sx={{ fontWeight: 800, color: '#1a237e', mb: 0.2, fontSize: '1.1rem', fontFamily: '"Poppins", sans-serif' }}>
                                                     {item.title}
                                                 </Typography>
-                                                <Typography sx={{ color: '#546e7a', fontSize: '0.95rem', fontWeight: 500 }}>
+                                                <Typography sx={{ color: '#546e7a', fontSize: '0.85rem', fontWeight: 500, fontFamily: '"Poppins", sans-serif' }}>
                                                     {item.detail}
                                                 </Typography>
                                             </Box>
