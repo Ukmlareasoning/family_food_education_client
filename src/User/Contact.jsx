@@ -25,42 +25,49 @@ const Contact = () => {
     }
 
     const cardSx = {
-        borderRadius: '24px',
-        border: '1px solid rgba(255, 255, 255, 0.4)',
-        backdropFilter: 'blur(10px)',
-        bgcolor: 'rgba(255, 255, 255, 0.8)',
-        boxShadow: '0 8px 32px rgba(0,0,0,0.05)',
-        p: { xs: 3, md: 4 },
-        transition: '0.3s ease-in-out',
+        borderRadius: '16px',
+        border: '1px solid rgba(33, 150, 243, 0.1)',
+        bgcolor: '#ffffff',
+        boxShadow: '0 8px 32px rgba(0,0,0,0.08)',
+        overflow: 'hidden',
+        p: { xs: 3, md: 5 },
     }
 
     const inputSx = {
         '& .MuiOutlinedInput-root': {
-            borderRadius: '16px',
-            fontFamily: '"Poppins", sans-serif',
-            backgroundColor: 'rgba(248, 250, 252, 0.5)',
-            transition: '0.3s',
+            borderRadius: '12px',
+            backgroundColor: '#f8f9fa',
             '& fieldset': {
-                borderColor: 'rgba(0,0,0,0.05)',
+                borderColor: 'rgba(0, 0, 0, 0.08)',
             },
             '&:hover fieldset': {
                 borderColor: '#4CAF50',
             },
             '&.Mui-focused fieldset': {
                 borderColor: '#4CAF50',
-                borderWidth: '2px',
             },
-            '&.Mui-focused': {
-                backgroundColor: '#ffffff',
-                boxShadow: '0 4px 12px rgba(76,175,80,0.1)',
-            }
         },
-        '& .MuiInputLabel-root': {
-            fontFamily: '"Poppins", sans-serif',
-            '&.Mui-focused': {
-                color: '#4CAF50',
-            }
-        }
+        '& .MuiInputLabel-root.Mui-focused': {
+            color: '#4CAF50',
+        },
+    }
+
+    const primaryButtonSx = {
+        fontFamily: '"Poppins", sans-serif',
+        background: 'linear-gradient(180deg, #66bb6a 0%, #4CAF50 50%, #43a047 100%)',
+        color: 'white',
+        py: 1.8,
+        borderRadius: '12px',
+        fontSize: '1.05rem',
+        fontWeight: 700,
+        textTransform: 'none',
+        boxShadow: '0 4px 14px rgba(76,175,80,0.4)',
+        '&:hover': {
+            background: 'linear-gradient(180deg, #57a35a 0%, #388e3c 100%)',
+            boxShadow: '0 6px 18px rgba(76,175,80,0.45)',
+            transform: 'translateY(-2px)',
+        },
+        transition: 'all 0.2s ease',
     }
 
     return (
@@ -70,20 +77,21 @@ const Contact = () => {
                 <Box sx={{ height: { xs: 56, sm: 64 } }} />
 
                 {/* Hero Section */}
-                <Box sx={{ py: { xs: 8, md: 12 }, position: 'relative', zIndex: 1 }}>
+                <Box sx={{ py: { xs: 8, md: 10 }, position: 'relative', zIndex: 1 }}>
                     <Container maxWidth="md">
                         <Typography variant="h1" sx={sectionTitleSx}>
                             Contact Us
                         </Typography>
                         <Typography
                             sx={{
-                                fontSize: { xs: '1rem', md: '1.2rem' },
-                                color: '#4F5C80',
+                                fontSize: { xs: '1rem', md: '1.1rem' },
+                                color: '#64748b',
                                 textAlign: 'center',
                                 lineHeight: 1.6,
                                 mb: 0,
                                 maxWidth: 600,
-                                mx: 'auto'
+                                mx: 'auto',
+                                fontFamily: '"Poppins", sans-serif',
                             }}
                         >
                             Have questions? We'd love to hear from you! Our team is here to help you and your family on your healthy snacking journey.
@@ -96,75 +104,72 @@ const Contact = () => {
 
                         {/* Contact Form — 12 Columns */}
                         <Grid item xs={12}>
-                            <Card sx={{ ...cardSx, width: '100%' }}>
+                            <Card sx={cardSx}>
                                 <CardContent sx={{ p: 0 }}>
-                                    <Typography variant="h5" sx={{ fontWeight: 800, color: '#1a237e', mb: 3 }}>
-                                        Send us a Message
-                                    </Typography>
+                                    <Box sx={{ mb: 4, textAlign: 'center' }}>
+                                        <Typography
+                                            variant="h4"
+                                            sx={{
+                                                fontWeight: 800,
+                                                color: '#1a237e',
+                                                mb: 1.5,
+                                                fontFamily: '"Poppins", sans-serif',
+                                                fontSize: { xs: '1.75rem', sm: '2.25rem' }
+                                            }}
+                                        >
+                                            Send us a Message
+                                        </Typography>
+                                        <Typography variant="body1" sx={{ color: '#64748b' }}>
+                                            Fill out the form below and we'll get back to you shortly.
+                                        </Typography>
+                                    </Box>
 
-                                    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
-                                        <TextField
-                                            fullWidth
-                                            label="Your Name"
-                                            variant="outlined"
-                                            sx={inputSx}
-                                            placeholder="John Doe"
-                                        />
+                                    <form>
+                                        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2.5 }}>
+                                            <TextField
+                                                fullWidth
+                                                label="Your Name"
+                                                variant="outlined"
+                                                sx={inputSx}
+                                                placeholder="John Doe"
+                                            />
 
-                                        <TextField
-                                            fullWidth
-                                            label="Email Address"
-                                            variant="outlined"
-                                            sx={inputSx}
-                                            placeholder="john@example.com"
-                                        />
+                                            <TextField
+                                                fullWidth
+                                                label="Email Address"
+                                                variant="outlined"
+                                                sx={inputSx}
+                                                placeholder="john@example.com"
+                                            />
 
-                                        <TextField
-                                            fullWidth
-                                            label="Subject"
-                                            variant="outlined"
-                                            sx={inputSx}
-                                            placeholder="How can we help?"
-                                        />
+                                            <TextField
+                                                fullWidth
+                                                label="Subject"
+                                                variant="outlined"
+                                                sx={inputSx}
+                                                placeholder="How can we help?"
+                                            />
 
-                                        <TextField
-                                            fullWidth
-                                            label="Message"
-                                            variant="outlined"
-                                            multiline
-                                            rows={5}
-                                            sx={inputSx}
-                                            placeholder="Tell us more about your inquiry..."
-                                        />
+                                            <TextField
+                                                fullWidth
+                                                label="Message"
+                                                variant="outlined"
+                                                multiline
+                                                rows={5}
+                                                sx={inputSx}
+                                                placeholder="Tell us more about your inquiry..."
+                                            />
 
-                                        <Box>
                                             <Button
                                                 variant="contained"
                                                 fullWidth
                                                 startIcon={<SendRoundedIcon />}
-                                                sx={{
-                                                    background: 'linear-gradient(180deg, #66bb6a 0%, #4CAF50 50%, #43a047 100%)',
-                                                    color: 'white',
-                                                    px: 6,
-                                                    py: 2.2,
-                                                    borderRadius: '16px',
-                                                    fontSize: '1.1rem',
-                                                    fontWeight: 700,
-                                                    textTransform: 'none',
-                                                    border: '2px solid rgba(255,255,255,0.2)',
-                                                    boxShadow: '0 8px 24px rgba(76,175,80,0.3)',
-                                                    '&:hover': {
-                                                        background: 'linear-gradient(180deg, #57a35b 0%, #388e3c 100%)',
-                                                        transform: 'translateY(-3px)',
-                                                        boxShadow: '0 12px 28px rgba(76,175,80,0.4)',
-                                                    },
-                                                    transition: '0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)'
-                                                }}
+                                                sx={{ ...primaryButtonSx, mt: 1 }}
                                             >
                                                 Send Message
                                             </Button>
                                         </Box>
-                                    </Box>
+                                    </form>
                                 </CardContent>
                             </Card>
                         </Grid>
