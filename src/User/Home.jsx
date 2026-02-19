@@ -93,15 +93,8 @@ function Home() {
         {/* Spacer so content is not hidden under fixed header */}
         <Box sx={{ height: { xs: 56, sm: 64 } }} />
 
-        {/* Hero – light blue sky gradient, headline, Download + iOS/Android + QR, Scan a Snack! oval button, illustration */}
-        <Box
-          sx={{
-            background: 'linear-gradient(180deg, #e3f2fd 0%, #bbdefb 35%, #90caf9 70%, #e8f5e9 100%)',
-            position: 'relative',
-            zIndex: 1,
-            overflow: 'hidden',
-          }}
-        >
+        {/* Hero – same background as rest of page (FoodPatternBackground), headline, Download + iOS/Android + QR, Scan a Snack! oval button, illustration */}
+        <Box sx={{ position: 'relative', zIndex: 1 }}>
         <Container
           maxWidth="lg"
           sx={{
@@ -333,28 +326,6 @@ function Home() {
                   gap: 2,
                 }}
               >
-                <Button
-                  variant="contained"
-                  startIcon={<CameraAltRoundedIcon sx={{ fontSize: 28 }} />}
-                  sx={{
-                    fontFamily: '"Poppins", sans-serif',
-                    background: 'linear-gradient(180deg, #ffb347 0%, #ff9a00 50%, #E08C00 100%)',
-                    color: 'white',
-                    px: 4,
-                    py: 2,
-                    borderRadius: 9999,
-                    fontSize: { xs: '1.1rem', md: '1.25rem' },
-                    fontWeight: 700,
-                    textTransform: 'none',
-                    boxShadow: '0 6px 20px rgba(224,140,0,0.4), 0 2px 6px rgba(0,0,0,0.1)',
-                    border: '2px solid rgba(255,255,255,0.9)',
-                    minWidth: { xs: 260, sm: 280 },
-                    order: { xs: 2, sm: 1 },
-                    '&:hover': { background: 'linear-gradient(180deg, #ff9a00 0%, #d97d00 100%)', boxShadow: '0 8px 24px rgba(224,140,0,0.5)' },
-                  }}
-                >
-                  Scan a Snack!
-                </Button>
                 <Box
                   sx={{
                     display: 'flex',
@@ -425,7 +396,7 @@ function Home() {
             <Grid item xs={12} md={4} sx={{ display: 'flex' }}>
               <Card 
                 sx={{ 
-                  borderRadius: 4,
+                  borderRadius: '7px',
                   border: '1px solid rgba(33, 150, 243, 0.2)',
                   bgcolor: '#ffffff',
                   boxShadow: '0 4px 20px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04)',
@@ -459,7 +430,7 @@ function Home() {
             <Grid item xs={12} md={4} sx={{ display: 'flex' }}>
               <Card 
                 sx={{ 
-                  borderRadius: 4,
+                  borderRadius: '7px',
                   border: '1px solid rgba(33, 150, 243, 0.2)',
                   bgcolor: '#ffffff',
                   boxShadow: '0 4px 20px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04)',
@@ -492,7 +463,7 @@ function Home() {
             <Grid item xs={12} md={4} sx={{ display: 'flex' }}>
               <Card 
                 sx={{ 
-                  borderRadius: 4,
+                  borderRadius: '7px',
                   border: '1px solid rgba(33, 150, 243, 0.2)',
                   bgcolor: '#ffffff',
                   boxShadow: '0 4px 20px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04)',
@@ -554,7 +525,7 @@ function Home() {
 
           <Grid container spacing={3} alignItems="stretch" justifyContent="center">
             <Grid item xs={12} sm={6} md={4}>
-              <Card sx={{ borderRadius: 4, border: '1px solid rgba(33, 150, 243, 0.2)', bgcolor: '#ffffff', boxShadow: '0 4px 20px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04)', p: 2.5, height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+              <Card sx={{ borderRadius: '7px', border: '1px solid rgba(33, 150, 243, 0.2)', bgcolor: '#ffffff', boxShadow: '0 4px 20px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04)', p: 2.5, height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
                 <Box sx={{ width: 64, height: 64, borderRadius: 2, bgcolor: '#e3f2fd', mb: 1.5, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <CameraAltRoundedIcon sx={{ fontSize: 32, color: '#1976d2' }} />
                 </Box>
@@ -563,7 +534,7 @@ function Home() {
               </Card>
             </Grid>
             <Grid item xs={12} sm={6} md={4}>
-              <Card sx={{ borderRadius: 4, border: '1px solid rgba(33, 150, 243, 0.2)', bgcolor: '#ffffff', boxShadow: '0 4px 20px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04)', p: 2.5, height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+              <Card sx={{ borderRadius: '7px', border: '1px solid rgba(33, 150, 243, 0.2)', bgcolor: '#ffffff', boxShadow: '0 4px 20px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04)', p: 2.5, height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
                 <Box sx={{ width: 64, height: 64, borderRadius: 2, bgcolor: '#e3f2fd', mb: 1.5, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <AssessmentRoundedIcon sx={{ fontSize: 32, color: '#1976d2' }} />
                 </Box>
@@ -845,7 +816,7 @@ function Home() {
                     px: 3,
                     py: 2,
                     bgcolor: 'white',
-                    borderRadius: 9999,
+                    borderRadius: '7px',
                     boxShadow: '0 2px 12px rgba(0,0,0,0.06)',
                     border: '1px solid rgba(33, 150, 243, 0.2)',
                     minHeight: 56,
@@ -870,7 +841,7 @@ function Home() {
                     px: 3,
                     py: 2,
                     bgcolor: 'white',
-                    borderRadius: 9999,
+                    borderRadius: '7px',
                     boxShadow: '0 2px 12px rgba(0,0,0,0.06)',
                     border: '1px solid rgba(33, 150, 243, 0.2)',
                     minHeight: 56,
@@ -878,7 +849,7 @@ function Home() {
                   }}
                 >
                   <SecurityIcon sx={{ fontSize: 32, color: '#5eb8e6', flexShrink: 0 }} />
-                  <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontWeight: 600, fontSize: '1rem', color: '#1a237e' }}>
+                  <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontWeight: 600, fontSize: '0.92rem', color: '#1a237e' }}>
                     Privacy-First Approach
                   </Typography>
                 </Box>
@@ -895,7 +866,7 @@ function Home() {
                     px: 3,
                     py: 2,
                     bgcolor: 'white',
-                    borderRadius: 9999,
+                    borderRadius: '7px',
                     boxShadow: '0 2px 12px rgba(0,0,0,0.06)',
                     border: '1px solid rgba(33, 150, 243, 0.2)',
                     minHeight: 56,
@@ -915,9 +886,9 @@ function Home() {
           </Container>
         </Box>
 
-        {/* Welcome to Scan a Snack! (Page 2 hero) */}
-        <Box sx={{ py: 10, position: 'relative' }}>
-          <Container maxWidth="lg" sx={{ pr: { xs: 2, md: 0 } }}>
+        {/* Welcome to Scan a Snack! – left text; image at absolute right (same as Track Progress) */}
+        <Box sx={{ py: 10, position: 'relative', overflow: 'hidden', minHeight: 380 }}>
+          <Container maxWidth="lg" sx={{ position: 'relative', pr: { xs: 2, md: 0 } }}>
             <Grid container spacing={4} alignItems="center">
               <Grid item xs={12} md={6}>
                 {/* Logo: gradient icon + Scan a Snack! */}
@@ -974,23 +945,45 @@ function Home() {
                   Try It Now! Scan a
                 </Button>
               </Grid>
-              <Grid item xs={12} md={6} sx={{ display: 'flex', justifyContent: { xs: 'center', md: 'flex-end' }, alignItems: 'flex-end', pr: { md: 0 }, overflow: 'visible' }}>
+              {/* Mobile: image in flow below text */}
+              <Grid item xs={12} md={6} sx={{ display: { xs: 'flex', md: 'none' }, justifyContent: 'center', alignItems: 'center' }}>
                 <Box
                   component="img"
                   src={welcomeImg}
                   alt="Scan a Snack app with food illustrations"
                   sx={{
-                    maxWidth: 580,
-                    width: '85%',
+                    width: '100%',
+                    maxWidth: 400,
                     height: 'auto',
-                    display: 'block',
                     borderRadius: 1.5,
                     filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.12))',
-                    ml: { md: 'auto' },
                   }}
                 />
               </Grid>
             </Grid>
+            {/* Image at absolute right, in front (desktop) */}
+            <Box
+              component="img"
+              src={welcomeImg}
+              alt="Scan a Snack app with food illustrations"
+              sx={{
+                display: { xs: 'none', md: 'block' },
+                position: 'absolute',
+                right: 0,
+                top: '50%',
+                transform: 'translateY(-50%)',
+                maxWidth: 520,
+                width: '48%',
+                height: 'auto',
+                maxHeight: 400,
+                objectFit: 'contain',
+                objectPosition: 'right center',
+                borderRadius: 1.5,
+                filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.12))',
+                zIndex: 2,
+                pointerEvents: 'none',
+              }}
+            />
           </Container>
         </Box>
 
@@ -1006,7 +999,7 @@ function Home() {
 
             <Grid container spacing={4}>
               <Grid item xs={12} md={4} sx={{ minWidth: 0, display: 'flex' }}>
-                <Card sx={{ borderRadius: 1.5, p: 3, height: '100%', boxShadow: '0 8px 24px rgba(0,0,0,0.08)', border: 'none', bgcolor: 'white', maxWidth: '100%', width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                <Card sx={{ borderRadius: '7px', p: 3, height: '100%', boxShadow: '0 8px 24px rgba(0,0,0,0.08)', border: 'none', bgcolor: 'white', maxWidth: '100%', width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                   <Box sx={{ width: 88, height: 88, borderRadius: '50%', bgcolor: '#e3f2fd', display: 'flex', alignItems: 'center', justifyContent: 'center', mx: 'auto', mb: 2, boxShadow: '0 0 0 6px rgba(33,150,243,0.2)' }}>
                     <QrCodeIcon sx={{ fontSize: 48, color: '#1976d2' }} />
                   </Box>
@@ -1017,7 +1010,7 @@ function Home() {
                 </Card>
               </Grid>
               <Grid item xs={12} md={4} sx={{ minWidth: 0, display: 'flex' }}>
-                <Card sx={{ borderRadius: 1.5, p: 3, height: '100%', boxShadow: '0 8px 24px rgba(0,0,0,0.08)', border: 'none', bgcolor: 'white', maxWidth: '100%', width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                <Card sx={{ borderRadius: '7px', p: 3, height: '100%', boxShadow: '0 8px 24px rgba(0,0,0,0.08)', border: 'none', bgcolor: 'white', maxWidth: '100%', width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                   <Box sx={{ width: 88, height: 88, borderRadius: '50%', bgcolor: '#fff3e0', display: 'flex', alignItems: 'center', justifyContent: 'center', mx: 'auto', mb: 2 }}>
                     <CardGiftcardIcon sx={{ fontSize: 48, color: '#e53935' }} />
                   </Box>
@@ -1028,7 +1021,7 @@ function Home() {
                 </Card>
               </Grid>
               <Grid item xs={12} md={4} sx={{ minWidth: 0, display: 'flex' }}>
-                <Card sx={{ borderRadius: 1.5, p: 3, height: '100%', boxShadow: '0 8px 24px rgba(0,0,0,0.08)', border: 'none', bgcolor: 'white', maxWidth: '100%', width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                <Card sx={{ borderRadius: '7px', p: 3, height: '100%', boxShadow: '0 8px 24px rgba(0,0,0,0.08)', border: 'none', bgcolor: 'white', maxWidth: '100%', width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                   <Box sx={{ width: 88, height: 88, borderRadius: '50%', bgcolor: '#e8f5e9', display: 'flex', alignItems: 'center', justifyContent: 'center', mx: 'auto', mb: 2 }}>
                     <EmojiObjectsIcon sx={{ fontSize: 48, color: '#22C55E' }} />
                   </Box>
@@ -1042,9 +1035,9 @@ function Home() {
           </Container>
         </Box>
 
-        {/* Track Progress with Parental Insights – two columns: left text + list, right laptop illustration */}
-        <Box sx={{ py: 8, position: 'relative', zIndex: 1, background: 'linear-gradient(180deg, rgba(227,242,253,0.5) 0%, rgba(255,255,255,0.9) 100%)' }}>
-          <Container maxWidth="lg">
+        {/* Track Progress with Parental Insights – left text + list; image at absolute right corner in front */}
+        <Box sx={{ py: 8, position: 'relative', zIndex: 1, background: 'linear-gradient(180deg, rgba(227,242,253,0.5) 0%, rgba(255,255,255,0.9) 100%)', overflow: 'hidden', minHeight: 320 }}>
+          <Container maxWidth="lg" sx={{ position: 'relative' }}>
             <Grid container spacing={4} alignItems="center">
               <Grid item xs={12} md={6}>
                 <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontWeight: 700, fontSize: { xs: '1.65rem', md: '2rem' }, color: '#1a237e', mb: 1.5, textAlign: { xs: 'center', md: 'left' } }}>
@@ -1074,14 +1067,14 @@ function Home() {
                   </Box>
                 </Box>
               </Grid>
-              <Grid item xs={12} md={6} sx={{ display: 'flex', justifyContent: { xs: 'center', md: 'flex-end' }, alignItems: 'center' }}>
+              <Grid item xs={12} md={6} sx={{ display: { xs: 'flex', md: 'none' }, justifyContent: 'center', alignItems: 'center' }}>
                 <Box
                   component="img"
                   src={trackProgressImg}
                   alt="Parental Insights dashboard on laptop"
                   sx={{
-                    maxWidth: '100%',
-                    width: { xs: '100%', md: 520 },
+                    width: '100%',
+                    maxWidth: 400,
                     height: 'auto',
                     borderRadius: 3,
                     boxShadow: '0 12px 40px rgba(0,0,0,0.12)',
@@ -1089,6 +1082,30 @@ function Home() {
                 />
               </Grid>
             </Grid>
+            {/* Image at absolute right corner, in front of section (desktop) */}
+            <Box
+              component="img"
+              src={trackProgressImg}
+              alt="Parental Insights dashboard on laptop"
+              sx={{
+                display: { xs: 'none', md: 'block' },
+                position: 'absolute',
+                right: 0,
+                bottom: 0,
+                top: '50%',
+                transform: 'translateY(-50%)',
+                maxWidth: 480,
+                width: '50%',
+                height: 'auto',
+                maxHeight: 340,
+                objectFit: 'contain',
+                objectPosition: 'right center',
+                borderRadius: 3,
+                boxShadow: '0 12px 40px rgba(0,0,0,0.12)',
+                zIndex: 2,
+                pointerEvents: 'none',
+              }}
+            />
           </Container>
         </Box>
 
@@ -1136,27 +1153,21 @@ function Home() {
                 >
                   <Grid container spacing={2}>
                     <Grid item xs={12} sm={6}>
-                      <Box sx={{ background: 'linear-gradient(135deg, #ff7043 0%, #e53935 100%)', color: 'white', borderRadius: 2, p: 2.5, minHeight: 140, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+                      <Box sx={{ background: 'linear-gradient(135deg, #ff7043 0%, #e53935 100%)', color: 'white', borderRadius: '7px', p: 2.5, minHeight: 140, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
                         <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontWeight: 700, fontSize: '1rem', mb: 1.5 }}>Points & Rewards</Typography>
                         <Box sx={{ display: 'flex', gap: 0.5, fontSize: '1.75rem' }}>💰 ⭐ ⭐</Box>
                       </Box>
                     </Grid>
                     <Grid item xs={12} sm={6}>
-                      <Box sx={{ bgcolor: '#4CAF50', color: 'white', borderRadius: 2, p: 2.5, minHeight: 140, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+                      <Box sx={{ bgcolor: '#4CAF50', color: 'white', borderRadius: '7px', p: 2.5, minHeight: 140, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
                         <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontWeight: 700, fontSize: '1rem', mb: 1.5 }}>Food Games</Typography>
                         <Box sx={{ display: 'flex', gap: 0.5, fontSize: '1.75rem' }}>🥣 🥕 🎮</Box>
                       </Box>
                     </Grid>
                     <Grid item xs={12} sm={6}>
-                      <Box sx={{ background: 'linear-gradient(135deg, #ab47bc 0%, #5c6bc0 100%)', color: 'white', borderRadius: 2, p: 2.5, minHeight: 140, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+                      <Box sx={{ background: 'linear-gradient(135deg, #ab47bc 0%, #5c6bc0 100%)', color: 'white', borderRadius: '7px', p: 2.5, minHeight: 140, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
                         <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontWeight: 700, fontSize: '1rem', mb: 1.5 }}>Fun Food Facts</Typography>
                         <Box sx={{ display: 'flex', gap: 0.5, fontSize: '1.75rem' }}>💡 🍎 🍇</Box>
-                      </Box>
-                    </Grid>
-                    <Grid item xs={12} sm={6}>
-                      <Box sx={{ background: 'linear-gradient(135deg, #ff9800 0%, #f57c00 100%)', color: 'white', borderRadius: 2, p: 2.5, minHeight: 140, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-                        <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontWeight: 700, fontSize: '1rem', mb: 1.5 }}>Recipes & More</Typography>
-                        <RestaurantIcon sx={{ fontSize: 40, opacity: 0.95 }} />
                       </Box>
                     </Grid>
                   </Grid>
