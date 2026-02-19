@@ -64,10 +64,14 @@ function Header() {
   const navItems = [
     { label: 'Home', path: '/' },
     { label: 'Features', path: '/#features' },
-    { label: 'About', path: '/about' },
-    { label: 'Contact', path: '/contact' },
+    { label: 'Parent Dashboard', path: '#' },
+    { label: 'Kids Zone', path: '#' },
     { label: 'Blog', path: '/blog' },
-    { label: 'FAQ', path: '/faq' },
+  ]
+
+  const mobileNavItems = [
+    { label: 'Home', path: '/' },
+    { label: 'Features', path: '/#features' },
   ]
 
   const drawer = (
@@ -78,7 +82,7 @@ function Header() {
         </IconButton>
       </Box>
       <List>
-        {navItems.map((item) => (
+        {mobileNavItems.map((item) => (
           <ListItem
             key={item.label}
             disablePadding
@@ -107,6 +111,7 @@ function Header() {
           <Button
             variant="contained"
             fullWidth
+            onClick={handleDrawerToggle}
             sx={{
               fontFamily: '"Poppins", sans-serif',
               backgroundColor: '#ff9500',

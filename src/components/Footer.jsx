@@ -12,7 +12,7 @@ import DashboardIcon from '@mui/icons-material/Dashboard'
 import ChildCareIcon from '@mui/icons-material/ChildCare'
 import MenuBookIcon from '@mui/icons-material/MenuBook'
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline'
-import PrivacyTipIcon from '@mui/icons-material/PrivacyTip'
+import GavelIcon from '@mui/icons-material/Gavel'
 import DescriptionIcon from '@mui/icons-material/Description'
 import SettingsIcon from '@mui/icons-material/Settings'
 import { placeholders } from '../utils/placeholderImages'
@@ -173,9 +173,9 @@ function Footer() {
                     Legal
                   </Typography>
                   <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5, alignItems: 'flex-start' }}>
-                    <MuiLink component={Link} to="#" sx={{ ...footerLinkSx, fontSize: { xs: '0.75rem', sm: '0.875rem' }, whiteSpace: 'nowrap' }}><PrivacyTipIcon sx={{ fontSize: { xs: 16, sm: 18 }, color: 'rgba(255,255,255,0.4)' }} /> Privacy</MuiLink>
-                    <MuiLink component={Link} to="#" sx={{ ...footerLinkSx, fontSize: { xs: '0.75rem', sm: '0.875rem' }, whiteSpace: 'nowrap' }}><DescriptionIcon sx={{ fontSize: { xs: 16, sm: 18 }, color: 'rgba(255,255,255,0.4)' }} /> Terms</MuiLink>
-                    <MuiLink component={Link} to="#" sx={{ ...footerLinkSx, fontSize: { xs: '0.75rem', sm: '0.875rem' }, whiteSpace: 'nowrap' }}><SettingsIcon sx={{ fontSize: { xs: 16, sm: 18 }, color: 'rgba(255,255,255,0.4)' }} /> Cookies</MuiLink>
+                    <MuiLink component={Link} to="/privacy" sx={{ ...footerLinkSx, fontSize: { xs: '0.75rem', sm: '0.875rem' }, whiteSpace: 'nowrap' }}><GavelIcon sx={{ fontSize: { xs: 16, sm: 18 }, color: 'rgba(255,255,255,0.4)' }} /> Privacy</MuiLink>
+                    <MuiLink component={Link} to="/terms" sx={{ ...footerLinkSx, fontSize: { xs: '0.75rem', sm: '0.875rem' }, whiteSpace: 'nowrap' }}><DescriptionIcon sx={{ fontSize: { xs: 16, sm: 18 }, color: 'rgba(255,255,255,0.4)' }} /> Terms</MuiLink>
+                    <MuiLink component={Link} to="#" sx={{ ...footerLinkSx, fontSize: { xs: 16, sm: 18 }, whiteSpace: 'nowrap' }}><SettingsIcon sx={{ fontSize: { xs: 16, sm: 18 }, color: 'rgba(255,255,255,0.4)' }} /> Cookies</MuiLink>
                   </Box>
                 </Box>
               </Grid>

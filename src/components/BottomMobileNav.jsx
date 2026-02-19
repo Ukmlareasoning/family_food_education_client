@@ -3,7 +3,8 @@ import { useLocation, Link } from 'react-router-dom'
 import { Paper, BottomNavigation, BottomNavigationAction, Box } from '@mui/material'
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded'
 import StarRoundedIcon from '@mui/icons-material/StarRounded'
-import ContactMailRoundedIcon from '@mui/icons-material/ContactMailRounded'
+import PersonRoundedIcon from '@mui/icons-material/PersonRounded'
+import WidgetsRoundedIcon from '@mui/icons-material/WidgetsRounded'
 
 const BottomMobileNav = () => {
     const [value, setValue] = useState(0)
@@ -11,13 +12,15 @@ const BottomMobileNav = () => {
 
     useEffect(() => {
         if (location.pathname === '/') {
-            setValue(0)
-        } else if (location.pathname === '/about') {
-            setValue(1)
-        } else if (location.pathname === '/contact') {
+            if (location.hash === '#features') {
+                setValue(1)
+            } else {
+                setValue(0)
+            }
+        } else if (location.pathname === '/login') {
             setValue(2)
         }
-    }, [location.pathname])
+    }, [location.pathname, location.hash])
 
     return (
         <Box sx={{ display: { xs: 'block', md: 'none' } }}>
@@ -78,16 +81,16 @@ const BottomMobileNav = () => {
                         to="/"
                     />
                     <BottomNavigationAction
-                        label="About"
-                        icon={<StarRoundedIcon />}
+                        label="Features"
+                        icon={<WidgetsRoundedIcon />}
                         component={Link}
-                        to="/about"
+                        to="/#features"
                     />
                     <BottomNavigationAction
-                        label="Contact"
-                        icon={<ContactMailRoundedIcon />}
+                        label="Login"
+                        icon={<PersonRoundedIcon />}
                         component={Link}
-                        to="/contact"
+                        to="#"
                     />
                 </BottomNavigation>
             </Paper>
