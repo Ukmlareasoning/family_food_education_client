@@ -86,39 +86,73 @@ function Auth() {
 
                 <Container maxWidth="sm" sx={{ flex: 1, py: { xs: 4, md: 8 }, position: 'relative', zIndex: 1 }}>
                     <Card sx={cardSx}>
-                        <Box sx={{ borderBottom: 1, borderColor: 'rgba(0,0,0,0.05)', bgcolor: '#fdfdfd' }}>
-                            <Tabs
-                                value={tabValue}
-                                onChange={handleTabChange}
-                                variant="fullWidth"
+                        <Box sx={{ p: 2, display: 'flex', justifyContent: 'center', bgcolor: '#f8fafc', borderBottom: '1px solid rgba(0,0,0,0.03)' }}>
+                            <Box
                                 sx={{
-                                    '& .MuiTabs-indicator': {
-                                        backgroundColor: '#4CAF50',
-                                        height: 3,
-                                        borderRadius: '3px 3px 0 0',
-                                    },
-                                    '& .MuiTab-root': {
-                                        fontFamily: '"Poppins", sans-serif',
-                                        fontWeight: 700,
-                                        fontSize: '0.95rem',
-                                        py: 2.5,
-                                        color: '#94a3b8',
-                                        textTransform: 'none',
-                                        transition: 'all 0.2s ease',
-                                        '&.Mui-selected': {
-                                            color: '#1a237e',
-                                            bgcolor: 'rgba(76, 175, 80, 0.03)',
-                                        },
-                                        '&:hover': {
-                                            color: '#1a237e',
-                                            bgcolor: 'rgba(0,0,0,0.02)',
-                                        }
-                                    },
+                                    display: 'flex',
+                                    p: 0.7,
+                                    bgcolor: 'white',
+                                    borderRadius: '14px',
+                                    border: '1px solid rgba(0,0,0,0.06)',
+                                    width: '100%',
+                                    position: 'relative',
+                                    gap: 0.5,
                                 }}
                             >
-                                <Tab label="Log In" />
-                                <Tab label="Register" />
-                            </Tabs>
+                                {/* Sliding Background */}
+                                <Box
+                                    sx={{
+                                        position: 'absolute',
+                                        top: 5,
+                                        bottom: 5,
+                                        left: 5,
+                                        width: 'calc(50% - 5px)',
+                                        bgcolor: '#4CAF50',
+                                        borderRadius: '10px',
+                                        transition: 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                                        transform: `translateX(${tabValue === 1 ? '100%' : '0%'})`,
+                                        boxShadow: '0 4px 12px rgba(76,175,80,0.3)',
+                                        zIndex: 0,
+                                    }}
+                                />
+
+                                <Button
+                                    fullWidth
+                                    onClick={() => setTabValue(0)}
+                                    sx={{
+                                        position: 'relative',
+                                        zIndex: 1,
+                                        borderRadius: '10px',
+                                        py: 1.5,
+                                        textTransform: 'none',
+                                        color: tabValue === 0 ? 'white' : '#64748b',
+                                        fontWeight: 700,
+                                        fontSize: '0.9rem',
+                                        transition: 'all 0.3s',
+                                        '&:hover': { bgcolor: tabValue === 0 ? 'transparent' : 'rgba(0,0,0,0.02)' }
+                                    }}
+                                >
+                                    Log In
+                                </Button>
+                                <Button
+                                    fullWidth
+                                    onClick={() => setTabValue(1)}
+                                    sx={{
+                                        position: 'relative',
+                                        zIndex: 1,
+                                        borderRadius: '10px',
+                                        py: 1.5,
+                                        textTransform: 'none',
+                                        color: tabValue === 1 ? 'white' : '#64748b',
+                                        fontWeight: 700,
+                                        fontSize: '0.9rem',
+                                        transition: 'all 0.3s',
+                                        '&:hover': { bgcolor: tabValue === 1 ? 'transparent' : 'rgba(0,0,0,0.02)' }
+                                    }}
+                                >
+                                    Register
+                                </Button>
+                            </Box>
                         </Box>
 
                         <CardContent sx={{ p: { xs: 3, sm: 5 } }}>

@@ -211,7 +211,7 @@ const Contact = () => {
                                         key={idx}
                                         sx={{
                                             ...cardSx,
-                                            p: 3, // Smaller padding for side cards
+                                            p: 4, // More padding for vertical look
                                             flex: { md: 1 }, // Take equal space when in sidebar
                                             transition: '0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
                                             '&:hover': {
@@ -220,37 +220,54 @@ const Contact = () => {
                                                 boxShadow: `0 20px 40px ${item.color}22`,
                                                 bgcolor: '#ffffff'
                                             },
-                                            cursor: 'pointer'
+                                            cursor: 'pointer',
+                                            display: 'flex',
+                                            flexDirection: 'column',
+                                            alignItems: 'center',
+                                            textAlign: 'center'
                                         }}
                                     >
-                                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2.5 }}>
-                                            <Box
-                                                sx={{
-                                                    width: 56,
-                                                    height: 56,
-                                                    borderRadius: '16px',
-                                                    bgcolor: item.bg,
-                                                    color: item.color,
-                                                    display: 'flex',
-                                                    alignItems: 'center',
-                                                    justifyContent: 'center',
-                                                    boxShadow: `0 8px 16px ${item.color}33`,
-                                                    transition: '0.3s',
-                                                    flexShrink: 0,
-                                                    '& .MuiSvgIcon-root': { fontSize: 28 }
-                                                }}
-                                            >
-                                                {item.icon}
-                                            </Box>
-                                            <Box>
-                                                <Typography variant="h6" sx={{ fontWeight: 800, color: '#1a237e', mb: 0.2, fontSize: '1.1rem', fontFamily: '"Poppins", sans-serif' }}>
-                                                    {item.title}
-                                                </Typography>
-                                                <Typography sx={{ color: '#546e7a', fontSize: '0.85rem', fontWeight: 500, fontFamily: '"Poppins", sans-serif' }}>
-                                                    {item.detail}
-                                                </Typography>
-                                            </Box>
+                                        <Box
+                                            sx={{
+                                                width: 64,
+                                                height: 64,
+                                                borderRadius: '20px',
+                                                bgcolor: item.bg,
+                                                color: item.color,
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                justifyContent: 'center',
+                                                boxShadow: `0 8px 24px ${item.color}22`,
+                                                transition: '0.3s',
+                                                mb: 2.5,
+                                                '& .MuiSvgIcon-root': { fontSize: 32 }
+                                            }}
+                                        >
+                                            {item.icon}
                                         </Box>
+                                        <Typography
+                                            variant="h6"
+                                            sx={{
+                                                fontWeight: 800,
+                                                color: '#1a237e',
+                                                mb: 1,
+                                                fontSize: '1.1rem',
+                                                fontFamily: '"Poppins", sans-serif'
+                                            }}
+                                        >
+                                            {item.title}
+                                        </Typography>
+                                        <Typography
+                                            sx={{
+                                                color: '#546e7a',
+                                                fontSize: '0.9rem',
+                                                fontWeight: 500,
+                                                fontFamily: '"Poppins", sans-serif',
+                                                lineHeight: 1.5
+                                            }}
+                                        >
+                                            {item.detail}
+                                        </Typography>
                                     </Card>
                                 ))}
                             </Box>
