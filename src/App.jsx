@@ -4,6 +4,7 @@ import About from './User/About.jsx'
 import Contact from './User/Contact.jsx'
 import Blog from './User/Blog.jsx'
 import BlogPostDetails from './User/BlogPostDetails.jsx'
+import FAQ from './User/FAQ.jsx'
 import './App.css'
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:id" element={<BlogPostDetails />} />
+        <Route path="/faq" element={<FAQ />} />
       </Routes>
     </BrowserRouter>
   )

@@ -67,6 +67,7 @@ function Header() {
     { label: 'About', path: '/about' },
     { label: 'Contact', path: '/contact' },
     { label: 'Blog', path: '/blog' },
+    { label: 'FAQ', path: '/faq' },
   ]
 
   const drawer = (
