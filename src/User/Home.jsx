@@ -593,12 +593,6 @@ function Home() {
           </Box>
 
           <Box sx={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'center', flexWrap: 'wrap', gap: { xs: 4, md: 2 } }}>
-            {/* Left carousel arrow */}
-            <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', alignSelf: 'center', mr: 0.5 }}>
-              <Box sx={{ width: 40, height: 40, borderRadius: '50%', bgcolor: '#e3f2fd', border: '2px solid #90caf9', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', '&:hover': { bgcolor: '#bbdefb' } }}>
-                <ChevronLeftIcon sx={{ fontSize: 24, color: '#1976d2' }} />
-              </Box>
-            </Box>
             {/* First Feature: Scan a Snack */}
             <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: { xs: '100%', sm: 'calc(50% - 16px)', md: 340 }, maxWidth: { xs: 340, sm: 'none' } }}>
               <Box
@@ -654,12 +648,6 @@ function Home() {
               </Typography>
             </Box>
 
-            {/* Circular Navigation Arrow 1 */}
-            <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', justifyContent: 'center', alignSelf: 'center', mb: 2 }}>
-              <Box sx={{ width: 40, height: 40, borderRadius: '50%', bgcolor: '#e3f2fd', border: '2px solid #90caf9', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', '&:hover': { bgcolor: '#bbdefb' } }}>
-                <ChevronRightIcon sx={{ fontSize: 24, color: '#1976d2' }} />
-              </Box>
-            </Box>
 
             {/* Second Feature: Understand Nutrition */}
             <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: { xs: '100%', sm: 'calc(50% - 16px)', md: 340 }, maxWidth: { xs: 340, sm: 'none' } }}>
@@ -716,12 +704,6 @@ function Home() {
               </Typography>
             </Box>
 
-            {/* Circular Navigation Arrow 2 */}
-            <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', justifyContent: 'center', alignSelf: 'center', mb: 2 }}>
-              <Box sx={{ width: 40, height: 40, borderRadius: '50%', bgcolor: '#e3f2fd', border: '2px solid #90caf9', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', '&:hover': { bgcolor: '#bbdefb' } }}>
-                <ChevronRightIcon sx={{ fontSize: 24, color: '#1976d2' }} />
-              </Box>
-            </Box>
 
             {/* Third Feature: Earn & Track Progress */}
             <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: { xs: '100%', sm: 'calc(50% - 16px)', md: 340 }, maxWidth: { xs: 340, sm: 'none' }, mt: { xs: 0, sm: 2, md: 0 } }}>
@@ -776,12 +758,6 @@ function Home() {
               <Typography sx={{ ...cardDescSx, fontSize: '0.8rem', textAlign: 'center', width: '100%', maxWidth: 300, mx: 'auto' }}>
                 Kese your eerors a saltaasheads, tricights unsign up choices.
               </Typography>
-            </Box>
-            {/* Right carousel arrow */}
-            <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', alignSelf: 'center', ml: 0.5 }}>
-              <Box sx={{ width: 40, height: 40, borderRadius: '50%', bgcolor: '#e3f2fd', border: '2px solid #90caf9', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', '&:hover': { bgcolor: '#bbdefb' } }}>
-                <ChevronRightIcon sx={{ fontSize: 24, color: '#1976d2' }} />
-              </Box>
             </Box>
           </Box>
         </Container>
