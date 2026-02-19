@@ -2,6 +2,7 @@ import { Box, Container, Typography, Button, Grid, Card, CardContent, Paper, use
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import FoodPatternBackground from '../components/FoodPatternBackground'
+import BottomMobileNav from '../components/BottomMobileNav'
 import { placeholders } from '../utils/placeholderImages'
 import heroImg from '../assets/hero-img.png'
 import howItWorksImg from '../assets/how-it-works.png'
@@ -1192,6 +1193,9 @@ function Home() {
         </Box>
 
         <Footer />
+        <BottomMobileNav />
+        {/* Mobile Navbar Spacer */}
+        <Box sx={{ display: { xs: 'block', md: 'none' }, height: 80 }} />
       </Box>
     </FoodPatternBackground>
   )
