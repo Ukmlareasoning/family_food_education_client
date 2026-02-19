@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, Link } from 'react-router-dom'
 import { Paper, BottomNavigation, BottomNavigationAction, Box } from '@mui/material'
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded'
 import StarRoundedIcon from '@mui/icons-material/StarRounded'
-import LoginRoundedIcon from '@mui/icons-material/LoginRounded'
+import ContactMailRoundedIcon from '@mui/icons-material/ContactMailRounded'
 
 const BottomMobileNav = () => {
     const [value, setValue] = useState(0)
@@ -12,6 +12,10 @@ const BottomMobileNav = () => {
     useEffect(() => {
         if (location.pathname === '/') {
             setValue(0)
+        } else if (location.pathname === '/about') {
+            setValue(1)
+        } else if (location.pathname === '/contact') {
+            setValue(2)
         }
     }, [location.pathname])
 
@@ -70,17 +74,20 @@ const BottomMobileNav = () => {
                     <BottomNavigationAction
                         label="Home"
                         icon={<HomeRoundedIcon />}
-                        href="#"
+                        component={Link}
+                        to="/"
                     />
                     <BottomNavigationAction
-                        label="Features"
+                        label="About"
                         icon={<StarRoundedIcon />}
-                        href="#"
+                        component={Link}
+                        to="/about"
                     />
                     <BottomNavigationAction
-                        label="Login"
-                        icon={<LoginRoundedIcon />}
-                        href="#"
+                        label="Contact"
+                        icon={<ContactMailRoundedIcon />}
+                        component={Link}
+                        to="/contact"
                     />
                 </BottomNavigation>
             </Paper>

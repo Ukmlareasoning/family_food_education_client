@@ -274,7 +274,8 @@ export default function FoodPatternBackground({ children }) {
         position: 'relative',
         minHeight: '100vh',
         background: SKY_GRADIENT,
-        overflow: 'hidden',
+        overflowX: 'hidden',
+        overflowY: 'auto',
       }}
     >
       {/* Green rolling hill – middle section, soft wavy band */}

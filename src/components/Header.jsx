@@ -62,11 +62,11 @@ function Header() {
   }
 
   const navItems = [
-    { label: 'Home', path: '#' },
-    { label: 'Features', path: '#' },
-    { label: 'Parent Dashboard', path: '#' },
-    { label: 'Kids Zone', path: '#' },
-    { label: 'Blog', path: '#' },
+    { label: 'Home', path: '/' },
+    { label: 'Features', path: '/#features' },
+    { label: 'About', path: '/about' },
+    { label: 'Contact', path: '/contact' },
+    { label: 'Blog', path: '/blog' },
   ]
 
   const drawer = (

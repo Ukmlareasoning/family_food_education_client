@@ -1,4 +1,5 @@
 import { Box, Container, Typography, Grid, Link as MuiLink, Divider, useTheme, useMediaQuery } from '@mui/material'
+import { Link } from 'react-router-dom'
 import FacebookIcon from '@mui/icons-material/Facebook'
 import TwitterIcon from '@mui/icons-material/Twitter'
 import InstagramIcon from '@mui/icons-material/Instagram'
@@ -26,6 +27,7 @@ const footerLinkSx = {
   py: 0.75,
   borderRadius: 1,
   textDecoration: 'none',
+  cursor: 'pointer',
   '&:hover': {
     color: '#fff',
     transform: 'translateX(6px)',
@@ -143,10 +145,10 @@ function Footer() {
                     Quick Links
                   </Typography>
                   <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5, alignItems: 'flex-start' }}>
-                    <MuiLink href="#" sx={{ ...footerLinkSx, fontSize: { xs: '0.75rem', sm: '0.875rem' }, whiteSpace: 'nowrap' }}><HomeIcon sx={{ fontSize: { xs: 16, sm: 18 }, color: 'rgba(255,255,255,0.4)' }} /> Home</MuiLink>
-                    <MuiLink href="#" sx={{ ...footerLinkSx, fontSize: { xs: '0.75rem', sm: '0.875rem' }, whiteSpace: 'nowrap' }}><StarIcon sx={{ fontSize: { xs: 16, sm: 18 }, color: 'rgba(255,255,255,0.4)' }} /> Features</MuiLink>
-                    <MuiLink href="#" sx={{ ...footerLinkSx, fontSize: { xs: '0.75rem', sm: '0.875rem' }, whiteSpace: 'nowrap' }}><InfoIcon sx={{ fontSize: { xs: 16, sm: 18 }, color: 'rgba(255,255,255,0.4)' }} /> About</MuiLink>
-                    <MuiLink href="#" sx={{ ...footerLinkSx, fontSize: { xs: '0.75rem', sm: '0.875rem' }, whiteSpace: 'nowrap' }}><ContactMailIcon sx={{ fontSize: { xs: 16, sm: 18 }, color: 'rgba(255,255,255,0.4)' }} /> Contact</MuiLink>
+                    <MuiLink component={Link} to="/" sx={{ ...footerLinkSx, fontSize: { xs: '0.75rem', sm: '0.875rem' }, whiteSpace: 'nowrap' }}><HomeIcon sx={{ fontSize: { xs: 16, sm: 18 }, color: 'rgba(255,255,255,0.4)' }} /> Home</MuiLink>
+                    <MuiLink component={Link} to="#" sx={{ ...footerLinkSx, fontSize: { xs: '0.75rem', sm: '0.875rem' }, whiteSpace: 'nowrap' }}><StarIcon sx={{ fontSize: { xs: 16, sm: 18 }, color: 'rgba(255,255,255,0.4)' }} /> Features</MuiLink>
+                    <MuiLink component={Link} to="/about" sx={{ ...footerLinkSx, fontSize: { xs: '0.75rem', sm: '0.875rem' }, whiteSpace: 'nowrap' }}><InfoIcon sx={{ fontSize: { xs: 16, sm: 18 }, color: 'rgba(255,255,255,0.4)' }} /> About</MuiLink>
+                    <MuiLink component={Link} to="/contact" sx={{ ...footerLinkSx, fontSize: { xs: '0.75rem', sm: '0.875rem' }, whiteSpace: 'nowrap' }}><ContactMailIcon sx={{ fontSize: { xs: 16, sm: 18 }, color: 'rgba(255,255,255,0.4)' }} /> Contact</MuiLink>
                   </Box>
                 </Box>
               </Grid>
@@ -157,10 +159,10 @@ function Footer() {
                     Resources
                   </Typography>
                   <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5, alignItems: 'flex-start' }}>
-                    <MuiLink href="#" sx={{ ...footerLinkSx, fontSize: { xs: '0.75rem', sm: '0.875rem' }, whiteSpace: 'nowrap' }}><DashboardIcon sx={{ fontSize: { xs: 16, sm: 18 }, color: 'rgba(255,255,255,0.4)' }} /> Parents</MuiLink>
-                    <MuiLink href="#" sx={{ ...footerLinkSx, fontSize: { xs: '0.75rem', sm: '0.875rem' }, whiteSpace: 'nowrap' }}><ChildCareIcon sx={{ fontSize: { xs: 16, sm: 18 }, color: 'rgba(255,255,255,0.4)' }} /> Kids</MuiLink>
-                    <MuiLink href="#" sx={{ ...footerLinkSx, fontSize: { xs: '0.75rem', sm: '0.875rem' }, whiteSpace: 'nowrap' }}><MenuBookIcon sx={{ fontSize: { xs: 16, sm: 18 }, color: 'rgba(255,255,255,0.4)' }} /> Blog</MuiLink>
-                    <MuiLink href="#" sx={{ ...footerLinkSx, fontSize: { xs: '0.75rem', sm: '0.875rem' }, whiteSpace: 'nowrap' }}><HelpOutlineIcon sx={{ fontSize: { xs: 16, sm: 18 }, color: 'rgba(255,255,255,0.4)' }} /> FAQ</MuiLink>
+                    <MuiLink component={Link} to="#" sx={{ ...footerLinkSx, fontSize: { xs: '0.75rem', sm: '0.875rem' }, whiteSpace: 'nowrap' }}><DashboardIcon sx={{ fontSize: { xs: 16, sm: 18 }, color: 'rgba(255,255,255,0.4)' }} /> Parents</MuiLink>
+                    <MuiLink component={Link} to="#" sx={{ ...footerLinkSx, fontSize: { xs: '0.75rem', sm: '0.875rem' }, whiteSpace: 'nowrap' }}><ChildCareIcon sx={{ fontSize: { xs: 16, sm: 18 }, color: 'rgba(255,255,255,0.4)' }} /> Kids</MuiLink>
+                    <MuiLink component={Link} to="/blog" sx={{ ...footerLinkSx, fontSize: { xs: '0.75rem', sm: '0.875rem' }, whiteSpace: 'nowrap' }}><MenuBookIcon sx={{ fontSize: { xs: 16, sm: 18 }, color: 'rgba(255,255,255,0.4)' }} /> Blog</MuiLink>
+                    <MuiLink component={Link} to="#" sx={{ ...footerLinkSx, fontSize: { xs: '0.75rem', sm: '0.875rem' }, whiteSpace: 'nowrap' }}><HelpOutlineIcon sx={{ fontSize: { xs: 16, sm: 18 }, color: 'rgba(255,255,255,0.4)' }} /> FAQ</MuiLink>
                   </Box>
                 </Box>
               </Grid>
@@ -171,9 +173,9 @@ function Footer() {
                     Legal
                   </Typography>
                   <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5, alignItems: 'flex-start' }}>
-                    <MuiLink href="#" sx={{ ...footerLinkSx, fontSize: { xs: '0.75rem', sm: '0.875rem' }, whiteSpace: 'nowrap' }}><PrivacyTipIcon sx={{ fontSize: { xs: 16, sm: 18 }, color: 'rgba(255,255,255,0.4)' }} /> Privacy</MuiLink>
-                    <MuiLink href="#" sx={{ ...footerLinkSx, fontSize: { xs: '0.75rem', sm: '0.875rem' }, whiteSpace: 'nowrap' }}><DescriptionIcon sx={{ fontSize: { xs: 16, sm: 18 }, color: 'rgba(255,255,255,0.4)' }} /> Terms</MuiLink>
-                    <MuiLink href="#" sx={{ ...footerLinkSx, fontSize: { xs: '0.75rem', sm: '0.875rem' }, whiteSpace: 'nowrap' }}><SettingsIcon sx={{ fontSize: { xs: 16, sm: 18 }, color: 'rgba(255,255,255,0.4)' }} /> Cookies</MuiLink>
+                    <MuiLink component={Link} to="#" sx={{ ...footerLinkSx, fontSize: { xs: '0.75rem', sm: '0.875rem' }, whiteSpace: 'nowrap' }}><PrivacyTipIcon sx={{ fontSize: { xs: 16, sm: 18 }, color: 'rgba(255,255,255,0.4)' }} /> Privacy</MuiLink>
+                    <MuiLink component={Link} to="#" sx={{ ...footerLinkSx, fontSize: { xs: '0.75rem', sm: '0.875rem' }, whiteSpace: 'nowrap' }}><DescriptionIcon sx={{ fontSize: { xs: 16, sm: 18 }, color: 'rgba(255,255,255,0.4)' }} /> Terms</MuiLink>
+                    <MuiLink component={Link} to="#" sx={{ ...footerLinkSx, fontSize: { xs: '0.75rem', sm: '0.875rem' }, whiteSpace: 'nowrap' }}><SettingsIcon sx={{ fontSize: { xs: 16, sm: 18 }, color: 'rgba(255,255,255,0.4)' }} /> Cookies</MuiLink>
                   </Box>
                 </Box>
               </Grid>
