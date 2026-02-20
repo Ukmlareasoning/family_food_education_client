@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Box, Container, Typography, Grid, TextField, Button, Card, CardContent, useTheme, useMediaQuery } from '@mui/material'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
@@ -12,6 +12,10 @@ import SendRoundedIcon from '@mui/icons-material/SendRounded'
 const Contact = () => {
     const theme = useTheme()
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
 
     const sectionTitleSx = {
         fontFamily: '"Poppins", sans-serif',
@@ -54,17 +58,17 @@ const Contact = () => {
 
     const primaryButtonSx = {
         fontFamily: '"Poppins", sans-serif',
-        background: 'linear-gradient(180deg, #66bb6a 0%, #4CAF50 50%, #43a047 100%)',
+        backgroundColor: '#1a237e',
         color: 'white',
         py: 1.8,
         borderRadius: '12px',
         fontSize: '1.05rem',
         fontWeight: 700,
         textTransform: 'none',
-        boxShadow: '0 4px 14px rgba(76,175,80,0.4)',
+        boxShadow: '0 4px 14px rgba(26, 35, 126, 0.4)',
         '&:hover': {
-            background: 'linear-gradient(180deg, #57a35a 0%, #388e3c 100%)',
-            boxShadow: '0 6px 18px rgba(76,175,80,0.45)',
+            backgroundColor: '#0d1642',
+            boxShadow: '0 6px 18px rgba(26, 35, 126, 0.45)',
             transform: 'translateY(-2px)',
         },
         transition: 'all 0.2s ease',
@@ -85,7 +89,7 @@ const Contact = () => {
                         <Typography
                             sx={{
                                 fontSize: { xs: '1rem', md: '1.1rem' },
-                                color: '#64748b',
+                                color: '#000000',
                                 textAlign: 'center',
                                 lineHeight: 1.6,
                                 mb: 0,
@@ -119,7 +123,7 @@ const Contact = () => {
                                         >
                                             Send us a Message
                                         </Typography>
-                                        <Typography variant="body1" sx={{ color: '#64748b' }}>
+                                        <Typography variant="body1" sx={{ color: '#000000' }}>
                                             Fill out the form below and we'll get back to you shortly.
                                         </Typography>
                                     </Box>
@@ -259,7 +263,7 @@ const Contact = () => {
                                         </Typography>
                                         <Typography
                                             sx={{
-                                                color: '#546e7a',
+                                                color: '#000000',
                                                 fontSize: '0.9rem',
                                                 fontWeight: 500,
                                                 fontFamily: '"Poppins", sans-serif',
