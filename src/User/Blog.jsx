@@ -95,7 +95,7 @@ function Blog() {
                         </Typography>
                         <Typography variant="body1" sx={{
                             fontSize: { xs: '1.1rem', md: '1.3rem' },
-                            color: 'text.secondary',
+                            color: '#000000',
                             maxWidth: '700px',
                             mx: 'auto',
                             lineHeight: 1.6
@@ -147,12 +147,12 @@ function Blog() {
                                     }}>
                                         <Box sx={{ display: 'flex', gap: 3, mb: 1.5 }}>
                                             <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
-                                                <CalendarMonthIcon sx={{ fontSize: 18, color: 'text.disabled' }} />
-                                                <Typography variant="body2" fontWeight={500}>{post.date}</Typography>
+                                                <CalendarMonthIcon sx={{ fontSize: 18, color: '#000000' }} />
+                                                <Typography variant="body2" fontWeight={500} sx={{ color: '#000000' }}>{post.date}</Typography>
                                             </Box>
                                             <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
-                                                <PersonIcon sx={{ fontSize: 18, color: 'text.disabled' }} />
-                                                <Typography variant="body2" fontWeight={500}>{post.author}</Typography>
+                                                <PersonIcon sx={{ fontSize: 18, color: '#000000' }} />
+                                                <Typography variant="body2" fontWeight={500} sx={{ color: '#000000' }}>{post.author}</Typography>
                                             </Box>
                                         </Box>
                                         <Typography gutterBottom variant="h4" component="h2" sx={{
@@ -163,10 +163,11 @@ function Blog() {
                                         }}>
                                             {post.title}
                                         </Typography>
-                                        <Typography variant="body1" color="text.secondary" sx={{
+                                        <Typography variant="body1" sx={{
                                             mb: 4,
                                             lineHeight: 1.7,
-                                            fontSize: '1rem'
+                                            fontSize: '1rem',
+                                            color: '#000000'
                                         }}>
                                             {post.excerpt}
                                         </Typography>
@@ -176,6 +177,7 @@ function Blog() {
                                                 to={`/blog/${post.id}`}
                                                 variant="contained"
                                                 color="primary"
+                                                fullWidth={isMobile}
                                                 endIcon={<ArrowForwardIcon />}
                                                 sx={{
                                                     fontWeight: 700,

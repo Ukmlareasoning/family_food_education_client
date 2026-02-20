@@ -157,16 +157,16 @@ function Terms() {
                     <Box sx={{
                         mt: 10,
                         p: { xs: 4, md: 6 },
-                        background: 'linear-gradient(135deg, #4CAF50 0%, #66BB6A 100%)',
+                        background: 'linear-gradient(135deg, #1a237e 0%, #3949ab 100%)',
                         borderRadius: '7px',
-                        boxShadow: '0 20px 48px rgba(76, 175, 80, 0.3)',
+                        boxShadow: '0 20px 48px rgba(26, 35, 126, 0.3)',
                         textAlign: 'center',
                         color: 'white'
                     }}>
-                        <Typography variant="h5" fontWeight={800} sx={{ mb: 2 }}>
+                        <Typography variant="h5" fontWeight={800} sx={{ mb: 2, color: 'white' }}>
                             Need Clarification on Our Terms?
                         </Typography>
-                        <Typography variant="body1" sx={{ mb: 4, opacity: 0.9, maxWidth: '600px', mx: 'auto' }}>
+                        <Typography variant="body1" sx={{ mb: 4, opacity: 0.9, maxWidth: '600px', mx: 'auto', color: 'white' }}>
                             We aim to be as transparent as possible. If you have any questions, our support team is ready to help.
                         </Typography>
                         <Typography variant="body2" sx={{ fontStyle: 'italic', color: 'white' }}>

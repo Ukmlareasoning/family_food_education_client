@@ -135,11 +135,11 @@ function FAQ() {
                     <Box sx={{
                         mt: 8,
                         p: { xs: 4, md: 6 },
-                        background: 'linear-gradient(135deg, #4CAF50 0%, #66BB6A 100%)',
+                        background: 'linear-gradient(135deg, #1a237e 0%, #3949ab 100%)',
                         borderRadius: '7px',
                         color: 'white',
                         textAlign: 'center',
-                        boxShadow: '0 12px 32px rgba(76, 175, 80, 0.25)'
+                        boxShadow: '0 12px 32px rgba(26, 35, 126, 0.25)'
                     }}>
                         <ContactSupportIcon sx={{ fontSize: 48, mb: 2, opacity: 0.9 }} />
                         <Typography variant="h4" sx={{ fontWeight: 800, mb: 2, color: 'white' }}>Still Have Questions?</Typography>

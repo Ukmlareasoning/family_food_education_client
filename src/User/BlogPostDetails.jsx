@@ -56,7 +56,7 @@ function BlogPostDetails() {
                                 component={Link}
                                 to="/blog"
                                 startIcon={<ArrowBackIcon />}
-                                sx={{ mb: 4, textTransform: 'none', fontWeight: 600, color: 'text.secondary' }}
+                                sx={{ mb: 4, textTransform: 'none', fontWeight: 600, color: '#000000' }}
                             >
                                 Back to Blog
                             </Button>
@@ -84,11 +84,11 @@ function BlogPostDetails() {
                                     color="secondary"
                                     sx={{ fontWeight: 700, borderRadius: '7px' }}
                                 />
-                                <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5, color: 'text.secondary' }}>
+                                <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5, color: '#000000' }}>
                                     <CalendarMonthIcon sx={{ fontSize: 20 }} />
                                     <Typography variant="body2" fontWeight={500}>{post.date}</Typography>
                                 </Box>
-                                <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5, color: 'text.secondary' }}>
+                                <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5, color: '#000000' }}>
                                     <PersonIcon sx={{ fontSize: 20 }} />
                                     <Typography variant="body2" fontWeight={500}>{post.author}</Typography>
                                 </Box>
@@ -107,12 +107,12 @@ function BlogPostDetails() {
                             {/* Content */}
                             <Box sx={{
                                 typography: 'body1',
-                                color: 'text.primary',
+                                color: '#000000',
                                 lineHeight: 1.8,
                                 '& p': { mb: 3 },
                                 '& h2': { mt: 6, mb: 3, fontSize: '2rem', fontWeight: 700, color: 'primary.main' }
                             }}>
-                                <Typography variant="body1" sx={{ fontSize: '1.25rem', mb: 4, fontWeight: 500, color: 'text.secondary' }}>
+                                <Typography variant="body1" sx={{ fontSize: '1.25rem', mb: 4, fontWeight: 500, color: '#000000' }}>
                                     {post.excerpt}
                                 </Typography>
                                 <Divider sx={{ my: 4 }} />
@@ -140,7 +140,7 @@ function BlogPostDetails() {
                                 flexDirection: 'column',
                                 alignItems: 'center'
                             }}>
-                                <Typography variant="h6" fontWeight={700} sx={{ mb: 2, display: 'flex', alignItems: 'center', gap: 1 }}>
+                                <Typography variant="h6" fontWeight={700} sx={{ mb: 2, display: 'flex', alignItems: 'center', gap: 1, color: '#000000' }}>
                                     <ShareIcon /> Share this article
                                 </Typography>
                                 <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center' }}>
