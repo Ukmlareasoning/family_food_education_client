@@ -1,3 +1,4 @@
+import React, { useEffect } from 'react'
 import { Box, Container, Typography, Button, Grid, Card, CardContent, Paper, useTheme, useMediaQuery } from '@mui/material'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
@@ -89,6 +90,10 @@ const orangeButtonSx = {
 function Home() {
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   return (
     <FoodPatternBackground>
