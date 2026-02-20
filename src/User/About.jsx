@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Box, Container, Typography, Grid, Card, CardContent, useTheme, useMediaQuery } from '@mui/material'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
@@ -17,6 +17,11 @@ const About = () => {
     const theme = useTheme()
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
 
+    // Auto-scroll to top on component mount
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+
     const sectionTitleSx = {
         fontFamily: '"Poppins", sans-serif',
         fontWeight: 800,
@@ -27,7 +32,7 @@ const About = () => {
     }
 
     const cardSx = {
-        borderRadius: '15px',
+        borderRadius: '7px',
         border: '1px solid rgba(33, 150, 243, 0.1)',
         bgcolor: '#ffffff',
         boxShadow: '0 8px 32px rgba(0,0,0,0.06)',
@@ -72,7 +77,7 @@ const About = () => {
                         <Typography
                             sx={{
                                 fontSize: { xs: '1rem', md: '1.25rem' },
-                                color: '#4F5C80',
+                                color: '#000000',
                                 textAlign: 'center',
                                 lineHeight: 1.6,
                                 mb: 6,
@@ -94,7 +99,7 @@ const About = () => {
                                         <FavoriteRoundedIcon sx={{ fontSize: 40, color: '#ff6b35' }} />
                                         <Typography variant="h5" sx={{ fontWeight: 800, color: '#1a237e' }}>Our Mission</Typography>
                                     </Box>
-                                    <Typography sx={{ color: '#546e7a', lineHeight: 1.7 }}>
+                                    <Typography sx={{ color: '#000000', lineHeight: 1.7 }}>
                                         To bridge the gap between nutrition data and family fun. We believe that understanding what we eat
                                         shouldn't be a chore, but an exciting journey of discovery. By scanning snacks and earning points,
                                         kids learn lifelong healthy habits through play.
@@ -109,7 +114,7 @@ const About = () => {
                                         <EmojiObjectsRoundedIcon sx={{ fontSize: 40, color: '#4CAF50' }} />
                                         <Typography variant="h5" sx={{ fontWeight: 800, color: '#1a237e' }}>Our Vision</Typography>
                                     </Box>
-                                    <Typography sx={{ color: '#546e7a', lineHeight: 1.7 }}>
+                                    <Typography sx={{ color: '#000000', lineHeight: 1.7 }}>
                                         A world where every child grows up with the knowledge and confidence to make healthy choices.
                                         We're building the go-to platform for family food education, powered by community, technology,
                                         and a shared love for wellness.
@@ -141,7 +146,7 @@ const About = () => {
                                             </Box>
                                         </Box>
                                         <Typography variant="h6" sx={{ fontWeight: 700, color: '#1a237e', mb: 1 }}>{value.title}</Typography>
-                                        <Typography sx={{ fontSize: '0.95rem', color: '#546e7a', lineHeight: 1.6 }}>{value.desc}</Typography>
+                                        <Typography sx={{ fontSize: '0.95rem', color: '#000000', lineHeight: 1.6 }}>{value.desc}</Typography>
                                     </Box>
                                 </Grid>
                             ))}
@@ -156,7 +161,7 @@ const About = () => {
                         <Typography variant="h2" sx={sectionTitleSx}>
                             Meet the Team
                         </Typography>
-                        <Typography sx={{ color: '#546e7a', maxWidth: 650, mx: 'auto', fontSize: '1.1rem' }}>
+                        <Typography sx={{ color: '#000000', maxWidth: 650, mx: 'auto', fontSize: '1.1rem' }}>
                             We are a passionate team of parents, educators, and developers dedicated to improving family wellness through technology.
                         </Typography>
                     </Box>
@@ -201,7 +206,7 @@ const About = () => {
                                     </Typography>
                                     <Typography sx={{
                                         fontSize: { xs: '0.7rem', sm: '0.9rem' },
-                                        color: '#546e7a',
+                                        color: '#000000',
                                         px: 1,
                                         maxWidth: 280,
                                         mx: 'auto',

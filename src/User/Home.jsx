@@ -47,7 +47,7 @@ const sectionSubtitleSx = {
   fontFamily: '"Poppins", sans-serif',
   fontSize: '1rem',
   fontWeight: 400,
-  color: '#37474f',
+  color: '#000000',
   textAlign: 'center',
   mb: 5,
 }
@@ -60,7 +60,7 @@ const cardTitleSx = {
 const cardDescSx = {
   fontFamily: '"Poppins", sans-serif',
   fontSize: '0.9rem',
-  color: '#546e7a',
+  color: '#000000',
 }
 const greenButtonSx = {
   fontFamily: '"Poppins", sans-serif',
@@ -146,7 +146,7 @@ function Home() {
                   sx={{
                     fontFamily: '"Poppins", sans-serif',
                     fontSize: { xs: '1rem', md: '1.35rem' },
-                    color: '#4F5C80',
+                    color: '#000000',
                     fontWeight: 400,
                     lineHeight: 1.5,
                     mb: 4,
@@ -239,7 +239,7 @@ function Home() {
                       bgcolor: 'white',
                       px: 2.5,
                       py: 2,
-                      borderRadius: 2.5,
+                      borderRadius: '7px',
                       boxShadow: '0 4px 20px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04)',
                       minWidth: { xs: '100%', sm: 280 },
                       maxWidth: { xs: 340, sm: 'none' },
@@ -380,7 +380,7 @@ function Home() {
                 fontFamily: '"Poppins", sans-serif',
                 fontSize: { xs: '0.9rem', md: '1.05rem' },
                 fontWeight: 400,
-                color: '#5c6bc0',
+                color: '#000000',
                 textAlign: 'center',
                 mb: 0,
                 px: 3,
@@ -415,7 +415,7 @@ function Home() {
                       Allergen Alerts
                     </Typography>
                   </Box>
-                  <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontSize: '0.8125rem', color: '#546e7a', mb: 1.5 }}>
+                  <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontSize: '0.8125rem', color: '#000000', mb: 1.5 }}>
                     Avoid allergens and stay safe for growing kids.
                   </Typography>
                   <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: 1 }}>
@@ -449,7 +449,7 @@ function Home() {
                       Nutrition Facts
                     </Typography>
                   </Box>
-                  <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontSize: '0.8125rem', color: '#546e7a', mb: 1.5 }}>
+                  <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontSize: '0.8125rem', color: '#000000', mb: 1.5 }}>
                     Calories, sugar & more made easy to understand.
                   </Typography>
                   <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: 1 }}>
@@ -482,7 +482,7 @@ function Home() {
                       Weekly Insights
                     </Typography>
                   </Box>
-                  <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontSize: '0.8125rem', color: '#546e7a', mb: 1.5 }}>
+                  <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontSize: '0.8125rem', color: '#000000', mb: 1.5 }}>
                     Track weekly progress and celebrate improvements.
                   </Typography>
                   <Box sx={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'flex-end', gap: 0.5, height: 32 }}>
@@ -805,7 +805,7 @@ function Home() {
                     Kid-Friendly Design
                   </Typography>
                 </Box>
-                <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontSize: '0.9rem', color: '#546e7a', textAlign: 'center', mt: 1.5, px: 0.5 }}>
+                <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontSize: '0.9rem', color: '#000000', textAlign: 'center', mt: 1.5, px: 0.5 }}>
                   Colorful, simple interface made for little ones to explore safely.
                 </Typography>
               </Box>
@@ -830,7 +830,7 @@ function Home() {
                     Privacy-First Approach
                   </Typography>
                 </Box>
-                <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontSize: '0.9rem', color: '#546e7a', textAlign: 'center', mt: 1.5, px: 0.5 }}>
+                <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontSize: '0.9rem', color: '#000000', textAlign: 'center', mt: 1.5, px: 0.5 }}>
                   We never sell data. Your family's information stays private and secure.
                 </Typography>
               </Box>
@@ -855,7 +855,7 @@ function Home() {
                     Safe & Secure
                   </Typography>
                 </Box>
-                <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontSize: '0.9rem', color: '#546e7a', textAlign: 'center', mt: 1.5, px: 0.5 }}>
+                <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontSize: '0.9rem', color: '#000000', textAlign: 'center', mt: 1.5, px: 0.5 }}>
                   Parent controls and age-appropriate content for peace of mind.
                 </Typography>
               </Box>
@@ -896,7 +896,7 @@ function Home() {
                 <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontWeight: 800, fontSize: { xs: '2rem', md: '2.75rem' }, color: '#1a237e', mb: 2, lineHeight: 1.2, textAlign: { xs: 'center', md: 'left' } }}>
                   Scan a Snack!
                 </Typography>
-                <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontSize: '1rem', color: '#546e7a', mb: 4, maxWidth: 480, textAlign: { xs: 'center', md: 'left' }, mx: { xs: 'auto', md: 0 } }}>
+                <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontSize: '1rem', color: '#000000', mb: 4, maxWidth: 480, textAlign: { xs: 'center', md: 'left' }, mx: { xs: 'auto', md: 0 } }}>
                   Make snack time fun and healthy for your kids by scanning and learning all about their tasty treats!
                 </Typography>
                 {/* Pill-style CTA: gradient, highly rounded, camera icon at end */}
@@ -973,7 +973,7 @@ function Home() {
             <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontWeight: 700, fontSize: { xs: '1.75rem', md: '2.25rem' }, color: '#1E1E4F', textAlign: 'center', mb: 1 }}>
               How Does It Work?
             </Typography>
-            <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontSize: '1rem', fontWeight: 400, color: '#6E6E8A', textAlign: 'center', mb: 5 }}>
+            <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontSize: '1rem', fontWeight: 400, color: '#000000', textAlign: 'center', mb: 5 }}>
               Simple, engaging, and kid-friendly.
             </Typography>
 
@@ -985,7 +985,7 @@ function Home() {
                   </Box>
                   <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontWeight: 700, fontSize: '1.15rem', color: '#1E1E4F', mb: 1.5, textAlign: 'center', width: '100%' }}>Scan Snacks</Typography>
                   <Box sx={{ width: '100%', maxWidth: 280, minWidth: 0, textAlign: 'center', mx: 'auto' }}>
-                    <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontSize: '0.95rem', color: '#6E6E8A', lineHeight: 1.5, whiteSpace: 'normal', display: 'block' }}>Use your phone to scan the barcode of any snack and instantly get info on its nutrition.</Typography>
+                    <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontSize: '0.95rem', color: '#000000', lineHeight: 1.5, whiteSpace: 'normal', display: 'block' }}>Use your phone to scan the barcode of any snack and instantly get info on its nutrition.</Typography>
                   </Box>
                 </Card>
               </Grid>
@@ -996,7 +996,7 @@ function Home() {
                   </Box>
                   <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontWeight: 700, fontSize: '1.15rem', color: '#EF4444', mb: 1.5, textAlign: 'center', width: '100%' }}>Earn Rewards</Typography>
                   <Box sx={{ width: '100%', maxWidth: 280, minWidth: 0, textAlign: 'center', mx: 'auto' }}>
-                    <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontSize: '0.95rem', color: '#6E6E8A', lineHeight: 1.5, whiteSpace: 'normal', display: 'block' }}>Earn fun points and unlock rewards as you scan more snacks.</Typography>
+                    <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontSize: '0.95rem', color: '#000000', lineHeight: 1.5, whiteSpace: 'normal', display: 'block' }}>Earn fun points and unlock rewards as you scan more snacks.</Typography>
                   </Box>
                 </Card>
               </Grid>
@@ -1007,7 +1007,7 @@ function Home() {
                   </Box>
                   <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontWeight: 700, fontSize: '1.15rem', color: '#22C55E', mb: 1.5, textAlign: 'center', width: '100%' }}>Learn & Play</Typography>
                   <Box sx={{ width: '100%', maxWidth: 280, minWidth: 0, textAlign: 'center', mx: 'auto' }}>
-                    <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontSize: '0.95rem', color: '#6E6E8A', lineHeight: 1.5, whiteSpace: 'normal', display: 'block' }}>Explore fun food facts and play interactive, educational games.</Typography>
+                    <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontSize: '0.95rem', color: '#000000', lineHeight: 1.5, whiteSpace: 'normal', display: 'block' }}>Explore fun food facts and play interactive, educational games.</Typography>
                   </Box>
                 </Card>
               </Grid>
@@ -1023,7 +1023,7 @@ function Home() {
                 <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontWeight: 700, fontSize: { xs: '1.65rem', md: '2rem' }, color: '#1a237e', mb: 1.5, textAlign: { xs: 'center', md: 'left' } }}>
                   Track Progress with Parental Insights
                 </Typography>
-                <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontSize: '1rem', color: '#546e7a', mb: 3, textAlign: { xs: 'center', md: 'left' } }}>
+                <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontSize: '1rem', color: '#000000', mb: 3, textAlign: { xs: 'center', md: 'left' } }}>
                   Get a quick overview of your kids' snacking habits.
                 </Typography>
                 <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
@@ -1031,19 +1031,19 @@ function Home() {
                     <Box sx={{ width: 40, height: 40, borderRadius: 2, bgcolor: '#e3f2fd', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                       <BarChartIcon sx={{ fontSize: 22, color: '#1976d2' }} />
                     </Box>
-                    <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontSize: '1rem', color: '#37474f' }}>Track scanned snacks</Typography>
+                    <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontSize: '1rem', color: '#000000' }}>Track scanned snacks</Typography>
                   </Box>
                   <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
                     <Box sx={{ width: 40, height: 40, borderRadius: 2, bgcolor: '#fff3e0', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                       <LocalFireDepartmentIcon sx={{ fontSize: 22, color: '#ff9800' }} />
                     </Box>
-                    <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontSize: '1rem', color: '#37474f' }}>Monitor average calorie intake</Typography>
+                    <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontSize: '1rem', color: '#000000' }}>Monitor average calorie intake</Typography>
                   </Box>
                   <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
                     <Box sx={{ width: 40, height: 40, borderRadius: 2, bgcolor: '#e8f5e9', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                       <CheckCircleIcon sx={{ fontSize: 22, color: '#4CAF50' }} />
                     </Box>
-                    <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontSize: '1rem', color: '#37474f' }}>See if products are kid-friendly</Typography>
+                    <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontSize: '1rem', color: '#000000' }}>See if products are kid-friendly</Typography>
                   </Box>
                 </Box>
               </Grid>
@@ -1097,7 +1097,7 @@ function Home() {
                 <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontWeight: 800, fontSize: { xs: '1.5rem', sm: '1.75rem', md: '2rem' }, color: '#1a237e', mb: 1.5, textAlign: { xs: 'center', md: 'left' } }}>
                   Fun & Educational for Kids
                 </Typography>
-                <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontSize: { xs: '0.95rem', md: '1rem' }, color: '#546e7a', mb: 3, textAlign: { xs: 'center', md: 'left' }, px: { xs: 2, md: 0 } }}>
+                <Typography sx={{ fontFamily: '"Poppins", sans-serif', fontSize: { xs: '0.95rem', md: '1rem' }, color: '#000000', mb: 3, textAlign: { xs: 'center', md: 'left' }, px: { xs: 2, md: 0 } }}>
                   Learning about snacks has never been this fun!
                 </Typography>
                 <Box sx={{ display: 'flex', justifyContent: { xs: 'center', md: 'flex-start' } }}>
@@ -1128,7 +1128,7 @@ function Home() {
                 <Box
                   sx={{
                     bgcolor: 'white',
-                    borderRadius: 3,
+                    borderRadius: '7px',
                     boxShadow: '0 8px 32px rgba(0,0,0,0.1)',
                     p: { xs: 2.5, sm: 3 },
                     display: 'flex',

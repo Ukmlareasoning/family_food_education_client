@@ -56,7 +56,7 @@ function BlogPostDetails() {
                                 component={Link}
                                 to="/blog"
                                 startIcon={<ArrowBackIcon />}
-                                sx={{ mb: 4, textTransform: 'none', fontWeight: 600, color: 'text.secondary' }}
+                                sx={{ mb: 4, textTransform: 'none', fontWeight: 600, color: '#000000' }}
                             >
                                 Back to Blog
                             </Button>
@@ -65,7 +65,7 @@ function BlogPostDetails() {
                             <Box sx={{
                                 width: '100%',
                                 height: { xs: '250px', sm: '400px', md: '500px' },
-                                borderRadius: 4,
+                                borderRadius: '7px',
                                 overflow: 'hidden',
                                 mb: 4,
                                 boxShadow: '0 8px 32px rgba(0,0,0,0.1)'
@@ -82,13 +82,13 @@ function BlogPostDetails() {
                                 <Chip
                                     label={post.category}
                                     color="secondary"
-                                    sx={{ fontWeight: 700, borderRadius: 2 }}
+                                    sx={{ fontWeight: 700, borderRadius: '7px' }}
                                 />
-                                <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5, color: 'text.secondary' }}>
+                                <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5, color: '#000000' }}>
                                     <CalendarMonthIcon sx={{ fontSize: 20 }} />
                                     <Typography variant="body2" fontWeight={500}>{post.date}</Typography>
                                 </Box>
-                                <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5, color: 'text.secondary' }}>
+                                <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5, color: '#000000' }}>
                                     <PersonIcon sx={{ fontSize: 20 }} />
                                     <Typography variant="body2" fontWeight={500}>{post.author}</Typography>
                                 </Box>
@@ -107,12 +107,12 @@ function BlogPostDetails() {
                             {/* Content */}
                             <Box sx={{
                                 typography: 'body1',
-                                color: 'text.primary',
+                                color: '#000000',
                                 lineHeight: 1.8,
                                 '& p': { mb: 3 },
                                 '& h2': { mt: 6, mb: 3, fontSize: '2rem', fontWeight: 700, color: 'primary.main' }
                             }}>
-                                <Typography variant="body1" sx={{ fontSize: '1.25rem', mb: 4, fontWeight: 500, color: 'text.secondary' }}>
+                                <Typography variant="body1" sx={{ fontSize: '1.25rem', mb: 4, fontWeight: 500, color: '#000000' }}>
                                     {post.excerpt}
                                 </Typography>
                                 <Divider sx={{ my: 4 }} />
@@ -133,14 +133,14 @@ function BlogPostDetails() {
                                 mt: 8,
                                 p: 4,
                                 bgcolor: 'rgba(255,255,255,0.6)',
-                                borderRadius: 4,
+                                borderRadius: '7px',
                                 border: '1px solid rgba(0,0,0,0.05)',
                                 textAlign: 'center',
                                 display: 'flex',
                                 flexDirection: 'column',
                                 alignItems: 'center'
                             }}>
-                                <Typography variant="h6" fontWeight={700} sx={{ mb: 2, display: 'flex', alignItems: 'center', gap: 1 }}>
+                                <Typography variant="h6" fontWeight={700} sx={{ mb: 2, display: 'flex', alignItems: 'center', gap: 1, color: '#000000' }}>
                                     <ShareIcon /> Share this article
                                 </Typography>
                                 <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center' }}>

@@ -20,7 +20,7 @@ const cookiesHeroSx = {
 const cardSx = {
     p: 4,
     height: '100%',
-    borderRadius: 6,
+    borderRadius: '7px',
     border: '1px solid rgba(0,0,0,0.05)',
     transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
     display: 'flex',
@@ -41,7 +41,7 @@ const iconContainerSx = {
     justifyContent: 'center',
     width: 48,
     height: 48,
-    borderRadius: '12px',
+    borderRadius: '7px',
     color: 'white',
     flexShrink: 0,
 }
@@ -157,19 +157,19 @@ function Cookies() {
                     <Box sx={{
                         mt: 10,
                         p: { xs: 4, md: 6 },
-                        background: 'linear-gradient(135deg, #4CAF50 0%, #66BB6A 100%)',
-                        borderRadius: 8,
-                        boxShadow: '0 20px 48px rgba(76, 175, 80, 0.3)',
+                        background: 'linear-gradient(135deg, #1a237e 0%, #3949ab 100%)',
+                        borderRadius: '7px',
+                        boxShadow: '0 20px 48px rgba(26, 35, 126, 0.3)',
                         textAlign: 'center',
                         color: 'white'
                     }}>
-                        <Typography variant="h5" fontWeight={800} sx={{ mb: 2 }}>
+                        <Typography variant="h5" fontWeight={800} sx={{ mb: 2, color: 'white' }}>
                             Questions About Our Cookies Policy?
                         </Typography>
-                        <Typography variant="body1" sx={{ mb: 4, opacity: 0.9, maxWidth: '600px', mx: 'auto' }}>
+                        <Typography variant="body1" sx={{ mb: 4, opacity: 0.9, maxWidth: '600px', mx: 'auto', color: 'white' }}>
                             We're committed to being transparent about your data. Contact us if you have any further questions.
                         </Typography>
-                        <Typography variant="body2" sx={{ fontStyle: 'italic', opacity: 0.7 }}>
+                        <Typography variant="body2" sx={{ fontStyle: 'italic', color: 'white' }}>
                             Last updated: February 19, 2026 • support@pleasescan.com
                         </Typography>
                     </Box>

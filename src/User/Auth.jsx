@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import {
     Box,
     Container,
@@ -14,6 +15,10 @@ import {
     InputAdornment,
     useTheme,
     useMediaQuery,
+    Dialog,
+    DialogTitle,
+    DialogContent,
+    DialogActions,
 } from '@mui/material'
 import { Visibility, VisibilityOff } from '@mui/icons-material'
 import Header from '../components/Header'
@@ -22,7 +27,7 @@ import FoodPatternBackground from '../components/FoodPatternBackground'
 import BottomMobileNav from '../components/BottomMobileNav'
 
 const cardSx = {
-    borderRadius: '16px',
+    borderRadius: '7px',
     border: '1px solid rgba(33, 150, 243, 0.1)',
     bgcolor: '#ffffff',
     boxShadow: '0 8px 32px rgba(0,0,0,0.08)',
@@ -31,51 +36,127 @@ const cardSx = {
 
 const textFieldSx = {
     '& .MuiOutlinedInput-root': {
-        borderRadius: '12px',
+        borderRadius: '7px',
         backgroundColor: '#f8f9fa',
         '& fieldset': {
             borderColor: 'rgba(0, 0, 0, 0.08)',
         },
         '&:hover fieldset': {
-            borderColor: '#4CAF50',
+            borderColor: '#1a237e',
         },
         '&.Mui-focused fieldset': {
-            borderColor: '#4CAF50',
+            borderColor: '#1a237e',
         },
     },
     '& .MuiInputLabel-root.Mui-focused': {
-        color: '#4CAF50',
+        color: '#1a237e',
     },
 }
 
 const primaryButtonSx = {
     fontFamily: '"Poppins", sans-serif',
-    background: 'linear-gradient(180deg, #66bb6a 0%, #4CAF50 50%, #43a047 100%)',
+    background: 'linear-gradient(180deg, #2d3a8c 0%, #1a237e 50%, #0a1550 100%)',
     color: 'white',
     py: 1.5,
-    borderRadius: '12px',
+    borderRadius: '7px',
     fontSize: '1rem',
     fontWeight: 700,
     textTransform: 'none',
-    boxShadow: '0 4px 14px rgba(76,175,80,0.4)',
+    boxShadow: '0 4px 14px rgba(26,35,126,0.3)',
     '&:hover': {
-        background: 'linear-gradient(180deg, #57a35a 0%, #388e3c 100%)',
-        boxShadow: '0 6px 18px rgba(76,175,80,0.45)',
+        background: 'linear-gradient(180deg, #1f2970 0%, #0a1550 100%)',
+        boxShadow: '0 6px 18px rgba(26,35,126,0.35)',
     },
 }
 
 function Auth() {
     const theme = useTheme()
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
+    const navigate = useNavigate()
+    
+    // Auto-scroll to top on component mount
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+    
     const [tabValue, setTabValue] = useState(0)
     const [showPassword, setShowPassword] = useState(false)
+    const [registrationStep, setRegistrationStep] = useState(1) // 1: Basic Info, 2: OTP, 3: Password
+    
+    // Registration form state
+    const [firstName, setFirstName] = useState('')
+    const [lastName, setLastName] = useState('')
+    const [email, setEmail] = useState('')
+    const [otp, setOtp] = useState('')
+    const [password, setPassword] = useState('')
+    const [confirmPassword, setConfirmPassword] = useState('')
+
+    // Forgot Password state
+    const [forgotPasswordOpen, setForgotPasswordOpen] = useState(false)
+    const [forgotPasswordStep, setForgotPasswordStep] = useState(1) // 1: Email, 2: OTP, 3: Password
+    const [forgotEmail, setForgotEmail] = useState('')
+    const [forgotOtp, setForgotOtp] = useState('')
+    const [forgotPassword, setForgotPassword] = useState('')
+    const [forgotConfirmPassword, setForgotConfirmPassword] = useState('')
 
     const handleTabChange = (event, newValue) => {
         setTabValue(newValue)
+        setRegistrationStep(1) // Reset registration step when switching tabs
     }
 
     const handleClickShowPassword = () => {
         setShowPassword(!showPassword)
+    }
+
+    const handleRegisterStep1 = () => {
+        if (firstName.trim() && lastName.trim() && email.trim()) {
+            setRegistrationStep(2)
+        }
+    }
+
+    const handleVerifyOtp = () => {
+        if (otp.trim() && otp.length === 6) {
+            setRegistrationStep(3)
+        }
+    }
+
+    const handleCreatePassword = () => {
+        if (password.trim() && confirmPassword.trim() && password === confirmPassword && password.length >= 6) {
+            // Redirect to login
+            navigate('/login')
+        }
+    }
+
+    const handleForgotPasswordClick = () => {
+        setForgotPasswordOpen(true)
+        setForgotPasswordStep(1)
+        setForgotEmail('')
+        setForgotOtp('')
+        setForgotPassword('')
+        setForgotConfirmPassword('')
+    }
+
+    const handleForgotPasswordClose = () => {
+        setForgotPasswordOpen(false)
+        setForgotPasswordStep(1)
+    }
+
+    const handleSendForgotOtp = () => {
+        if (forgotEmail.trim()) {
+            setForgotPasswordStep(2)
+        }
+    }
+
+    const handleVerifyForgotOtp = () => {
+        if (forgotOtp.trim() && forgotOtp.length === 6) {
+            setForgotPasswordStep(3)
+        }
+    }
+
+    const handleUpdatePassword = () => {
+        if (forgotPassword.trim() && forgotConfirmPassword.trim() && forgotPassword === forgotConfirmPassword && forgotPassword.length >= 6) {
+            handleForgotPasswordClose()
+        }
     }
 
     return (
@@ -92,7 +173,7 @@ function Auth() {
                                     display: 'flex',
                                     p: 0.7,
                                     bgcolor: 'white',
-                                    borderRadius: '14px',
+                                    borderRadius: '7px',
                                     border: '1px solid rgba(0,0,0,0.06)',
                                     width: '100%',
                                     position: 'relative',
@@ -107,11 +188,11 @@ function Auth() {
                                         bottom: 5,
                                         left: 5,
                                         width: 'calc(50% - 5px)',
-                                        bgcolor: '#4CAF50',
-                                        borderRadius: '10px',
+                                        bgcolor: '#1a237e',
+                                        borderRadius: '7px',
                                         transition: 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
                                         transform: `translateX(${tabValue === 1 ? '100%' : '0%'})`,
-                                        boxShadow: '0 4px 12px rgba(76,175,80,0.3)',
+                                        boxShadow: '0 4px 12px rgba(26,35,126,0.3)',
                                         zIndex: 0,
                                     }}
                                 />
@@ -122,7 +203,7 @@ function Auth() {
                                     sx={{
                                         position: 'relative',
                                         zIndex: 1,
-                                        borderRadius: '10px',
+                                        borderRadius: '7px',
                                         py: 1.5,
                                         textTransform: 'none',
                                         color: tabValue === 0 ? 'white' : '#64748b',
@@ -140,7 +221,7 @@ function Auth() {
                                     sx={{
                                         position: 'relative',
                                         zIndex: 1,
-                                        borderRadius: '10px',
+                                        borderRadius: '7px',
                                         py: 1.5,
                                         textTransform: 'none',
                                         color: tabValue === 1 ? 'white' : '#64748b',
@@ -172,67 +253,230 @@ function Auth() {
                                 <Typography variant="body1" sx={{ color: '#64748b', mb: 0 }}>
                                     {tabValue === 0
                                         ? 'Log in to track your family’s healthy snack journey.'
-                                        : 'Start making healthy choices fun for your kids today.'}
+                                        : registrationStep === 1
+                                        ? 'Create your account to get started.'
+                                        : registrationStep === 2
+                                        ? 'Enter the 6-digit code sent to your email.'
+                                        : 'Set a secure password for your account.'}
                                 </Typography>
                             </Box>
 
                             <form>
                                 <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2.5 }}>
-                                    {tabValue === 1 && (
+                                    {/* LOGIN TAB */}
+                                    {tabValue === 0 && (
+                                        <>
+                                            <TextField
+                                                fullWidth
+                                                label="Email Address"
+                                                type="email"
+                                                variant="outlined"
+                                                sx={textFieldSx}
+                                            />
+                                            <TextField
+                                                fullWidth
+                                                label="Password"
+                                                type={showPassword ? 'text' : 'password'}
+                                                variant="outlined"
+                                                sx={textFieldSx}
+                                                InputProps={{
+                                                    endAdornment: (
+                                                        <InputAdornment position="end">
+                                                            <IconButton onClick={handleClickShowPassword} edge="end">
+                                                                {showPassword ? <VisibilityOff /> : <Visibility />}
+                                                            </IconButton>
+                                                        </InputAdornment>
+                                                    ),
+                                                }}
+                                            />
+                                            <Button
+                                                fullWidth
+                                                variant="contained"
+                                                sx={{ ...primaryButtonSx, mt: 1 }}
+                                            >
+                                                Log In
+                                            </Button>
+                                            <Box sx={{ textAlign: 'center', mt: 2 }}>
+                                                <Box
+                                                    component="span"
+                                                    onClick={handleForgotPasswordClick}
+                                                    sx={{
+                                                        color: '#1a237e',
+                                                        fontWeight: 600,
+                                                        cursor: 'pointer',
+                                                        fontSize: '0.9rem',
+                                                        transition: 'color 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                                                        '&:hover': { 
+                                                            color: '#3f51b5',
+                                                        },
+                                                    }}
+                                                >
+                                                    Forgot Password?
+                                                </Box>
+                                            </Box>
+                                        </>
+                                    )}
+
+                                    {/* REGISTER TAB - STEP 1: Basic Info */}
+                                    {tabValue === 1 && registrationStep === 1 && (
                                         <>
                                             <TextField
                                                 fullWidth
                                                 label="First Name"
                                                 variant="outlined"
+                                                value={firstName}
+                                                onChange={(e) => setFirstName(e.target.value)}
                                                 sx={textFieldSx}
                                             />
                                             <TextField
                                                 fullWidth
                                                 label="Last Name"
                                                 variant="outlined"
+                                                value={lastName}
+                                                onChange={(e) => setLastName(e.target.value)}
                                                 sx={textFieldSx}
                                             />
+                                            <TextField
+                                                fullWidth
+                                                label="Email Address"
+                                                type="email"
+                                                variant="outlined"
+                                                value={email}
+                                                onChange={(e) => setEmail(e.target.value)}
+                                                sx={textFieldSx}
+                                            />
+                                            <Button
+                                                fullWidth
+                                                variant="contained"
+                                                sx={{ ...primaryButtonSx, mt: 1 }}
+                                                onClick={handleRegisterStep1}
+                                            >
+                                                Register
+                                            </Button>
                                         </>
                                     )}
-                                    <TextField
-                                        fullWidth
-                                        label="Email Address"
-                                        type="email"
-                                        variant="outlined"
-                                        sx={textFieldSx}
-                                    />
-                                    <TextField
-                                        fullWidth
-                                        label="Password"
-                                        type={showPassword ? 'text' : 'password'}
-                                        variant="outlined"
-                                        sx={textFieldSx}
-                                        InputProps={{
-                                            endAdornment: (
-                                                <InputAdornment position="end">
-                                                    <IconButton onClick={handleClickShowPassword} edge="end">
-                                                        {showPassword ? <VisibilityOff /> : <Visibility />}
-                                                    </IconButton>
-                                                </InputAdornment>
-                                            ),
-                                        }}
-                                    />
-                                    {tabValue === 1 && (
-                                        <TextField
-                                            fullWidth
-                                            label="Confirm Password"
-                                            type={showPassword ? 'text' : 'password'}
-                                            variant="outlined"
-                                            sx={textFieldSx}
-                                        />
+
+                                    {/* REGISTER TAB - STEP 2: OTP Verification */}
+                                    {tabValue === 1 && registrationStep === 2 && (
+                                        <>
+                                            <Typography variant="body2" sx={{ color: '#64748b', textAlign: 'center', mb: 2 }}>
+                                                We've sent a 6-digit verification code to<br /> <strong>{email}</strong>
+                                            </Typography>
+                                            <TextField
+                                                fullWidth
+                                                label="Verification Code"
+                                                variant="outlined"
+                                                value={otp}
+                                                onChange={(e) => setOtp(e.target.value.replace(/\D/g, '').slice(0, 6))}
+                                                placeholder="000000"
+                                                inputProps={{ maxLength: 6, style: { textAlign: 'center', letterSpacing: '8px', fontSize: '1.5rem' } }}
+                                                sx={textFieldSx}
+                                            />
+                                            <Box sx={{ display: 'flex', gap: 1, mt: 1 }}>
+                                                <Button
+                                                    sx={{
+                                                        flex: 1,
+                                                        textTransform: 'none',
+                                                        borderRadius: '7px',
+                                                        py: 1.5,
+                                                        fontWeight: 600,
+                                                        color: '#1a237e',
+                                                        borderColor: '#1a237e',
+                                                        border: '1px solid',
+                                                        '&:hover': {
+                                                            bgcolor: 'rgba(26,35,126,0.05)',
+                                                            borderColor: '#1a237e',
+                                                        }
+                                                    }}
+                                                    onClick={() => setRegistrationStep(1)}
+                                                >
+                                                    Back
+                                                </Button>
+                                                <Button
+                                                    variant="contained"
+                                                    sx={{ ...primaryButtonSx, flex: 1 }}
+                                                    onClick={handleVerifyOtp}
+                                                >
+                                                    Verify Code
+                                                </Button>
+                                            </Box>
+                                        </>
                                     )}
-                                    <Button
-                                        fullWidth
-                                        variant="contained"
-                                        sx={{ ...primaryButtonSx, mt: 1 }}
-                                    >
-                                        {tabValue === 0 ? 'Log In' : 'Create Account'}
-                                    </Button>
+
+                                    {/* REGISTER TAB - STEP 3: Password Setup */}
+                                    {tabValue === 1 && registrationStep === 3 && (
+                                        <>
+                                            <TextField
+                                                fullWidth
+                                                label="Password"
+                                                type={showPassword ? 'text' : 'password'}
+                                                variant="outlined"
+                                                value={password}
+                                                onChange={(e) => setPassword(e.target.value)}
+                                                sx={textFieldSx}
+                                                InputProps={{
+                                                    endAdornment: (
+                                                        <InputAdornment position="end">
+                                                            <IconButton onClick={handleClickShowPassword} edge="end">
+                                                                {showPassword ? <VisibilityOff /> : <Visibility />}
+                                                            </IconButton>
+                                                        </InputAdornment>
+                                                    ),
+                                                }}
+                                            />
+                                            <TextField
+                                                fullWidth
+                                                label="Confirm Password"
+                                                type={showPassword ? 'text' : 'password'}
+                                                variant="outlined"
+                                                value={confirmPassword}
+                                                onChange={(e) => setConfirmPassword(e.target.value)}
+                                                sx={textFieldSx}
+                                                InputProps={{
+                                                    endAdornment: (
+                                                        <InputAdornment position="end">
+                                                            <IconButton onClick={handleClickShowPassword} edge="end">
+                                                                {showPassword ? <VisibilityOff /> : <Visibility />}
+                                                            </IconButton>
+                                                        </InputAdornment>
+                                                    ),
+                                                }}
+                                            />
+                                            {password && confirmPassword && password !== confirmPassword && (
+                                                <Typography variant="caption" sx={{ color: '#d32f2f', mt: -1 }}>
+                                                    Passwords do not match
+                                                </Typography>
+                                            )}
+                                            <Box sx={{ display: 'flex', gap: 1, mt: 1 }}>
+                                                <Button
+                                                    sx={{
+                                                        flex: 1,
+                                                        textTransform: 'none',
+                                                        borderRadius: '7px',
+                                                        py: 1.5,
+                                                        fontWeight: 600,
+                                                        color: '#1a237e',
+                                                        borderColor: '#1a237e',
+                                                        border: '1px solid',
+                                                        '&:hover': {
+                                                            bgcolor: 'rgba(26,35,126,0.05)',
+                                                            borderColor: '#1a237e',
+                                                        }
+                                                    }}
+                                                    onClick={() => setRegistrationStep(2)}
+                                                >
+                                                    Back
+                                                </Button>
+                                                <Button
+                                                    variant="contained"
+                                                    sx={{ ...primaryButtonSx, flex: 1 }}
+                                                    onClick={handleCreatePassword}
+                                                >
+                                                    {isMobile ? 'Create' : 'Create Account'}
+                                                </Button>
+                                            </Box>
+                                        </>
+                                    )}
                                 </Box>
                             </form>
 
@@ -244,11 +488,14 @@ function Auth() {
                                             component="span"
                                             onClick={() => setTabValue(1)}
                                             sx={{
-                                                color: '#4CAF50',
+                                                color: '#1a237e',
                                                 fontWeight: 700,
                                                 cursor: 'pointer',
                                                 ml: 0.5,
-                                                '&:hover': { textDecoration: 'underline' },
+                                                transition: 'color 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                                                '&:hover': { 
+                                                    color: '#3f51b5',
+                                                },
                                             }}
                                         >
                                             Sign Up
@@ -259,6 +506,204 @@ function Auth() {
                         </CardContent>
                     </Card>
                 </Container>
+
+                {/* Forgot Password Dialog */}
+                <Dialog
+                    open={forgotPasswordOpen}
+                    onClose={handleForgotPasswordClose}
+                    maxWidth="sm"
+                    fullWidth
+                    PaperProps={{
+                        sx: {
+                            borderRadius: '7px',
+                            boxShadow: '0 20px 60px rgba(0,0,0,0.15)',
+                        }
+                    }}
+                >
+                    <DialogTitle sx={{ fontFamily: '"Poppins", sans-serif', fontWeight: 800, color: '#1a237e', pb: 1 }}>
+                        {forgotPasswordStep === 1 ? 'Reset Password' : forgotPasswordStep === 2 ? 'Verify Code' : 'Set New Password'}
+                    </DialogTitle>
+                    <DialogContent sx={{ pt: 2 }}>
+                        {/* Step 1: Email Input */}
+                        {forgotPasswordStep === 1 && (
+                            <>
+                                <Typography variant="body2" sx={{ color: '#64748b', mb: 2 }}>
+                                    Enter your email address to receive a verification code.
+                                </Typography>
+                                <TextField
+                                    fullWidth
+                                    label="Email Address"
+                                    type="email"
+                                    variant="outlined"
+                                    value={forgotEmail}
+                                    onChange={(e) => setForgotEmail(e.target.value)}
+                                    sx={textFieldSx}
+                                />
+                            </>
+                        )}
+
+                        {/* Step 2: OTP Verification */}
+                        {forgotPasswordStep === 2 && (
+                            <>
+                                <Typography variant="body2" sx={{ color: '#64748b', mb: 2 }}>
+                                    We've sent a 6-digit verification code to<br /> <strong>{forgotEmail}</strong>
+                                </Typography>
+                                <TextField
+                                    fullWidth
+                                    label="Verification Code"
+                                    variant="outlined"
+                                    value={forgotOtp}
+                                    onChange={(e) => setForgotOtp(e.target.value.replace(/\D/g, '').slice(0, 6))}
+                                    placeholder="000000"
+                                    inputProps={{ maxLength: 6, style: { textAlign: 'center', letterSpacing: '8px', fontSize: '1.5rem' } }}
+                                    sx={textFieldSx}
+                                />
+                            </>
+                        )}
+
+                        {/* Step 3: Password Update */}
+                        {forgotPasswordStep === 3 && (
+                            <>
+                                <Typography variant="body2" sx={{ color: '#64748b', mb: 2 }}>
+                                    Enter your new password below.
+                                </Typography>
+                                <TextField
+                                    fullWidth
+                                    label="New Password"
+                                    type={showPassword ? 'text' : 'password'}
+                                    variant="outlined"
+                                    value={forgotPassword}
+                                    onChange={(e) => setForgotPassword(e.target.value)}
+                                    sx={{ ...textFieldSx, mb: 2 }}
+                                    InputProps={{
+                                        endAdornment: (
+                                            <InputAdornment position="end">
+                                                <IconButton onClick={handleClickShowPassword} edge="end">
+                                                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                                                </IconButton>
+                                            </InputAdornment>
+                                        ),
+                                    }}
+                                />
+                                <TextField
+                                    fullWidth
+                                    label="Confirm Password"
+                                    type={showPassword ? 'text' : 'password'}
+                                    variant="outlined"
+                                    value={forgotConfirmPassword}
+                                    onChange={(e) => setForgotConfirmPassword(e.target.value)}
+                                    sx={textFieldSx}
+                                    InputProps={{
+                                        endAdornment: (
+                                            <InputAdornment position="end">
+                                                <IconButton onClick={handleClickShowPassword} edge="end">
+                                                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                                                </IconButton>
+                                            </InputAdornment>
+                                        ),
+                                    }}
+                                />
+                                {forgotPassword && forgotConfirmPassword && forgotPassword !== forgotConfirmPassword && (
+                                    <Typography variant="caption" sx={{ color: '#d32f2f', mt: 1, display: 'block' }}>
+                                        Passwords do not match
+                                    </Typography>
+                                )}
+                            </>
+                        )}
+                    </DialogContent>
+                    <DialogActions sx={{ p: 2, display: 'flex', gap: 1 }}>
+                        {forgotPasswordStep === 1 && (
+                            <>
+                                <Button 
+                                    onClick={handleForgotPasswordClose} 
+                                    sx={{ 
+                                        flex: 1,
+                                        textTransform: 'none', 
+                                        fontWeight: 600, 
+                                        color: '#1a237e',
+                                        borderColor: '#1a237e',
+                                        border: '1px solid',
+                                        borderRadius: '7px',
+                                        py: 1.5,
+                                        '&:hover': {
+                                            bgcolor: 'rgba(26,35,126,0.05)',
+                                            borderColor: '#1a237e',
+                                        }
+                                    }}
+                                >
+                                    Cancel
+                                </Button>
+                                <Button
+                                    variant="contained"
+                                    sx={{ ...primaryButtonSx, flex: 1 }}
+                                    onClick={handleSendForgotOtp}
+                                >
+                                    Send Code
+                                </Button>
+                            </>
+                        )}
+                        {forgotPasswordStep === 2 && (
+                            <>
+                                <Button 
+                                    onClick={() => setForgotPasswordStep(1)} 
+                                    sx={{ 
+                                        flex: 1,
+                                        textTransform: 'none', 
+                                        fontWeight: 600, 
+                                        color: '#1a237e',
+                                        borderColor: '#1a237e',
+                                        border: '1px solid',
+                                        borderRadius: '7px',
+                                        py: 1.5,
+                                        '&:hover': {
+                                            bgcolor: 'rgba(26,35,126,0.05)',
+                                            borderColor: '#1a237e',
+                                        }
+                                    }}
+                                >
+                                    Back
+                                </Button>
+                                <Button
+                                    variant="contained"
+                                    sx={{ ...primaryButtonSx, flex: 1 }}
+                                    onClick={handleVerifyForgotOtp}
+                                >
+                                    Verify
+                                </Button>
+                            </>
+                        )}
+                        {forgotPasswordStep === 3 && (
+                            <>
+                                <Button 
+                                    onClick={() => setForgotPasswordStep(2)} 
+                                    sx={{ 
+                                        flex: 1,
+                                        textTransform: 'none', 
+                                        fontWeight: 600, 
+                                        color: '#1a237e',
+                                        borderColor: '#1a237e',
+                                        border: '1px solid',
+                                        borderRadius: '7px',
+                                        py: 1.5,
+                                        '&:hover': {
+                                            bgcolor: 'rgba(26,35,126,0.05)',
+                                            borderColor: '#1a237e',
+                                        }
+                                    }}
+                                >
+                                    Back
+                                </Button>
+                                <Button
+                                    variant="contained"
+                                    sx={{ ...primaryButtonSx, flex: 1 }}
+                                    onClick={handleUpdatePassword}
+                                >
+                                    {isMobile ? 'Update' : 'Update Password'}
+                                </Button>
+                            </>
+                        )}
+                    </DialogActions>
+                </Dialog>
 
                 <Footer />
                 <BottomMobileNav />
