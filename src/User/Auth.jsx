@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import {
     Box,
@@ -42,30 +42,30 @@ const textFieldSx = {
             borderColor: 'rgba(0, 0, 0, 0.08)',
         },
         '&:hover fieldset': {
-            borderColor: '#4CAF50',
+            borderColor: '#1a237e',
         },
         '&.Mui-focused fieldset': {
-            borderColor: '#4CAF50',
+            borderColor: '#1a237e',
         },
     },
     '& .MuiInputLabel-root.Mui-focused': {
-        color: '#4CAF50',
+        color: '#1a237e',
     },
 }
 
 const primaryButtonSx = {
     fontFamily: '"Poppins", sans-serif',
-    background: 'linear-gradient(180deg, #66bb6a 0%, #4CAF50 50%, #43a047 100%)',
+    background: 'linear-gradient(180deg, #2d3a8c 0%, #1a237e 50%, #0a1550 100%)',
     color: 'white',
     py: 1.5,
     borderRadius: '7px',
     fontSize: '1rem',
     fontWeight: 700,
     textTransform: 'none',
-    boxShadow: '0 4px 14px rgba(76,175,80,0.4)',
+    boxShadow: '0 4px 14px rgba(26,35,126,0.3)',
     '&:hover': {
-        background: 'linear-gradient(180deg, #57a35a 0%, #388e3c 100%)',
-        boxShadow: '0 6px 18px rgba(76,175,80,0.45)',
+        background: 'linear-gradient(180deg, #1f2970 0%, #0a1550 100%)',
+        boxShadow: '0 6px 18px rgba(26,35,126,0.35)',
     },
 }
 
@@ -73,6 +73,11 @@ function Auth() {
     const theme = useTheme()
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
     const navigate = useNavigate()
+    
+    // Auto-scroll to top on component mount
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
     
     const [tabValue, setTabValue] = useState(0)
     const [showPassword, setShowPassword] = useState(false)
@@ -183,11 +188,11 @@ function Auth() {
                                         bottom: 5,
                                         left: 5,
                                         width: 'calc(50% - 5px)',
-                                        bgcolor: '#4CAF50',
+                                        bgcolor: '#1a237e',
                                         borderRadius: '7px',
                                         transition: 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
                                         transform: `translateX(${tabValue === 1 ? '100%' : '0%'})`,
-                                        boxShadow: '0 4px 12px rgba(76,175,80,0.3)',
+                                        boxShadow: '0 4px 12px rgba(26,35,126,0.3)',
                                         zIndex: 0,
                                     }}
                                 />
@@ -296,11 +301,14 @@ function Auth() {
                                                     component="span"
                                                     onClick={handleForgotPasswordClick}
                                                     sx={{
-                                                        color: '#4CAF50',
+                                                        color: '#1a237e',
                                                         fontWeight: 600,
                                                         cursor: 'pointer',
                                                         fontSize: '0.9rem',
-                                                        '&:hover': { textDecoration: 'underline' },
+                                                        transition: 'color 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                                                        '&:hover': { 
+                                                            color: '#3f51b5',
+                                                        },
                                                     }}
                                                 >
                                                     Forgot Password?
@@ -342,7 +350,6 @@ function Auth() {
                                                 variant="contained"
                                                 sx={{ ...primaryButtonSx, mt: 1 }}
                                                 onClick={handleRegisterStep1}
-                                                disabled={!firstName.trim() || !lastName.trim() || !email.trim()}
                                             >
                                                 Register
                                             </Button>
@@ -365,34 +372,34 @@ function Auth() {
                                                 inputProps={{ maxLength: 6, style: { textAlign: 'center', letterSpacing: '8px', fontSize: '1.5rem' } }}
                                                 sx={textFieldSx}
                                             />
-                                            <Button
-                                                fullWidth
-                                                variant="contained"
-                                                sx={{ ...primaryButtonSx, mt: 1 }}
-                                                onClick={handleVerifyOtp}
-                                                disabled={!otp || otp.length !== 6}
-                                            >
-                                                Verify Code
-                                            </Button>
-                                            <Button
-                                                fullWidth
-                                                variant="outlined"
-                                                sx={{
-                                                    textTransform: 'none',
-                                                    borderRadius: '7px',
-                                                    py: 1.5,
-                                                    fontWeight: 600,
-                                                    color: '#4CAF50',
-                                                    borderColor: '#4CAF50',
-                                                    '&:hover': {
-                                                        bgcolor: 'rgba(76,175,80,0.05)',
-                                                        borderColor: '#4CAF50',
-                                                    }
-                                                }}
-                                                onClick={() => setRegistrationStep(1)}
-                                            >
-                                                Back
-                                            </Button>
+                                            <Box sx={{ display: 'flex', gap: 1, mt: 1 }}>
+                                                <Button
+                                                    sx={{
+                                                        flex: 1,
+                                                        textTransform: 'none',
+                                                        borderRadius: '7px',
+                                                        py: 1.5,
+                                                        fontWeight: 600,
+                                                        color: '#1a237e',
+                                                        borderColor: '#1a237e',
+                                                        border: '1px solid',
+                                                        '&:hover': {
+                                                            bgcolor: 'rgba(26,35,126,0.05)',
+                                                            borderColor: '#1a237e',
+                                                        }
+                                                    }}
+                                                    onClick={() => setRegistrationStep(1)}
+                                                >
+                                                    Back
+                                                </Button>
+                                                <Button
+                                                    variant="contained"
+                                                    sx={{ ...primaryButtonSx, flex: 1 }}
+                                                    onClick={handleVerifyOtp}
+                                                >
+                                                    Verify Code
+                                                </Button>
+                                            </Box>
                                         </>
                                     )}
 
@@ -425,40 +432,49 @@ function Auth() {
                                                 value={confirmPassword}
                                                 onChange={(e) => setConfirmPassword(e.target.value)}
                                                 sx={textFieldSx}
+                                                InputProps={{
+                                                    endAdornment: (
+                                                        <InputAdornment position="end">
+                                                            <IconButton onClick={handleClickShowPassword} edge="end">
+                                                                {showPassword ? <VisibilityOff /> : <Visibility />}
+                                                            </IconButton>
+                                                        </InputAdornment>
+                                                    ),
+                                                }}
                                             />
                                             {password && confirmPassword && password !== confirmPassword && (
                                                 <Typography variant="caption" sx={{ color: '#d32f2f', mt: -1 }}>
                                                     Passwords do not match
                                                 </Typography>
                                             )}
-                                            <Button
-                                                fullWidth
-                                                variant="contained"
-                                                sx={{ ...primaryButtonSx, mt: 1 }}
-                                                onClick={handleCreatePassword}
-                                                disabled={!password || !confirmPassword || password !== confirmPassword || password.length < 6}
-                                            >
-                                                Create Account
-                                            </Button>
-                                            <Button
-                                                fullWidth
-                                                variant="outlined"
-                                                sx={{
-                                                    textTransform: 'none',
-                                                    borderRadius: '7px',
-                                                    py: 1.5,
-                                                    fontWeight: 600,
-                                                    color: '#4CAF50',
-                                                    borderColor: '#4CAF50',
-                                                    '&:hover': {
-                                                        bgcolor: 'rgba(76,175,80,0.05)',
-                                                        borderColor: '#4CAF50',
-                                                    }
-                                                }}
-                                                onClick={() => setRegistrationStep(2)}
-                                            >
-                                                Back
-                                            </Button>
+                                            <Box sx={{ display: 'flex', gap: 1, mt: 1 }}>
+                                                <Button
+                                                    sx={{
+                                                        flex: 1,
+                                                        textTransform: 'none',
+                                                        borderRadius: '7px',
+                                                        py: 1.5,
+                                                        fontWeight: 600,
+                                                        color: '#1a237e',
+                                                        borderColor: '#1a237e',
+                                                        border: '1px solid',
+                                                        '&:hover': {
+                                                            bgcolor: 'rgba(26,35,126,0.05)',
+                                                            borderColor: '#1a237e',
+                                                        }
+                                                    }}
+                                                    onClick={() => setRegistrationStep(2)}
+                                                >
+                                                    Back
+                                                </Button>
+                                                <Button
+                                                    variant="contained"
+                                                    sx={{ ...primaryButtonSx, flex: 1 }}
+                                                    onClick={handleCreatePassword}
+                                                >
+                                                    {isMobile ? 'Create' : 'Create Account'}
+                                                </Button>
+                                            </Box>
                                         </>
                                     )}
                                 </Box>
@@ -472,11 +488,14 @@ function Auth() {
                                             component="span"
                                             onClick={() => setTabValue(1)}
                                             sx={{
-                                                color: '#4CAF50',
+                                                color: '#1a237e',
                                                 fontWeight: 700,
                                                 cursor: 'pointer',
                                                 ml: 0.5,
-                                                '&:hover': { textDecoration: 'underline' },
+                                                transition: 'color 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                                                '&:hover': { 
+                                                    color: '#3f51b5',
+                                                },
                                             }}
                                         >
                                             Sign Up
@@ -574,6 +593,15 @@ function Auth() {
                                     value={forgotConfirmPassword}
                                     onChange={(e) => setForgotConfirmPassword(e.target.value)}
                                     sx={textFieldSx}
+                                    InputProps={{
+                                        endAdornment: (
+                                            <InputAdornment position="end">
+                                                <IconButton onClick={handleClickShowPassword} edge="end">
+                                                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                                                </IconButton>
+                                            </InputAdornment>
+                                        ),
+                                    }}
                                 />
                                 {forgotPassword && forgotConfirmPassword && forgotPassword !== forgotConfirmPassword && (
                                     <Typography variant="caption" sx={{ color: '#d32f2f', mt: 1, display: 'block' }}>
@@ -583,39 +611,96 @@ function Auth() {
                             </>
                         )}
                     </DialogContent>
-                    <DialogActions sx={{ p: 2, gap: 1 }}>
-                        <Button onClick={handleForgotPasswordClose} sx={{ textTransform: 'none', fontWeight: 600, color: '#64748b' }}>
-                            Cancel
-                        </Button>
+                    <DialogActions sx={{ p: 2, display: 'flex', gap: 1 }}>
                         {forgotPasswordStep === 1 && (
-                            <Button
-                                variant="contained"
-                                sx={{ ...primaryButtonSx, minWidth: 120 }}
-                                onClick={handleSendForgotOtp}
-                                disabled={!forgotEmail.trim()}
-                            >
-                                Send Code
-                            </Button>
+                            <>
+                                <Button 
+                                    onClick={handleForgotPasswordClose} 
+                                    sx={{ 
+                                        flex: 1,
+                                        textTransform: 'none', 
+                                        fontWeight: 600, 
+                                        color: '#1a237e',
+                                        borderColor: '#1a237e',
+                                        border: '1px solid',
+                                        borderRadius: '7px',
+                                        py: 1.5,
+                                        '&:hover': {
+                                            bgcolor: 'rgba(26,35,126,0.05)',
+                                            borderColor: '#1a237e',
+                                        }
+                                    }}
+                                >
+                                    Cancel
+                                </Button>
+                                <Button
+                                    variant="contained"
+                                    sx={{ ...primaryButtonSx, flex: 1 }}
+                                    onClick={handleSendForgotOtp}
+                                >
+                                    Send Code
+                                </Button>
+                            </>
                         )}
                         {forgotPasswordStep === 2 && (
-                            <Button
-                                variant="contained"
-                                sx={{ ...primaryButtonSx, minWidth: 120 }}
-                                onClick={handleVerifyForgotOtp}
-                                disabled={!forgotOtp || forgotOtp.length !== 6}
-                            >
-                                Verify
-                            </Button>
+                            <>
+                                <Button 
+                                    onClick={() => setForgotPasswordStep(1)} 
+                                    sx={{ 
+                                        flex: 1,
+                                        textTransform: 'none', 
+                                        fontWeight: 600, 
+                                        color: '#1a237e',
+                                        borderColor: '#1a237e',
+                                        border: '1px solid',
+                                        borderRadius: '7px',
+                                        py: 1.5,
+                                        '&:hover': {
+                                            bgcolor: 'rgba(26,35,126,0.05)',
+                                            borderColor: '#1a237e',
+                                        }
+                                    }}
+                                >
+                                    Back
+                                </Button>
+                                <Button
+                                    variant="contained"
+                                    sx={{ ...primaryButtonSx, flex: 1 }}
+                                    onClick={handleVerifyForgotOtp}
+                                >
+                                    Verify
+                                </Button>
+                            </>
                         )}
                         {forgotPasswordStep === 3 && (
-                            <Button
-                                variant="contained"
-                                sx={{ ...primaryButtonSx, minWidth: 120 }}
-                                onClick={handleUpdatePassword}
-                                disabled={!forgotPassword || !forgotConfirmPassword || forgotPassword !== forgotConfirmPassword || forgotPassword.length < 6}
-                            >
-                                Update Password
-                            </Button>
+                            <>
+                                <Button 
+                                    onClick={() => setForgotPasswordStep(2)} 
+                                    sx={{ 
+                                        flex: 1,
+                                        textTransform: 'none', 
+                                        fontWeight: 600, 
+                                        color: '#1a237e',
+                                        borderColor: '#1a237e',
+                                        border: '1px solid',
+                                        borderRadius: '7px',
+                                        py: 1.5,
+                                        '&:hover': {
+                                            bgcolor: 'rgba(26,35,126,0.05)',
+                                            borderColor: '#1a237e',
+                                        }
+                                    }}
+                                >
+                                    Back
+                                </Button>
+                                <Button
+                                    variant="contained"
+                                    sx={{ ...primaryButtonSx, flex: 1 }}
+                                    onClick={handleUpdatePassword}
+                                >
+                                    {isMobile ? 'Update' : 'Update Password'}
+                                </Button>
+                            </>
                         )}
                     </DialogActions>
                 </Dialog>

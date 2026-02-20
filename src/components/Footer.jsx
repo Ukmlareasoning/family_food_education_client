@@ -1,7 +1,6 @@
 import { Box, Container, Typography, Grid, Link as MuiLink, Divider, useTheme, useMediaQuery } from '@mui/material'
 import { Link } from 'react-router-dom'
 import FacebookIcon from '@mui/icons-material/Facebook'
-import TwitterIcon from '@mui/icons-material/Twitter'
 import InstagramIcon from '@mui/icons-material/Instagram'
 import LinkedInIcon from '@mui/icons-material/LinkedIn'
 import HomeIcon from '@mui/icons-material/Home'
@@ -48,18 +47,62 @@ const socialIconSx = {
   color: 'white',
   transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
   border: '1px solid rgba(255, 255, 255, 0.1)',
+}
+
+const facebookIconSx = {
+  ...socialIconSx,
   '&:hover': {
-    backgroundColor: 'secondary.main',
+    backgroundColor: '#1877F2',
     color: 'white',
     transform: 'translateY(-4px)',
-    boxShadow: '0 8px 20px rgba(76, 175, 80, 0.3)',
-    borderColor: 'secondary.main',
+    boxShadow: '0 8px 20px rgba(24, 119, 242, 0.4)',
+    borderColor: '#1877F2',
+  },
+}
+
+const xIconSx = {
+  ...socialIconSx,
+  '&:hover': {
+    backgroundColor: '#000000',
+    color: 'white',
+    transform: 'translateY(-4px)',
+    boxShadow: '0 8px 20px rgba(0, 0, 0, 0.5)',
+    borderColor: '#000000',
+  },
+}
+
+const instagramIconSx = {
+  ...socialIconSx,
+  '&:hover': {
+    backgroundColor: '#E4405F',
+    color: 'white',
+    transform: 'translateY(-4px)',
+    boxShadow: '0 8px 20px rgba(228, 64, 95, 0.4)',
+    borderColor: '#E4405F',
+  },
+}
+
+const linkedinIconSx = {
+  ...socialIconSx,
+  '&:hover': {
+    backgroundColor: '#0A66C2',
+    color: 'white',
+    transform: 'translateY(-4px)',
+    boxShadow: '0 8px 20px rgba(10, 102, 194, 0.4)',
+    borderColor: '#0A66C2',
   },
 }
 
 function Footer() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
+  // X Logo Component
+  const XLogo = () => (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.657l-5.215-6.817-5.975 6.817h-3.31l7.732-8.835L.424 2.25h6.852l4.816 6.367 5.152-6.367zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+    </svg>
+  );
 
   return (
     <Box
@@ -109,7 +152,7 @@ function Footer() {
                 </Typography>
               </Box>
               <Typography sx={{
-                color: 'rgba(255, 255, 255, 0.6)',
+                color: '#ffffff',
                 lineHeight: 1.6,
                 mb: 4,
                 fontSize: { xs: '1rem', md: '1.2rem' },
@@ -120,16 +163,16 @@ function Footer() {
                 Empowering families to make healthier snack choices through interactive scanning and fun nutrition education.
               </Typography>
               <Box sx={{ display: 'flex', justifyContent: { xs: 'center', md: 'flex-start' }, gap: 1.5 }}>
-                <MuiLink href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" sx={socialIconSx}>
+                <MuiLink href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" sx={facebookIconSx}>
                   <FacebookIcon fontSize="small" />
                 </MuiLink>
-                <MuiLink href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter" sx={socialIconSx}>
-                  <TwitterIcon fontSize="small" />
+                <MuiLink href="https://x.com" target="_blank" rel="noopener noreferrer" aria-label="X" sx={xIconSx}>
+                  <XLogo />
                 </MuiLink>
-                <MuiLink href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" sx={socialIconSx}>
+                <MuiLink href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" sx={instagramIconSx}>
                   <InstagramIcon fontSize="small" />
                 </MuiLink>
-                <MuiLink href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" sx={socialIconSx}>
+                <MuiLink href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" sx={linkedinIconSx}>
                   <LinkedInIcon fontSize="small" />
                 </MuiLink>
               </Box>
@@ -192,11 +235,11 @@ function Footer() {
           alignItems: 'center',
           gap: 2
         }}>
-          <Typography variant="body2" sx={{ color: 'rgba(255, 255, 255, 0.4)', fontSize: '0.8rem' }}>
+          <Typography variant="body2" sx={{ color: '#ffffff', fontSize: '0.8rem' }}>
             © {new Date().getFullYear()} Please Scan. All rights reserved.
           </Typography>
           <Typography variant="body2" sx={{
-            color: 'rgba(255, 255, 255, 0.4)',
+            color: '#ffffff',
             fontSize: '0.8rem',
             display: 'flex',
             alignItems: 'center',
