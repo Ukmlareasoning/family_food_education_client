@@ -22,7 +22,7 @@ const blogCardSx = {
     height: '100%',
     display: 'flex',
     flexDirection: { xs: 'column', md: 'row' },
-    borderRadius: 4,
+    borderRadius: '7px',
     overflow: 'hidden',
     transition: 'all 0.3s ease',
     border: '1px solid rgba(0,0,0,0.05)',
@@ -181,7 +181,7 @@ function Blog() {
                                                     fontWeight: 700,
                                                     px: 4,
                                                     py: 1.25,
-                                                    borderRadius: 999,
+                                                    borderRadius: '7px',
                                                     textTransform: 'none',
                                                     boxShadow: '0 4px 14px rgba(26, 35, 126, 0.3)',
                                                     '&:hover': {
@@ -206,7 +206,7 @@ function Blog() {
                             variant="outlined"
                             size="large"
                             sx={{
-                                borderRadius: 999,
+                                borderRadius: '7px',
                                 px: 6,
                                 py: 1.5,
                                 fontWeight: 700,

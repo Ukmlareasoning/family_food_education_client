@@ -12,7 +12,7 @@ const navLinkSx = {
   textDecoration: 'none',
   px: 2,
   py: 1.25,
-  borderRadius: 2,
+  borderRadius: '7px',
   transition: 'color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease',
   '&:hover': {
     color: '#534bae',
@@ -69,11 +69,6 @@ function Header() {
     { label: 'Blog', path: '/blog' },
   ]
 
-  const mobileNavItems = [
-    { label: 'Home', path: '/' },
-    { label: 'Features', path: '/#features' },
-  ]
-
   const drawer = (
     <Box sx={{ p: 2, height: '100%', backgroundColor: '#ffffff' }}>
       <Box sx={{ display: 'flex', justifyContent: 'flex-end', mb: 2 }}>
@@ -82,7 +77,7 @@ function Header() {
         </IconButton>
       </Box>
       <List>
-        {mobileNavItems.map((item) => (
+        {navItems.map((item) => (
           <ListItem
             key={item.label}
             disablePadding
@@ -118,7 +113,7 @@ function Header() {
               fontFamily: '"Poppins", sans-serif',
               backgroundColor: '#ff9500',
               color: 'white',
-              borderRadius: 2.5,
+              borderRadius: '7px',
               py: 1.5,
               fontWeight: 700,
               textTransform: 'none',
@@ -155,26 +150,28 @@ function Header() {
           }}
         >
           {/* Logo + brand name */}
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
-            <LogoIcon />
-            <Box
-              component="span"
-              sx={{
-                fontFamily: '"Poppins", sans-serif',
-                fontSize: { xs: '1.1rem', sm: '1.35rem' },
-                fontWeight: 700,
-                display: 'inline',
-                letterSpacing: '-0.02em',
-              }}
-            >
-              <Box component="span" sx={{ color: '#534bae' }}>
-                Please{' '}
-              </Box>
-              <Box component="span" sx={{ color: '#1a237e' }}>
-                Scan
+          <Link to="/" style={{ textDecoration: 'none' }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, cursor: 'pointer' }}>
+              <LogoIcon />
+              <Box
+                component="span"
+                sx={{
+                  fontFamily: '"Poppins", sans-serif',
+                  fontSize: { xs: '1.1rem', sm: '1.35rem' },
+                  fontWeight: 700,
+                  display: 'inline',
+                  letterSpacing: '-0.02em',
+                }}
+              >
+                <Box component="span" sx={{ color: '#534bae' }}>
+                  Please{' '}
+                </Box>
+                <Box component="span" sx={{ color: '#1a237e' }}>
+                  Scan
+                </Box>
               </Box>
             </Box>
-          </Box>
+          </Link>
 
           {/* Navigation (Desktop) */}
           <Box
@@ -218,7 +215,7 @@ function Header() {
                 fontFamily: '"Poppins", sans-serif',
                 backgroundColor: '#ff9500',
                 color: 'white',
-                borderRadius: 2.5,
+                borderRadius: '7px',
                 px: 2.5,
                 py: 1,
                 fontSize: '0.9rem',

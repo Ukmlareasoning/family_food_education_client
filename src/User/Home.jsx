@@ -239,7 +239,7 @@ function Home() {
                       bgcolor: 'white',
                       px: 2.5,
                       py: 2,
-                      borderRadius: 2.5,
+                      borderRadius: '7px',
                       boxShadow: '0 4px 20px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04)',
                       minWidth: { xs: '100%', sm: 280 },
                       maxWidth: { xs: 340, sm: 'none' },
@@ -1128,7 +1128,7 @@ function Home() {
                 <Box
                   sx={{
                     bgcolor: 'white',
-                    borderRadius: 3,
+                    borderRadius: '7px',
                     boxShadow: '0 8px 32px rgba(0,0,0,0.1)',
                     p: { xs: 2.5, sm: 3 },
                     display: 'flex',

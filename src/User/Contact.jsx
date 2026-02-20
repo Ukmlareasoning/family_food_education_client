@@ -25,7 +25,7 @@ const Contact = () => {
     }
 
     const cardSx = {
-        borderRadius: '16px',
+        borderRadius: '7px',
         border: '1px solid rgba(33, 150, 243, 0.1)',
         bgcolor: '#ffffff',
         boxShadow: '0 8px 32px rgba(0,0,0,0.08)',

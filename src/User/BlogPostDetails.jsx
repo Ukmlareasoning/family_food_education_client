@@ -65,7 +65,7 @@ function BlogPostDetails() {
                             <Box sx={{
                                 width: '100%',
                                 height: { xs: '250px', sm: '400px', md: '500px' },
-                                borderRadius: 4,
+                                borderRadius: '7px',
                                 overflow: 'hidden',
                                 mb: 4,
                                 boxShadow: '0 8px 32px rgba(0,0,0,0.1)'
@@ -82,7 +82,7 @@ function BlogPostDetails() {
                                 <Chip
                                     label={post.category}
                                     color="secondary"
-                                    sx={{ fontWeight: 700, borderRadius: 2 }}
+                                    sx={{ fontWeight: 700, borderRadius: '7px' }}
                                 />
                                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5, color: 'text.secondary' }}>
                                     <CalendarMonthIcon sx={{ fontSize: 20 }} />
@@ -133,7 +133,7 @@ function BlogPostDetails() {
                                 mt: 8,
                                 p: 4,
                                 bgcolor: 'rgba(255,255,255,0.6)',
-                                borderRadius: 4,
+                                borderRadius: '7px',
                                 border: '1px solid rgba(0,0,0,0.05)',
                                 textAlign: 'center',
                                 display: 'flex',
