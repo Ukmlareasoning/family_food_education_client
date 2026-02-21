@@ -11,16 +11,20 @@ const BottomMobileNav = () => {
     const location = useLocation()
 
     useEffect(() => {
-        if (location.pathname === '/') {
-            if (location.hash === '#features') {
-                setValue(1)
-            } else {
+        switch (location.pathname) {
+            case '/':
                 setValue(0)
-            }
-        } else if (location.pathname === '/login') {
-            setValue(2)
+                break
+            case '/features':
+                setValue(1)
+                break
+            case '/login':
+                setValue(2)
+                break
+            default:
+                setValue(0)
         }
-    }, [location.pathname, location.hash])
+    }, [location.pathname])
 
     return (
         <Box sx={{ display: { xs: 'block', md: 'none' } }}>
@@ -50,26 +54,34 @@ const BottomMobileNav = () => {
                         height: 70,
                         background: 'transparent',
                         '& .MuiBottomNavigationAction-root': {
-                            color: '#4F5C80',
-                            padding: '12px 0',
+                            color: '#1a237e',
+                            padding: '8px 12px',
                             minWidth: 'auto',
-                            transition: 'all 0.3s ease',
+                            transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                            position: 'relative',
+                            margin: '6px auto',
+                            borderRadius: '12px',
                             '&.Mui-selected': {
                                 color: '#534bae',
+                                backgroundColor: 'rgba(83, 75, 174, 0.15)',
+                                boxShadow: '0 0 0 2px rgba(83, 75, 174, 0.3), 0 4px 12px rgba(83, 75, 174, 0.15)',
                                 '& .MuiBottomNavigationAction-label': {
-                                    fontWeight: 700,
+                                    fontWeight: 800,
                                     fontSize: '0.85rem',
                                     transition: 'all 0.3s ease',
+                                    color: '#534bae',
                                 },
                                 '& .MuiSvgIcon-root': {
-                                    fontSize: '1.75rem',
-                                    transform: 'translateY(-2px)',
+                                    fontSize: '1.85rem',
+                                    transform: 'translateY(-4px) scale(1.1)',
                                     transition: 'all 0.3s ease',
+                                    filter: 'drop-shadow(0 2px 8px rgba(83, 75, 174, 0.3))',
                                 },
                             },
                             '&:hover': {
                                 color: '#534bae',
-                                backgroundColor: 'rgba(83, 75, 174, 0.05)',
+                                backgroundColor: 'rgba(83, 75, 174, 0.08)',
+                                boxShadow: '0 0 0 1px rgba(83, 75, 174, 0.2)',
                             },
                         },
                     }}
@@ -84,13 +96,13 @@ const BottomMobileNav = () => {
                         label="Features"
                         icon={<WidgetsRoundedIcon />}
                         component={Link}
-                        to="/#features"
+                        to="/features"
                     />
                     <BottomNavigationAction
                         label="Login"
                         icon={<PersonRoundedIcon />}
                         component={Link}
-                        to="#"
+                        to="/login"
                     />
                 </BottomNavigation>
             </Paper>
