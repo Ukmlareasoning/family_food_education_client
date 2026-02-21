@@ -102,7 +102,7 @@ function ParentDashboard() {
 
     return (
         <FoodPatternBackground>
-            <Box sx={{ minHeight: '100vh', fontFamily: '"Poppins", sans-serif', pb: { xs: 10, md: 8 }, display: 'block', width: '100%' }}>
+            <Box sx={{ minHeight: '100vh', fontFamily: '"Poppins", sans-serif', display: 'block', width: '100%' }}>
                 <Header />
                 <Box sx={{ height: { xs: 56, sm: 64 } }} />
 
@@ -413,6 +413,7 @@ function ParentDashboard() {
                                         fontWeight: 900, mb: 1.5,
                                         fontSize: { xs: '1.15rem', md: '1.5rem' },
                                         fontFamily: '"Poppins", sans-serif',
+                                        color: 'white',
                                     }}>
                                         Unlock the Magic of Water 💧
                                     </Typography>
@@ -442,7 +443,7 @@ function ParentDashboard() {
                                         }}>
                                             FOCUS AGE
                                         </Typography>
-                                        <Typography variant="h4" fontWeight={900} sx={{ lineHeight: 1.1 }}>
+                                        <Typography variant="h4" fontWeight={900} sx={{ lineHeight: 1.1, color: 'white' }}>
                                             6–8
                                         </Typography>
                                         <Typography variant="caption" sx={{ opacity: 0.6, fontSize: '0.7rem' }}>
