@@ -63,9 +63,9 @@ function Header() {
 
   const navItems = [
     { label: 'Home', path: '/' },
-    { label: 'Features', path: '/#features' },
-    { label: 'Parent Dashboard', path: '#' },
-    { label: 'Kids Zone', path: '#' },
+    { label: 'Features', path: '/features' },
+    { label: 'Parent Dashboard', path: '/parent-dashboard' },
+    { label: 'Kids Zone', path: '/kids-zone' },
     { label: 'Blog', path: '/blog' },
   ]
 
