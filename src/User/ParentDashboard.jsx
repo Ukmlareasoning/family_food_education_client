@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react'
-import { Box, Typography, Card, CardContent, useTheme, useMediaQuery, Paper, LinearProgress, Avatar } from '@mui/material'
+import React, { useEffect, useState } from 'react'
+import { Box, Typography, Card, CardContent, useTheme, useMediaQuery, Paper, LinearProgress, Avatar, Button, FormControl, Select, MenuItem, ListItemText } from '@mui/material'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import FoodPatternBackground from '../components/FoodPatternBackground'
@@ -13,6 +13,8 @@ import ReportProblemIcon from '@mui/icons-material/ReportProblem'
 import SportsEsportsIcon from '@mui/icons-material/SportsEsports'
 import TrackChangesIcon from '@mui/icons-material/TrackChanges'
 import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium'
+import DownloadIcon from '@mui/icons-material/Download'
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 
 // ── Shared style tokens (same as Features.jsx) ──────────────────────────────
 const sectionTitleSx = {
@@ -26,7 +28,7 @@ const sectionTitleSx = {
 }
 
 const glassCardSx = {
-    borderRadius: '24px',
+    borderRadius: '7px',
     background: 'rgba(255,255,255,0.7)',
     backdropFilter: 'blur(10px)',
     border: '1px solid rgba(255,255,255,0.3)',
@@ -49,13 +51,23 @@ const statCardSx = {
 
 // ────────────────────────────────────────────────────────────────────────────
 
+// Mock child profiles — replace with API/data later
+const childProfiles = [
+    { id: '1', fullName: 'Emma Wilson', email: 'emma.w@example.com', avatar: 'https://i.pravatar.cc/100?img=1' },
+    { id: '2', fullName: 'Liam Brown', email: 'liam.b@example.com', avatar: 'https://i.pravatar.cc/100?img=3' },
+    { id: '3', fullName: 'Olivia Davis', email: 'olivia.d@example.com', avatar: 'https://i.pravatar.cc/100?img=5' },
+]
+
 function ParentDashboard() {
     const theme = useTheme()
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
+    const [selectedChildId, setSelectedChildId] = useState(childProfiles[0]?.id ?? '')
 
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
+
+    const selectedChild = childProfiles.find((c) => c.id === selectedChildId) ?? childProfiles[0]
 
     const gameStats = [
         { label: 'Build a Balanced Plate', progress: 85, color: '#4CAF50', bg: '#edf7ed', plays: 12, emoji: '🥗' },
@@ -154,7 +166,7 @@ function ParentDashboard() {
                             <Box component="span" sx={{ color: '#66bb6a' }}>Dashboard</Box>
                         </Typography>
                         <Typography variant="h6" sx={{
-                            maxWidth: '750px', mx: 'auto', mb: 4,
+                            maxWidth: '750px', mx: 'auto', mb: 2,
                             fontWeight: 400, lineHeight: 1.6,
                             fontSize: { xs: '0.9rem', md: '1.25rem' },
                             color: '#000000', opacity: 0.8,
@@ -163,11 +175,86 @@ function ParentDashboard() {
                             Welcome back! Here's a real-time look at how your little explorer is learning to make
                             healthier choices every day.
                         </Typography>
+                        <Typography variant="body2" sx={{
+                            maxWidth: '700px', mx: 'auto', mb: 0,
+                            fontWeight: 600, lineHeight: 1.5,
+                            fontSize: { xs: '0.8rem', md: '0.95rem' },
+                            color: '#1a237e',
+                            animation: 'fadeInUp 1s ease-out 0.25s both',
+                        }}>
+                            For live insights, progress tracking, and full dashboard—download our app from Google Play Store (Android) and Apple App Store (iOS).
+                        </Typography>
                     </Box>
                 </Box>
 
                 {/* ── Main Content ── */}
                 <Box sx={{ width: '100%', px: { xs: 2, sm: 3, md: 4 }, pb: 4, boxSizing: 'border-box' }}>
+
+                    {/* ── Child profile filter (before tabs/stats) ── */}
+                    <Box sx={{ mb: 3, animation: 'fadeInUp 1s ease-out 0.35s both', display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
+                        <FormControl
+                            fullWidth
+                            size="small"
+                            sx={{
+                                maxWidth: { xs: '100%', sm: 380 },
+                                '& .MuiOutlinedInput-root': {
+                                    borderRadius: '7px',
+                                    bgcolor: 'rgba(255,255,255,0.8)',
+                                    '& fieldset': { borderColor: 'rgba(26,35,126,0.2)' },
+                                    '&:hover fieldset': { borderColor: 'rgba(26,35,126,0.4)' },
+                                    '&.Mui-focused fieldset': { borderColor: '#1a237e', borderWidth: 1.5 },
+                                },
+                            }}
+                        >
+                            <Select
+                                displayEmpty
+                                value={selectedChildId}
+                                onChange={(e) => setSelectedChildId(e.target.value)}
+                                renderValue={() => (
+                                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
+                                        <Avatar
+                                            sx={{ width: 36, height: 36, bgcolor: '#1a237e', fontSize: '0.9rem' }}
+                                            src={selectedChild?.avatar ?? undefined}
+                                            imgProps={{ loading: 'lazy' }}
+                                        >
+                                            {selectedChild?.fullName?.charAt(0) ?? '?'}
+                                        </Avatar>
+                                        <Box sx={{ textAlign: 'left', minWidth: 0 }}>
+                                            <Typography variant="body2" sx={{ fontWeight: 700, color: '#1a237e', lineHeight: 1.2 }}>
+                                                {selectedChild?.fullName ?? 'Select child'}
+                                            </Typography>
+                                            <Typography variant="caption" sx={{ color: '#546e7a', display: 'block', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                                                {selectedChild?.email ?? ''}
+                                            </Typography>
+                                        </Box>
+                                        <KeyboardArrowDownIcon sx={{ color: '#1a237e', ml: 'auto' }} />
+                                    </Box>
+                                )}
+                                IconComponent={() => null}
+                            >
+                                {childProfiles.map((child) => (
+                                    <MenuItem key={child.id} value={child.id} sx={{ py: 1.5 }}>
+                                        <Avatar
+                                            sx={{ width: 40, height: 40, mr: 2, bgcolor: '#1a237e', fontSize: '1rem' }}
+                                            src={child.avatar ?? undefined}
+                                            imgProps={{ loading: 'lazy' }}
+                                        >
+                                            {child.fullName.charAt(0)}
+                                        </Avatar>
+                                        <ListItemText
+                                            primary={child.fullName}
+                                            secondary={child.email}
+                                            primaryTypographyProps={{ fontWeight: 700, color: '#1a237e', fontSize: '0.95rem' }}
+                                            secondaryTypographyProps={{ fontSize: '0.8rem', color: '#546e7a' }}
+                                        />
+                                    </MenuItem>
+                                ))}
+                            </Select>
+                        </FormControl>
+                        <Typography variant="caption" sx={{ display: 'block', mt: 1, color: '#78909c', fontWeight: 600, textAlign: 'right' }}>
+                            Select a child to view their progress
+                        </Typography>
+                    </Box>
 
                     {/* ── Row 1: Summary Stats (flexbox — no negative margins) ── */}
                     <Box sx={{
@@ -179,11 +266,11 @@ function ParentDashboard() {
                                 <Paper elevation={0} sx={statCardSx}>
                                     {/* Top row: icon + badge */}
                                     <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', mb: 1.5 }}>
-                                        <Box sx={{ p: 1.2, borderRadius: '12px', bgcolor: stat.iconBg, display: 'flex' }}>
+                                        <Box sx={{ p: 1.2, borderRadius: '7px', bgcolor: stat.iconBg, display: 'flex' }}>
                                             {stat.icon}
                                         </Box>
                                         <Box sx={{
-                                            px: 1.2, py: 0.4, borderRadius: '8px',
+                                            px: 1.2, py: 0.4, borderRadius: '7px',
                                             bgcolor: stat.badgeBg, color: stat.badgeColor,
                                             fontSize: '0.68rem', fontWeight: 800, letterSpacing: 0.5,
                                         }}>
@@ -224,7 +311,7 @@ function ParentDashboard() {
                             <Card elevation={0} sx={{ ...glassCardSx, p: { xs: 2.5, md: 3.5 }, height: '100%' }}>
                                 <CardContent sx={{ p: 0 }}>
                                     <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 3.5 }}>
-                                        <Box sx={{ p: 1.4, borderRadius: '12px', bgcolor: 'rgba(26,35,126,0.08)', color: '#1a237e', display: 'flex' }}>
+                                        <Box sx={{ p: 1.4, borderRadius: '7px', bgcolor: 'rgba(26,35,126,0.08)', color: '#1a237e', display: 'flex' }}>
                                             <AnalyticsIcon sx={{ fontSize: 26 }} />
                                         </Box>
                                         <Box>
@@ -249,7 +336,7 @@ function ParentDashboard() {
                                                     </Box>
                                                     <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                                                         <Box sx={{
-                                                            px: 1, py: 0.3, borderRadius: '6px',
+                                                            px: 1, py: 0.3, borderRadius: '7px',
                                                             bgcolor: game.bg, color: game.color,
                                                             fontSize: '0.62rem', fontWeight: 700,
                                                         }}>
@@ -264,11 +351,11 @@ function ParentDashboard() {
                                                     variant="determinate"
                                                     value={game.progress}
                                                     sx={{
-                                                        height: 10, borderRadius: 6,
+                                                        height: 10, borderRadius: 7,
                                                         bgcolor: 'rgba(0,0,0,0.05)',
                                                         '& .MuiLinearProgress-bar': {
                                                             bgcolor: game.color,
-                                                            borderRadius: 6,
+                                                            borderRadius: 7,
                                                             boxShadow: `0 0 8px ${game.color}66`,
                                                         },
                                                     }}
@@ -288,7 +375,7 @@ function ParentDashboard() {
                         }}>
                             {/* Strengths */}
                             <Card elevation={0} sx={{
-                                borderRadius: '24px',
+                                borderRadius: '7px',
                                 background: 'linear-gradient(135deg, #edf7ed 0%, #c8e6c9 100%)',
                                 border: '1px solid rgba(76,175,80,0.15)',
                                 boxShadow: '0 8px 32px rgba(76,175,80,0.06)',
@@ -324,7 +411,7 @@ function ParentDashboard() {
 
                             {/* Focus Areas */}
                             <Card elevation={0} sx={{
-                                borderRadius: '24px',
+                                borderRadius: '7px',
                                 background: 'linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%)',
                                 border: '1px solid rgba(255,152,0,0.15)',
                                 boxShadow: '0 8px 32px rgba(255,152,0,0.06)',
@@ -365,7 +452,7 @@ function ParentDashboard() {
                         <Box sx={{
                             p: { xs: 3, md: 5 },
                             background: 'linear-gradient(135deg, #1a237e 0%, #283593 100%)',
-                            borderRadius: '32px',
+                            borderRadius: '7px',
                             color: 'white',
                             boxShadow: '0 20px 48px rgba(26,35,126,0.25)',
                             position: 'relative',
@@ -391,7 +478,7 @@ function ParentDashboard() {
                                 {/* Icon */}
                                 <Box sx={{ flexShrink: 0 }}>
                                     <Box sx={{
-                                        width: 80, height: 80, borderRadius: '20px',
+                                        width: 80, height: 80, borderRadius: '7px',
                                         bgcolor: 'rgba(255,255,255,0.08)',
                                         backdropFilter: 'blur(10px)',
                                         display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -431,7 +518,7 @@ function ParentDashboard() {
                                 {/* Age badge */}
                                 <Box sx={{ flexShrink: 0 }}>
                                     <Box sx={{
-                                        p: 2.5, borderRadius: '16px',
+                                        p: 2.5, borderRadius: '7px',
                                         bgcolor: 'rgba(255,255,255,0.08)',
                                         backdropFilter: 'blur(10px)',
                                         border: '1px solid rgba(255,255,255,0.12)',
@@ -451,6 +538,39 @@ function ParentDashboard() {
                                         </Typography>
                                     </Box>
                                 </Box>
+                            </Box>
+                        </Box>
+                    </Box>
+
+                    {/* ── App download CTA ── */}
+                    <Box sx={{ mt: 4, animation: 'fadeInUp 1s ease-out 0.8s both' }}>
+                        <Box sx={{
+                            p: { xs: 2.5, md: 3 },
+                            background: 'rgba(26, 35, 126, 0.06)',
+                            border: '1px solid rgba(26, 35, 126, 0.12)',
+                            borderRadius: '7px',
+                            textAlign: 'center',
+                        }}>
+                            <Typography variant="body2" sx={{ fontWeight: 700, color: '#1a237e', mb: 1.5, fontSize: { xs: '0.85rem', md: '0.95rem' } }}>
+                                For live insights, game tracking, and full dashboard—download the app from Google Play (Android) and Apple App Store (iOS).
+                            </Typography>
+                            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1.5, justifyContent: 'center', alignItems: 'center' }}>
+                                <Button size="small" variant="contained" sx={{
+                                    bgcolor: '#ff9500', color: 'white', borderRadius: '7px', fontWeight: 700,
+                                    fontSize: '0.75rem', textTransform: 'none', px: 2, py: 0.6,
+                                    '&:hover': { bgcolor: '#e68600' },
+                                }}>
+                                    <DownloadIcon sx={{ fontSize: 14, mr: 0.5 }} />
+                                    Google Play
+                                </Button>
+                                <Button size="small" variant="contained" sx={{
+                                    bgcolor: '#1a237e', color: 'white', borderRadius: '7px', fontWeight: 700,
+                                    fontSize: '0.75rem', textTransform: 'none', px: 2, py: 0.6,
+                                    '&:hover': { bgcolor: '#283593' },
+                                }}>
+                                    <DownloadIcon sx={{ fontSize: 14, mr: 0.5 }} />
+                                    App Store
+                                </Button>
                             </Box>
                         </Box>
                     </Box>

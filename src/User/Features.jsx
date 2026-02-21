@@ -45,7 +45,7 @@ const gameCardSx = {
     height: '100%',
     display: 'flex',
     flexDirection: 'column',
-    borderRadius: '24px',
+    borderRadius: '7px',
     background: 'rgba(255, 255, 255, 0.7)',
     backdropFilter: 'blur(10px)',
     border: '1px solid rgba(255, 255, 255, 0.3)',
@@ -183,7 +183,7 @@ function Features() {
                         <Typography variant="h6" sx={{
                             maxWidth: '750px',
                             mx: 'auto',
-                            mb: 4,
+                            mb: 2,
                             fontWeight: 400,
                             lineHeight: 1.6,
                             fontSize: { xs: '0.9rem', md: '1.25rem' },
@@ -192,6 +192,18 @@ function Features() {
                             animation: 'fadeInUp 1s ease-out 0.2s both'
                         }}>
                             Play, learn, and grow together. Our doctor-backed game system focuses on healthy thinking and positive reinforcement—never shame.
+                        </Typography>
+                        <Typography variant="body2" sx={{
+                            maxWidth: '700px',
+                            mx: 'auto',
+                            mb: 4,
+                            fontWeight: 600,
+                            lineHeight: 1.5,
+                            fontSize: { xs: '0.8rem', md: '0.95rem' },
+                            color: '#1a237e',
+                            animation: 'fadeInUp 1s ease-out 0.25s both'
+                        }}>
+                            For live features, games, and full experience—download our app on Android (Google Play Store) and iOS (Apple App Store).
                         </Typography>
                         <Box sx={{ animation: 'fadeInUp 1s ease-out 0.4s both' }}>
                             <Button
@@ -202,7 +214,7 @@ function Features() {
                                     color: 'white',
                                     px: { xs: 3, md: 8 },
                                     py: { xs: 1.5, md: 2.2 },
-                                    borderRadius: '16px',
+                                    borderRadius: '7px',
                                     fontSize: { xs: '0.95rem', md: '1.15rem' },
                                     fontWeight: 700,
                                     textTransform: 'none',
@@ -243,11 +255,11 @@ function Features() {
                     <Box sx={{ mb: 6 }}>
                         <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, mb: 2 }}>
                             <GamepadIcon sx={{ fontSize: { xs: 24, md: 32 }, color: '#4CAF50' }} />
-                            <Typography sx={sectionTitleSx} sx={{ mb: 0 }}>Game Categories</Typography>
+                            <Typography sx={{ ...sectionTitleSx, mb: 0 }}>Game Categories</Typography>
                             <GamepadIcon sx={{ fontSize: { xs: 24, md: 32 }, color: '#4CAF50' }} />
                         </Box>
                         <Typography sx={sectionSubtitleSx}>
-                            Designed to teach kids <Box component="span" sx={{ fontWeight: 700, color: '#1a237e' }}>how to choose food</Box>, not just what to avoid. Our games follow strict educational principles: no timers, no punishments, and positive reinforcement only.
+                            Designed to teach kids <Box component="span" sx={{ fontWeight: 700, color: '#1a237e' }}>how to choose food</Box>, not just what to avoid. Our games follow strict educational principles: no timers, no punishments, and positive reinforcement only. To play these games and use all features, download the app from Google Play (Android) or the App Store (iOS).
                         </Typography>
                     </Box>
 
@@ -272,7 +284,7 @@ function Features() {
                                             </Box>
                                             <Box sx={{
                                                 padding: '12px',
-                                                borderRadius: '12px',
+                                                borderRadius: '7px',
                                                 background: game.bg,
                                                 display: 'flex',
                                                 alignItems: 'center',
@@ -330,7 +342,7 @@ function Features() {
                                 <TrendingUpIcon sx={{ fontSize: { xs: 24, md: 32 }, color: '#1a237e' }} />
                             </Box>
                             <Typography sx={sectionSubtitleSx}>
-                                We reward choices, learning, and trying again. Get real insights into how your child is learning with our integrated dashboard.
+                                We reward choices, learning, and trying again. Get real insights into how your child is learning with our integrated dashboard. Download the app from Google Play or the App Store to access the full parent dashboard and live features.
                             </Typography>
                         </Box>
 
@@ -340,7 +352,7 @@ function Features() {
                                 <Box sx={{
                                     p: { xs: 4, md: 6 },
                                     background: 'linear-gradient(135deg, #1a237e 0%, #283593 100%)',
-                                    borderRadius: '32px',
+                                    borderRadius: '7px',
                                     color: 'white',
                                     boxShadow: '0 20px 48px rgba(76, 175, 80, 0.25)',
                                     position: 'relative',
@@ -401,7 +413,7 @@ function Features() {
                                         bgcolor: '#ffffff',
                                         color: '#1a237e',
                                         fontWeight: 800,
-                                        borderRadius: '12px',
+                                        borderRadius: '7px',
                                         py: 1.5,
                                         textTransform: 'none',
                                         display: 'flex',
@@ -421,7 +433,7 @@ function Features() {
                                 <Box sx={{
                                     p: { xs: 4, md: 6 },
                                     background: 'linear-gradient(135deg, #1a237e 0%, #283593 100%)',
-                                    borderRadius: '32px',
+                                    borderRadius: '7px',
                                     color: 'white',
                                     boxShadow: '0 24px 64px rgba(26, 35, 126, 0.3)',
                                     position: 'relative',
@@ -444,7 +456,7 @@ function Features() {
                                         Ready to Scan & Learn?
                                     </Typography>
                                     <Typography sx={{
-                                        mb: 3,
+                                        mb: 1.5,
                                         opacity: 1,
                                         maxWidth: '420px',
                                         mx: 'auto',
@@ -454,43 +466,77 @@ function Features() {
                                     }}>
                                         Join thousands of families making snack choices simpler and more educational every day.
                                     </Typography>
-                                    <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, gap: 2, alignItems: 'center', justifyContent: 'center', mt: 'auto' }}>
-                                        <Button size="medium" variant="contained" sx={{
+                                    <Typography sx={{
+                                        mb: 3,
+                                        opacity: 0.95,
+                                        maxWidth: '420px',
+                                        mx: 'auto',
+                                        fontSize: { xs: '0.8rem', md: '0.95rem' },
+                                        lineHeight: 1.5,
+                                        color: 'white',
+                                        fontWeight: 600
+                                    }}>
+                                        For live features, scanning, games, and full implementation—download the app from Google Play Store (Android) and Apple App Store (iOS).
+                                    </Typography>
+                                    <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, gap: 1, alignItems: 'center', justifyContent: 'center', mt: 'auto' }}>
+                                        <Button size="small" variant="contained" sx={{
                                             bgcolor: '#ff9500',
-                                            px: { xs: 2.5, md: 4 },
-                                            py: { xs: 0.7, md: 1 },
-                                            borderRadius: '12px',
-                                            fontWeight: 800,
-                                            fontSize: { xs: '0.85rem', md: '1rem' },
+                                            px: { xs: 1, md: 1.5 },
+                                            py: { xs: 0.25, md: 0.4 },
+                                            borderRadius: '6px',
+                                            fontWeight: 700,
+                                            fontSize: { xs: '0.63rem', md: '0.72rem' },
                                             textTransform: 'none',
                                             width: { xs: '100%', sm: 'auto' },
                                             display: 'flex',
                                             alignItems: 'center',
                                             justifyContent: 'center',
-                                            gap: 1,
+                                            gap: 0.5,
+                                            minHeight: 'auto',
                                             '&:hover': { bgcolor: '#e68600' }
                                         }}>
-                                            <DownloadIcon sx={{ fontSize: { xs: 16, md: 18 } }} />
-                                            Download App
+                                            <DownloadIcon sx={{ fontSize: { xs: 12, md: 13 } }} />
+                                            Download Google Play
                                         </Button>
-                                        <Button size="medium" variant="outlined" sx={{
-                                            borderColor: 'white',
-                                            color: 'white',
-                                            px: { xs: 2.5, md: 4 },
-                                            py: { xs: 0.7, md: 1 },
-                                            borderRadius: '12px',
+                                        <Button size="small" variant="contained" sx={{
+                                            bgcolor: 'rgba(255,255,255,0.95)',
+                                            color: '#1a237e',
+                                            px: { xs: 1, md: 1.5 },
+                                            py: { xs: 0.25, md: 0.4 },
+                                            borderRadius: '6px',
                                             fontWeight: 700,
-                                            fontSize: { xs: '0.85rem', md: '1rem' },
+                                            fontSize: { xs: '0.63rem', md: '0.72rem' },
                                             textTransform: 'none',
                                             width: { xs: '100%', sm: 'auto' },
                                             display: 'flex',
                                             alignItems: 'center',
                                             justifyContent: 'center',
-                                            gap: 1,
+                                            gap: 0.5,
+                                            minHeight: 'auto',
+                                            '&:hover': { bgcolor: '#fff' }
+                                        }}>
+                                            <DownloadIcon sx={{ fontSize: { xs: 12, md: 13 } }} />
+                                            Download App Store
+                                        </Button>
+                                        <Button size="small" variant="outlined" sx={{
+                                            borderColor: 'white',
+                                            color: 'white',
+                                            px: { xs: 1, md: 1.5 },
+                                            py: { xs: 0.25, md: 0.4 },
+                                            borderRadius: '6px',
+                                            fontWeight: 700,
+                                            fontSize: { xs: '0.63rem', md: '0.72rem' },
+                                            textTransform: 'none',
+                                            width: { xs: '100%', sm: 'auto' },
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            justifyContent: 'center',
+                                            gap: 0.5,
+                                            minHeight: 'auto',
                                             '&:hover': { borderColor: '#e3f2fd', color: '#e3f2fd' }
                                         }}>
-                                            <EmailIcon sx={{ fontSize: { xs: 16, md: 18 } }} />
-                                            Contact Our Team
+                                            <EmailIcon sx={{ fontSize: { xs: 12, md: 13 } }} />
+                                            Contact Team
                                         </Button>
                                     </Box>
                                 </Box>
