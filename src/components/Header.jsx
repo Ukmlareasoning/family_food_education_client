@@ -71,7 +71,29 @@ function Header() {
 
   const drawer = (
     <Box sx={{ p: 2, height: '100%', backgroundColor: '#ffffff' }}>
-      <Box sx={{ display: 'flex', justifyContent: 'flex-end', mb: 2 }}>
+      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
+        <Link to="/" style={{ textDecoration: 'none' }}>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, cursor: 'pointer' }}>
+            <LogoIcon />
+            <Box
+              component="span"
+              sx={{
+                fontFamily: '"Poppins", sans-serif',
+                fontSize: '1.1rem',
+                fontWeight: 700,
+                display: 'inline',
+                letterSpacing: '-0.02em',
+              }}
+            >
+              <Box component="span" sx={{ color: '#534bae' }}>
+                Please{' '}
+              </Box>
+              <Box component="span" sx={{ color: '#1a237e' }}>
+                Scan
+              </Box>
+            </Box>
+          </Box>
+        </Link>
         <IconButton onClick={handleDrawerToggle}>
           <CloseIcon />
         </IconButton>
